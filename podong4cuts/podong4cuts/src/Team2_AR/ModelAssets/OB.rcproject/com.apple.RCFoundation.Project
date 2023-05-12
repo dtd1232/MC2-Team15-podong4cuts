@@ -1,0 +1,157 @@
+{
+  "__content" : [
+    {
+      "scenes" : [
+        {
+          "__content" : [
+            {
+              "arAnchorSpecification" : {
+                "name" : "image",
+                "physicalWidth" : 0.2822222113609314,
+                "url" : "image:b909a4f5ea3c132ec603602af024598c\/horse.png"
+              },
+              "behaviors" : [
+
+              ],
+              "gravity" : [
+                0,
+                -9.8000001907348633,
+                0
+              ],
+              "identifier" : "6A65A93B-773E-41E5-9E77-54A1452255D4",
+              "material" : "concrete",
+              "overrides" : {
+                "children" : {
+                  "4F998037-757E-4340-B6F2-50E0C18E780E" : null,
+                  "B4204B08-73E3-41A1-96F8-DB6A7E866140" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "doubleSided",
+                          {
+                            "typeName" : "Bool",
+                            "value" : true
+                          }
+                        ],
+                        [
+                          "image",
+                          {
+                            "typeName" : "String",
+                            "value" : "image:10ccc0621731b1bfd3e3db4dea60b32b\/%E1%84%8C%E1%85%A6%E1%84%86%E1%85%A9%E1%86%A8%2013.png"
+                          }
+                        ],
+                        [
+                          "maxDimension",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.59399999999999997
+                          }
+                        ]
+                      ],
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PosterAssetFactory",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "40A5B815-2469-4249-9759-6561D35F110F"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        0.22971099615097046,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.22971099615097046,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.22971099615097046,
+                        0,
+                        -0.00036499043926596642,
+                        0.013789020478725433,
+                        0.14062225818634033,
+                        1
+                      ]
+                    }
+                  },
+                  "Shape" : null
+                },
+                "factory" : null,
+                "runtimeAttributes" : [
+                  [
+                    "isAccessibilityEnabled",
+                    {
+                      "typeName" : "Bool",
+                      "value" : false
+                    }
+                  ]
+                ]
+              },
+              "physicsMode" : "grid",
+              "title" : "장면",
+              "viewTransform" : {
+                "cameraTransform" : [
+                  0.99392300844192505,
+                  1.1746726258365925e-08,
+                  0.11007686704397202,
+                  0,
+                  0.10936664044857025,
+                  0.11342219263315201,
+                  -0.98750919103622437,
+                  0,
+                  -0.012485180981457233,
+                  0.99354684352874756,
+                  0.11273279041051865,
+                  0,
+                  0.0080641806125640869,
+                  0.75161224603652954,
+                  0.18092456459999084,
+                  1
+                ],
+                "sceneTransform" : [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          ],
+          "__version" : 5
+        }
+      ],
+      "tags" : {
+        "__content" : [
+          {
+            "tagsStore" : {
+
+            }
+          }
+        ],
+        "__version" : 1
+      }
+    }
+  ],
+  "__version" : 1
+}

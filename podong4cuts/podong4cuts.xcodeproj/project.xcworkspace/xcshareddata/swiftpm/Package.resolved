@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "arkit-corelocation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AndrewHartAR/ARKit-CoreLocation.git",
+      "state" : {
+        "revision" : "42abf4f47b191b153d4bfe4509f15617aadd837d",
+        "version" : "1.3.0"
+      }
+    }
+  ],
+  "version" : 2
+}
