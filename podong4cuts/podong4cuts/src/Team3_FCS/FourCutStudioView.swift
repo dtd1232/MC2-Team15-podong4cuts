@@ -31,6 +31,9 @@ struct FourCutStudioView: View {
             Rectangle()
                 .frame(width: 0, height: 50)
             
+                //테스트
+            //테스트
+            
             //MARK: - 네컷 프레임
             
             Group{
