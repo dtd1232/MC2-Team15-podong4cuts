@@ -14,7 +14,7 @@ struct PhotoLibraryView: View {
     @State private var detailImage: UIImage?
     
     var requestImageOption = PHImageRequestOptions()
-    var arViewContainer: TempARViewContainer
+//    var arViewContainer: TempARViewContainer
 
     var columns: [GridItem] {
         return Array(repeating: .init(.flexible()), count: 3)
@@ -51,10 +51,10 @@ struct PhotoLibraryView: View {
         }
         .background(.black)
         .onAppear {
-            arViewContainer.arView.session.pause()
+//            arViewContainer.arView.session.pause()
         }
         .onDisappear {
-            arViewContainer.arView.reRun()
+//            arViewContainer.arView.reRun()
         }
     }
     
