@@ -14,6 +14,11 @@ struct FourCutStudioView: View {
     @State private var image3: UIImage?
     @State private var image4: UIImage?
     
+    private var isImageAllSelected: Bool {
+        return image1 != nil && image2 != nil && image3 != nil && image4 != nil
+    }
+
+    
     @State private var showImagePicker = false
     @State private var selectedTag = 0
     
@@ -22,14 +27,26 @@ struct FourCutStudioView: View {
     @State private var image3Tapped = false
     @State private var image4Tapped = false
     
+    @State private var showingSelectingAlert = false
+    
     let spacing: CGFloat = 20
     
     var body: some View {
         
         VStack{
             
-            Rectangle()
-                .frame(width: 0, height: 50)
+            ZStack{
+                
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(.white)
+                    .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
+                
+                Text("포동네컷을 완성해보세요!")
+                
+                
+            }
+            .padding()
+                
             
             //MARK: - 네컷 프레임
             
@@ -46,6 +63,7 @@ struct FourCutStudioView: View {
                         .resizable()
                         .frame(width: 350, height: 521.2)
                         .scaledToFill()
+                        .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
                     
                     HStack(spacing: spacing){
                         //왼쪽
@@ -72,6 +90,7 @@ struct FourCutStudioView: View {
                                                 self.image1Tapped = false
                                             }
                                         Image(systemName: "trash.circle.fill")
+                                            .resizable()
                                             .foregroundColor(.white)
                                             .frame(width: 44, height: 44)
                                             .onTapGesture {
@@ -91,6 +110,13 @@ struct FourCutStudioView: View {
                                             self.showImagePicker = true
                                             
                                         }
+                                    
+                                    Image(systemName: "photo.circle")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 44, height: 44)
+
+                                    
                                     
                                 }
                             }
@@ -118,8 +144,9 @@ struct FourCutStudioView: View {
                                                 self.image2Tapped = false
                                             }
                                         Image(systemName: "trash.circle.fill")
-                                            .frame(width: 44, height: 44)
+                                            .resizable()
                                             .foregroundColor(.white)
+                                            .frame(width: 44, height: 44)
                                             .onTapGesture {
                                                 self.image2Tapped = false
                                                 self.image2 = nil
@@ -137,6 +164,11 @@ struct FourCutStudioView: View {
                                             self.showImagePicker = true
                                             
                                         }
+                                    
+                                    Image(systemName: "photo.circle")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 44, height: 44)
                                     
                                 }
                             }
@@ -167,6 +199,7 @@ struct FourCutStudioView: View {
                                                 self.image3Tapped = false
                                             }
                                         Image(systemName: "trash.circle.fill")
+                                            .resizable()
                                             .frame(width: 44, height: 44)
                                             .foregroundColor(.white)
                                             .onTapGesture {
@@ -186,6 +219,11 @@ struct FourCutStudioView: View {
                                             self.showImagePicker = true
                                             
                                         }
+                                    
+                                    Image(systemName: "photo.circle")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 44, height: 44)
                                     
                                 }
                             }
@@ -213,6 +251,7 @@ struct FourCutStudioView: View {
                                                 self.image4Tapped = false
                                             }
                                         Image(systemName: "trash.circle.fill")
+                                            .resizable()
                                             .foregroundColor(.white)
                                             .frame(width: 44, height: 44)
                                             .onTapGesture {
@@ -232,6 +271,11 @@ struct FourCutStudioView: View {
                                             self.showImagePicker = true
                                             
                                         }
+                                    
+                                    Image(systemName: "photo.circle")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 44, height: 44)
                                     
                                 }
                             }
@@ -254,8 +298,9 @@ struct FourCutStudioView: View {
             ZStack{
                 
                 RoundedRectangle(cornerRadius: 30)
-                    .fill(.black)
+                    .fill(Color.black)
                     .frame(width: 256, height: 55)
+                    .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
                 
                 HStack{
                     
@@ -268,6 +313,7 @@ struct FourCutStudioView: View {
                 }
                 
             }
+            .opacity(isImageAllSelected ? 1.0 : 0.5)
             .padding()
             .onTapGesture {
                 
@@ -276,8 +322,16 @@ struct FourCutStudioView: View {
                     let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
                     UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true)
                     
+                }else{
+                    showingSelectingAlert = true
+                    
                 }
 
+            }
+            .alert(isPresented: $showingSelectingAlert) {
+                
+                Alert(title: Text("포동네컷 미완성"), message: Text("포항 포스팟을 여행하며 사진을 찍고 포동네컷을 완성해보세요!"), dismissButton: .default(Text("확인")))
+                
             }
             
             Spacer()
@@ -313,7 +367,7 @@ struct FourCutStudioView: View {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 1490, height: 2219))
         let image = renderer.image { ctx in
             let bgFrame = CGRect(x: 0, y: 0, width: 1490, height: 2219)
-            UIImage(named: "podong4cutFrame")?.draw(in: bgFrame)
+            UIImage(named: "podong4cut0514")?.draw(in: bgFrame)
             
             let rect1 = CGRect(x: 103, y: 375, width: 627, height: 836)
             let rect2 = CGRect(x: 103, y: 1241, width: 627, height: 836)
