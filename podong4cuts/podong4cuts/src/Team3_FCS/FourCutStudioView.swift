@@ -313,7 +313,7 @@ struct FourCutStudioView: View {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 1490, height: 2219))
         let image = renderer.image { ctx in
             let bgFrame = CGRect(x: 0, y: 0, width: 1490, height: 2219)
-            UIImage(named: "podong4cutFrame")?.draw(in: bgFrame)
+            UIImage(named: "podong4cut0514")?.draw(in: bgFrame)
             
             let rect1 = CGRect(x: 103, y: 375, width: 627, height: 836)
             let rect2 = CGRect(x: 103, y: 1241, width: 627, height: 836)
