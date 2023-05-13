@@ -72,6 +72,7 @@ struct FourCutStudioView: View {
                                                 self.image1Tapped = false
                                             }
                                         Image(systemName: "trash.circle.fill")
+                                            .resizable()
                                             .foregroundColor(.white)
                                             .frame(width: 44, height: 44)
                                             .onTapGesture {
@@ -118,8 +119,9 @@ struct FourCutStudioView: View {
                                                 self.image2Tapped = false
                                             }
                                         Image(systemName: "trash.circle.fill")
-                                            .frame(width: 44, height: 44)
+                                            .resizable()
                                             .foregroundColor(.white)
+                                            .frame(width: 44, height: 44)
                                             .onTapGesture {
                                                 self.image2Tapped = false
                                                 self.image2 = nil
@@ -167,6 +169,7 @@ struct FourCutStudioView: View {
                                                 self.image3Tapped = false
                                             }
                                         Image(systemName: "trash.circle.fill")
+                                            .resizable()
                                             .frame(width: 44, height: 44)
                                             .foregroundColor(.white)
                                             .onTapGesture {
@@ -213,6 +216,7 @@ struct FourCutStudioView: View {
                                                 self.image4Tapped = false
                                             }
                                         Image(systemName: "trash.circle.fill")
+                                            .resizable()
                                             .foregroundColor(.white)
                                             .frame(width: 44, height: 44)
                                             .onTapGesture {
