@@ -17,6 +17,7 @@ struct DetailView: View {
     
     var selectedNumber: Int = 0
    
+    @State private var showDefaultCameraFrameView = false
     
     var body: some View {
         VStack{
@@ -198,6 +199,9 @@ struct DetailView: View {
                                         .fontWeight(.bold)
                                 }
                             }
+                            .onTapGesture {
+                                
+                            }
                         }
                 }//】 Button
                 .padding(.bottom, 5)
@@ -238,5 +242,24 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(VM: PodongViewModel(), selectedNumber: 0)
            
+    }
+}
+
+
+struct DefaultCameraFrameView: View {
+    let selected: Int
+    @ViewBuilder var body: some View {
+        switch (selected) {
+        case 0:
+            SpaceWalkSpaceCameraFrameView()
+        case 1:
+            TomatiloMustacheCameraFrameView()
+        case 2:
+            YeongilgyoKrabFilterView()
+        case 3:
+            WhaleTailCameraFrameView()
+        default:
+            WhaleTailCameraFrameView()
+        }
     }
 }

@@ -1,4 +1,11 @@
 //
+//  YeongilgyoKrabFilterCameraFrameView.swift
+//  podong4cuts
+//
+//  Created by user on 2023/05/14.
+//
+
+//
 //  WhaleTailCameraFrame.swift
 //  podong4cuts
 //
@@ -10,7 +17,7 @@ import PhotosUI
 import RealityKit
 import ARKit
 
-struct WhaleTaileCameraFrameView: View {
+struct YeongilgyoKrabFilterCameraFrameView: View {
     // cameraview ui
     @State private var shutterEffect = false
     
@@ -22,7 +29,7 @@ struct WhaleTaileCameraFrameView: View {
     // photolibraryview
     @State var showPhotoLibrary = false
     
-    var arViewContainer = WhaleTailWhaleARView()
+    var arViewContainer = YeongilgyoKrabFilterView()
     
     var body: some View {
         NavigationView {
@@ -100,7 +107,7 @@ struct WhaleTaileCameraFrameView: View {
 //                                arViewContainer.arView.snapshot(saveToHDR: false) { image in
 //                                    tempSnapShot = image
 //                                }
-                                tempSnapShot = arViewContainer.arView.snapshot()
+                                tempSnapShot = arViewContainer.sceneLocationView.snapshot()
                                 showTempSnapShotView = true
                             }
                         } label: {
@@ -159,7 +166,7 @@ struct WhaleTaileCameraFrameView: View {
 }
 
 
-struct WhaleTailCameraFrameViewPreview: PreviewProvider {
+struct YeongilgyoKrabFilterCameraFrameViewPreView: PreviewProvider {
     static var previews: some View {
         CameraFrameView()
     }
