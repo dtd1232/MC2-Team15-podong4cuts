@@ -14,6 +14,11 @@ struct FourCutStudioView: View {
     @State private var image3: UIImage?
     @State private var image4: UIImage?
     
+    private var isImageAllSelected: Bool {
+        return image1 != nil && image2 != nil && image3 != nil && image4 != nil
+    }
+
+    
     @State private var showImagePicker = false
     @State private var selectedTag = 0
     
@@ -29,8 +34,19 @@ struct FourCutStudioView: View {
     var body: some View {
         
         VStack{
-            Spacer()
-
+            
+            ZStack{
+                
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(.white)
+                    .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
+                
+                Text("포동네컷을 완성해보세요!")
+                
+                
+            }
+            .padding()
+                
             
             //MARK: - 네컷 프레임
             
@@ -47,6 +63,7 @@ struct FourCutStudioView: View {
                         .resizable()
                         .frame(width: 350, height: 521.2)
                         .scaledToFill()
+                        .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
                     
                     HStack(spacing: spacing){
                         //왼쪽
@@ -94,6 +111,13 @@ struct FourCutStudioView: View {
                                             
                                         }
                                     
+                                    Image(systemName: "photo.circle")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 44, height: 44)
+
+                                    
+                                    
                                 }
                             }
                             .frame(width: photoWidth, height: photoheigth)
@@ -140,6 +164,11 @@ struct FourCutStudioView: View {
                                             self.showImagePicker = true
                                             
                                         }
+                                    
+                                    Image(systemName: "photo.circle")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 44, height: 44)
                                     
                                 }
                             }
@@ -191,6 +220,11 @@ struct FourCutStudioView: View {
                                             
                                         }
                                     
+                                    Image(systemName: "photo.circle")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 44, height: 44)
+                                    
                                 }
                             }
                             .frame(width: photoWidth, height: photoheigth)
@@ -238,6 +272,11 @@ struct FourCutStudioView: View {
                                             
                                         }
                                     
+                                    Image(systemName: "photo.circle")
+                                        .resizable()
+                                        .foregroundColor(.white)
+                                        .frame(width: 44, height: 44)
+                                    
                                 }
                             }
                             .frame(width: photoWidth, height: photoheigth)
@@ -259,8 +298,9 @@ struct FourCutStudioView: View {
             ZStack{
                 
                 RoundedRectangle(cornerRadius: 30)
-                    .fill(.black)
+                    .fill(Color.black)
                     .frame(width: 256, height: 55)
+                    .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
                 
                 HStack{
                     
@@ -273,6 +313,7 @@ struct FourCutStudioView: View {
                 }
                 
             }
+            .opacity(isImageAllSelected ? 1.0 : 0.5)
             .padding()
             .onTapGesture {
                 
@@ -289,7 +330,7 @@ struct FourCutStudioView: View {
             }
             .alert(isPresented: $showingSelectingAlert) {
                 
-                Alert(title: Text("포동네컷 미완성"), message: Text("영일대 맵을 여행하며 재미난 사진들을 찍고 포동네컷을 완성해보세요!"), dismissButton: .default(Text("확인")))
+                Alert(title: Text("포동네컷 미완성"), message: Text("포항 포스팟을 여행하며 사진을 찍고 포동네컷을 완성해보세요!"), dismissButton: .default(Text("확인")))
                 
             }
             
