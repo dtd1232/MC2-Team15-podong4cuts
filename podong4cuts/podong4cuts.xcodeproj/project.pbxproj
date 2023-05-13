@@ -45,6 +45,8 @@
 		67F6D69B2A0E1F6200D71F21 /* Mask.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 67F6D6972A0E1F6200D71F21 /* Mask.usdz */; };
 		67F6D69C2A0E1F6200D71F21 /* OB.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 67F6D6982A0E1F6200D71F21 /* OB.rcproject */; };
 		67F6D69D2A0E1F6200D71F21 /* sauryHead.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 67F6D6992A0E1F6200D71F21 /* sauryHead.usdz */; };
+		CEE627D42A0FA32C00C21080 /* TempSnapShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627D32A0FA32C00C21080 /* TempSnapShotView.swift */; };
+		CEE627D62A0FA3BD00C21080 /* TempARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627D52A0FA3BD00C21080 /* TempARViewContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		67F6D6972A0E1F6200D71F21 /* Mask.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Mask.usdz; sourceTree = "<group>"; };
 		67F6D6982A0E1F6200D71F21 /* OB.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = OB.rcproject; sourceTree = "<group>"; };
 		67F6D6992A0E1F6200D71F21 /* sauryHead.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = sauryHead.usdz; sourceTree = "<group>"; };
+		CEE627D32A0FA32C00C21080 /* TempSnapShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempSnapShotView.swift; sourceTree = "<group>"; };
+		CEE627D52A0FA3BD00C21080 /* TempARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempARViewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,8 @@
 				676FFF632A0E11F600115F2E /* ImageManager.swift */,
 				676FFF652A0E122800115F2E /* PhotoLibraryView.swift */,
 				676FFF612A0E11D800115F2E /* SoundPlayer.swift */,
+				CEE627D32A0FA32C00C21080 /* TempSnapShotView.swift */,
+				CEE627D52A0FA3BD00C21080 /* TempARViewContainer.swift */,
 			);
 			path = CameraFrameViews;
 			sourceTree = "<group>";
@@ -507,8 +513,10 @@
 				676FFF662A0E122800115F2E /* PhotoLibraryView.swift in Sources */,
 				6787A3032A0D00A000CB9942 /* ContentView.swift in Sources */,
 				6787A34C2A0D0D1E00CB9942 /* FourCutView.swift in Sources */,
+				CEE627D42A0FA32C00C21080 /* TempSnapShotView.swift in Sources */,
 				676FFF642A0E11F600115F2E /* ImageManager.swift in Sources */,
 				6787A3462A0D0CBF00CB9942 /* PodongModel.swift in Sources */,
+				CEE627D62A0FA3BD00C21080 /* TempARViewContainer.swift in Sources */,
 				676FFF602A0E11BB00115F2E /* ARViewContainer.swift in Sources */,
 				6787A32E2A0D08F900CB9942 /* Color+.swift in Sources */,
 				6787A33C2A0D0BD700CB9942 /* HomeView.swift in Sources */,

@@ -59,15 +59,3 @@ struct ARViewContainer: UIViewRepresentable {
 //    }
     
 }
-
-extension ARView {
-    func saveSnapShot(snapShot: UIImage) {
-        UIImageWriteToSavedPhotosAlbum(snapShot, nil, nil, nil)
-    }
-
-    
-    func reRun() {
-        let config = ARWorldTrackingConfiguration()
-        self.session.run(config)
-    }
-}
