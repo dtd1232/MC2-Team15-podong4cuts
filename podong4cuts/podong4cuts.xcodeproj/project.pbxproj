@@ -48,10 +48,12 @@
 		67F6D69D2A0E1F6200D71F21 /* sauryHead.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 67F6D6992A0E1F6200D71F21 /* sauryHead.usdz */; };
 		CEE627D42A0FA32C00C21080 /* TempSnapShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627D32A0FA32C00C21080 /* TempSnapShotView.swift */; };
 		CEE627D62A0FA3BD00C21080 /* TempARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627D52A0FA3BD00C21080 /* TempARViewContainer.swift */; };
-		CEE627E82A0FF65200C21080 /* WhaleTaileCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627E72A0FF65200C21080 /* WhaleTaileCameraFrameView.swift */; };
+		CEE627E82A0FF65200C21080 /* WhalTaileCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627E72A0FF65200C21080 /* WhalTaileCameraFrameView.swift */; };
 		CEE627EA2A0FF66000C21080 /* TomatiloMustacheCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627E92A0FF66000C21080 /* TomatiloMustacheCameraFrameView.swift */; };
 		CEE627EC2A0FF66B00C21080 /* SpaceWalkSpaceCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627EB2A0FF66B00C21080 /* SpaceWalkSpaceCameraFrameView.swift */; };
 		CEE627EE2A0FF67A00C21080 /* OhBremenToyCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627ED2A0FF67A00C21080 /* OhBremenToyCameraFrameView.swift */; };
+		CEE627F12A1001D600C21080 /* YeongilgyoKrabFilterCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627F02A1001D600C21080 /* YeongilgyoKrabFilterCameraFrameView.swift */; };
+		CEE627F32A10060A00C21080 /* DefaultCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627F22A10060A00C21080 /* DefaultCameraFrameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,10 +117,12 @@
 		67F6D6992A0E1F6200D71F21 /* sauryHead.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = sauryHead.usdz; sourceTree = "<group>"; };
 		CEE627D32A0FA32C00C21080 /* TempSnapShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempSnapShotView.swift; sourceTree = "<group>"; };
 		CEE627D52A0FA3BD00C21080 /* TempARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempARViewContainer.swift; sourceTree = "<group>"; };
-		CEE627E72A0FF65200C21080 /* WhaleTaileCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhaleTaileCameraFrameView.swift; sourceTree = "<group>"; };
+		CEE627E72A0FF65200C21080 /* WhalTaileCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhalTaileCameraFrameView.swift; sourceTree = "<group>"; };
 		CEE627E92A0FF66000C21080 /* TomatiloMustacheCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatiloMustacheCameraFrameView.swift; sourceTree = "<group>"; };
 		CEE627EB2A0FF66B00C21080 /* SpaceWalkSpaceCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceWalkSpaceCameraFrameView.swift; sourceTree = "<group>"; };
 		CEE627ED2A0FF67A00C21080 /* OhBremenToyCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhBremenToyCameraFrameView.swift; sourceTree = "<group>"; };
+		CEE627F02A1001D600C21080 /* YeongilgyoKrabFilterCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeongilgyoKrabFilterCameraFrameView.swift; sourceTree = "<group>"; };
+		CEE627F22A10060A00C21080 /* DefaultCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCameraFrameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +197,7 @@
 		676FFF5D2A0E117500115F2E /* ARFilters */ = {
 			isa = PBXGroup;
 			children = (
+				CEE627EF2A1001C200C21080 /* YeongilgyoKrab */,
 				CEE627E62A0FF63600C21080 /* WhaleTail */,
 				CEE627E52A0FF62A00C21080 /* Tomatilo */,
 				CEE627E42A0FF62400C21080 /* SpaceWalk */,
@@ -211,6 +216,7 @@
 				676FFF612A0E11D800115F2E /* SoundPlayer.swift */,
 				CEE627D32A0FA32C00C21080 /* TempSnapShotView.swift */,
 				CEE627D52A0FA3BD00C21080 /* TempARViewContainer.swift */,
+				CEE627F22A10060A00C21080 /* DefaultCameraFrameView.swift */,
 			);
 			path = CameraFrameViews;
 			sourceTree = "<group>";
@@ -379,7 +385,6 @@
 		CEE627E32A0FF61B00C21080 /* OhBremen */ = {
 			isa = PBXGroup;
 			children = (
-				676FFF692A0E127500115F2E /* OhBremenToyARView.swift */,
 				CEE627ED2A0FF67A00C21080 /* OhBremenToyCameraFrameView.swift */,
 			);
 			path = OhBremen;
@@ -388,7 +393,6 @@
 		CEE627E42A0FF62400C21080 /* SpaceWalk */ = {
 			isa = PBXGroup;
 			children = (
-				676FFF6B2A0E129B00115F2E /* SpaceWalkSpaceARView.swift */,
 				CEE627EB2A0FF66B00C21080 /* SpaceWalkSpaceCameraFrameView.swift */,
 			);
 			path = SpaceWalk;
@@ -397,7 +401,6 @@
 		CEE627E52A0FF62A00C21080 /* Tomatilo */ = {
 			isa = PBXGroup;
 			children = (
-				676FFF6D2A0E12CD00115F2E /* TomatilloMustacheARView.swift */,
 				CEE627E92A0FF66000C21080 /* TomatiloMustacheCameraFrameView.swift */,
 			);
 			path = Tomatilo;
@@ -406,10 +409,17 @@
 		CEE627E62A0FF63600C21080 /* WhaleTail */ = {
 			isa = PBXGroup;
 			children = (
-				676FFF6F2A0E12F500115F2E /* WhaleTailWhaleARView.swift */,
-				CEE627E72A0FF65200C21080 /* WhaleTaileCameraFrameView.swift */,
+				CEE627E72A0FF65200C21080 /* WhalTaileCameraFrameView.swift */,
 			);
 			path = WhaleTail;
+			sourceTree = "<group>";
+		};
+		CEE627EF2A1001C200C21080 /* YeongilgyoKrab */ = {
+			isa = PBXGroup;
+			children = (
+				CEE627F02A1001D600C21080 /* YeongilgyoKrabFilterCameraFrameView.swift */,
+			);
+			path = YeongilgyoKrab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -579,7 +589,8 @@
 				67F6D69C2A0E1F6200D71F21 /* OB.rcproject in Sources */,
 				676FFF682A0E124800115F2E /* CameraFrameView.swift in Sources */,
 				6787A3402A0D0C1B00CB9942 /* LocationManager.swift in Sources */,
-				CEE627E82A0FF65200C21080 /* WhaleTaileCameraFrameView.swift in Sources */,
+				CEE627F32A10060A00C21080 /* DefaultCameraFrameView.swift in Sources */,
+				CEE627E82A0FF65200C21080 /* WhalTaileCameraFrameView.swift in Sources */,
 				6787A34F2A0D0D7100CB9942 /* CoverButton.swift in Sources */,
 				6787A3012A0D00A000CB9942 /* podong4cutsApp.swift in Sources */,
 				6787A3302A0D093800CB9942 /* FrameExtension.swift in Sources */,
@@ -587,6 +598,7 @@
 				676FFF832A0E150400115F2E /* Experience.rcproject in Sources */,
 				676FFF5C2A0E116500115F2E /* SpotModel.swift in Sources */,
 				3074E5532A0FA774008A9C6C /* OhBremenToyARView.swift in Sources */,
+				CEE627F12A1001D600C21080 /* YeongilgyoKrabFilterCameraFrameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,7 +757,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"podong4cuts/Preview Content\"";
-				DEVELOPMENT_TEAM = 5BC63NF7HR;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Seungyong Lee";
@@ -758,6 +770,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -779,7 +792,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"podong4cuts/Preview Content\"";
-				DEVELOPMENT_TEAM = 5BC63NF7HR;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Seungyong Lee";
@@ -792,6 +805,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

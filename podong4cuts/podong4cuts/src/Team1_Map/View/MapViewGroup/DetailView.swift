@@ -10,6 +10,7 @@ import SwiftUI
 import CoreLocation
 
 struct DetailView: View {
+    @Environment(\.dismiss) var dismiss
     
     //property
     @ObservedObject var VM: PodongViewModel
@@ -17,6 +18,8 @@ struct DetailView: View {
     
     var selectedNumber: Int = 0
    
+    @Binding var showDefaultCameraFrameView: Bool
+    @Binding var cameraFrameNumber: Int
     
     var body: some View {
         VStack{
@@ -198,11 +201,19 @@ struct DetailView: View {
                                         .fontWeight(.bold)
                                 }
                             }
+                            .onTapGesture {
+                                cameraFrameNumber = selectedNumber
+                                dismiss()
+                                showDefaultCameraFrameView = true
+                            }
                         }
                 }//】 Button
                 .padding(.bottom, 5)
                 .vBottom()
             }//】 ZStack
+            NavigationLink("",isActive: $showDefaultCameraFrameView) {
+                DefaultCameraFrameView(selected: selectedNumber)
+            }
         }//: VStack
     }//: Body
     
@@ -234,9 +245,10 @@ struct DetailView: View {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(VM: PodongViewModel(), selectedNumber: 0)
+//struct DetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailView(VM: PodongViewModel(), selectedNumber: 0, showDefaultCameraFrameView: 3)
+//        DetailView(VM: PodongViewModel(), showDefaultCameraFrameView: <#T##Binding<Bool>#>, cameraFrameNumber: <#T##Binding<Int>#>)
            
-    }
-}
+//    }
+//}

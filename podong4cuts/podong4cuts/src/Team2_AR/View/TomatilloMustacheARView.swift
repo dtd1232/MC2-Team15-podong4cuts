@@ -9,41 +9,8 @@ import SwiftUI
 import ARKit
 import RealityKit
 
-struct ABCDEFU: View {
-    @State private var clicked = false
-    
-    var body: some View {
-        ZStack {
-            TomatilloMustacheARView(clicked: $clicked)
-            
-            VStack {
-                Spacer()
-                
-                HStack {
-                    Spacer()
-                    
-                    Circle()
-                        .foregroundColor(.white)
-                        .overlay {
-                            Image(systemName: "plus.diamond.fill")
-                                .foregroundColor(.black)
-                        }
-                        .frame(width: 60, height: 60)
-                        .padding()
-                        .onTapGesture {
-                            clicked.toggle()
-                        }
-                    
-                    Spacer()
-                }
-            }
-        }
-    }
-}
-
-
 struct TomatilloMustacheARView: UIViewRepresentable {
-    @Binding var clicked: Bool
+    
     let arView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
     
     
@@ -67,14 +34,6 @@ struct TomatilloMustacheARView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {
-        if clicked {
-            let scene = try! Entity.loadModel(named: "Mask", in: nil)
-            scene.generateCollisionShapes(recursive: true)
-            let anchor = AnchorEntity(world: [0,0,0.8])
-            anchor.addChild(scene)
-            uiView.installGestures([.scale, .translation], for: scene)
-            uiView.scene.anchors.append(anchor)
-        }
     }
 }
 

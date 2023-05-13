@@ -1,8 +1,8 @@
 //
-//  ContentView.swift
-//  CameraViewFinal
+//  WhaleTailCameraFrame.swift
+//  podong4cuts
 //
-//  Created by user on 2023/05/13.
+//  Created by user on 2023/05/14.
 //
 
 import SwiftUI
@@ -10,7 +10,7 @@ import PhotosUI
 import RealityKit
 import ARKit
 
-struct CameraFrameView: View {
+struct WhaleTailCameraFrameView: View {
     // cameraview ui
     @State private var shutterEffect = false
     
@@ -22,7 +22,7 @@ struct CameraFrameView: View {
     // photolibraryview
     @State var showPhotoLibrary = false
     
-    var arViewContainer = TempARViewContainer()
+    var arViewContainer = WhaleTailWhaleARView()
     
     var body: some View {
         NavigationView {
@@ -97,9 +97,10 @@ struct CameraFrameView: View {
                                 }
                                 
                                 // snapshot
-                                arViewContainer.arView.snapshot(saveToHDR: false) { image in
-                                    tempSnapShot = image
-                                }
+//                                arViewContainer.arView.snapshot(saveToHDR: false) { image in
+//                                    tempSnapShot = image
+//                                }
+                                tempSnapShot = arViewContainer.sceneLocationView.snapshot()
                                 showTempSnapShotView = true
                             }
                         } label: {
@@ -157,14 +158,8 @@ struct CameraFrameView: View {
     }
 }
 
-extension ARView {
-    func reRun() {
-        let config = ARWorldTrackingConfiguration()
-        self.session.run(config)
-    }
-}
 
-struct CameraFrameView_Previews: PreviewProvider {
+struct WhaleTailCameraFrameViewPreview: PreviewProvider {
     static var previews: some View {
         CameraFrameView()
     }
