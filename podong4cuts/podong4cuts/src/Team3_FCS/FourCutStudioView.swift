@@ -22,14 +22,15 @@ struct FourCutStudioView: View {
     @State private var image3Tapped = false
     @State private var image4Tapped = false
     
+    @State private var showingSelectingAlert = false
+    
     let spacing: CGFloat = 20
     
     var body: some View {
         
         VStack{
-            
-            Rectangle()
-                .frame(width: 0, height: 50)
+            Spacer()
+
             
             //MARK: - 네컷 프레임
             
@@ -280,8 +281,16 @@ struct FourCutStudioView: View {
                     let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
                     UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true)
                     
+                }else{
+                    showingSelectingAlert = true
+                    
                 }
 
+            }
+            .alert(isPresented: $showingSelectingAlert) {
+                
+                Alert(title: Text("포동네컷 미완성"), message: Text("영일대 맵을 여행하며 재미난 사진들을 찍고 포동네컷을 완성해보세요!"), dismissButton: .default(Text("확인")))
+                
             }
             
             Spacer()
