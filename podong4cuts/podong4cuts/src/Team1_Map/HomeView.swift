@@ -24,7 +24,7 @@ struct HomeView: View {
                     }
                 
                 //2. ImageListView
-                CameraFrameView()
+                FilterListView(VM: self.VM)
                     .tabItem{
                         Image(systemName: "photo.fill.on.rectangle.fill")
                         Text("필터")
