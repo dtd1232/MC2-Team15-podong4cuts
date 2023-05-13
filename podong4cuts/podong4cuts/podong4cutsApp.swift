@@ -15,7 +15,11 @@ struct podong4cutsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView(VM: PodongViewModel())
+            if UserDefaults.standard.bool(forKey: "onboardingShown") {
+                HomeView(VM: PodongViewModel())
+            } else {
+                OnBoardingView()
+            }
         }
     }
 }

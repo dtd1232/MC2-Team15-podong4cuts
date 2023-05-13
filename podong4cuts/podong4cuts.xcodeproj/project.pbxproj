@@ -12,6 +12,10 @@
 		3074E5552A0FA774008A9C6C /* SpaceWalkSpaceARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E5502A0FA774008A9C6C /* SpaceWalkSpaceARView.swift */; };
 		3074E5562A0FA774008A9C6C /* WhaleTailWhaleARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E5512A0FA774008A9C6C /* WhaleTailWhaleARView.swift */; };
 		3074E5572A0FA774008A9C6C /* YeongilgyoKrabFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E5522A0FA774008A9C6C /* YeongilgyoKrabFilterView.swift */; };
+		3074E57B2A103611008A9C6C /* OnBoardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E57A2A103611008A9C6C /* OnBoardingModel.swift */; };
+		3074E57E2A103653008A9C6C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E57D2A103653008A9C6C /* OnBoardingView.swift */; };
+		3074E5802A103673008A9C6C /* OnBoardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E57F2A103673008A9C6C /* OnBoardingPage.swift */; };
+		3074E5832A103949008A9C6C /* OnBoardingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E5822A103949008A9C6C /* OnBoardingButtonView.swift */; };
 		676FFF562A0E0D3900115F2E /* spotdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 676FFF552A0E0D3900115F2E /* spotdata.json */; };
 		676FFF5C2A0E116500115F2E /* SpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676FFF5B2A0E116500115F2E /* SpotModel.swift */; };
 		676FFF602A0E11BB00115F2E /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676FFF5F2A0E11BB00115F2E /* ARViewContainer.swift */; };
@@ -79,6 +83,10 @@
 		3074E5502A0FA774008A9C6C /* SpaceWalkSpaceARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceWalkSpaceARView.swift; sourceTree = "<group>"; };
 		3074E5512A0FA774008A9C6C /* WhaleTailWhaleARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhaleTailWhaleARView.swift; sourceTree = "<group>"; };
 		3074E5522A0FA774008A9C6C /* YeongilgyoKrabFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YeongilgyoKrabFilterView.swift; sourceTree = "<group>"; };
+		3074E57A2A103611008A9C6C /* OnBoardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModel.swift; sourceTree = "<group>"; };
+		3074E57D2A103653008A9C6C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		3074E57F2A103673008A9C6C /* OnBoardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage.swift; sourceTree = "<group>"; };
+		3074E5822A103949008A9C6C /* OnBoardingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButtonView.swift; sourceTree = "<group>"; };
 		676FFF552A0E0D3900115F2E /* spotdata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = spotdata.json; sourceTree = "<group>"; };
 		676FFF5B2A0E116500115F2E /* SpotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotModel.swift; sourceTree = "<group>"; };
 		676FFF5F2A0E11BB00115F2E /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
@@ -151,6 +159,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3074E57C2A103633008A9C6C /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				3074E57D2A103653008A9C6C /* OnBoardingView.swift */,
+				3074E57F2A103673008A9C6C /* OnBoardingPage.swift */,
+				3074E5822A103949008A9C6C /* OnBoardingButtonView.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		676FFF572A0E109000115F2E /* Team2_AR */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				676FFF5B2A0E116500115F2E /* SpotModel.swift */,
+				3074E57A2A103611008A9C6C /* OnBoardingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +321,7 @@
 		6787A32C2A0D08C500CB9942 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				3074E57C2A103633008A9C6C /* OnBoarding */,
 				6787A3352A0D0B9500CB9942 /* Team1_Map */,
 				676FFF572A0E109000115F2E /* Team2_AR */,
 				6787A3372A0D0BA600CB9942 /* Team3_FCS */,
@@ -574,15 +594,18 @@
 				3074E5562A0FA774008A9C6C /* WhaleTailWhaleARView.swift in Sources */,
 				6787A3592A0D0EDA00CB9942 /* PodongViewModel.swift in Sources */,
 				676FFF662A0E122800115F2E /* PhotoLibraryView.swift in Sources */,
+				3074E57E2A103653008A9C6C /* OnBoardingView.swift in Sources */,
 				3074E5572A0FA774008A9C6C /* YeongilgyoKrabFilterView.swift in Sources */,
 				6787A3032A0D00A000CB9942 /* ContentView.swift in Sources */,
 				6787A34C2A0D0D1E00CB9942 /* FourCutView.swift in Sources */,
 				CEE627D42A0FA32C00C21080 /* TempSnapShotView.swift in Sources */,
+				3074E57B2A103611008A9C6C /* OnBoardingModel.swift in Sources */,
 				676FFF642A0E11F600115F2E /* ImageManager.swift in Sources */,
 				6787A3462A0D0CBF00CB9942 /* PodongModel.swift in Sources */,
 				CEE627D62A0FA3BD00C21080 /* TempARViewContainer.swift in Sources */,
 				676FFF602A0E11BB00115F2E /* ARViewContainer.swift in Sources */,
 				CEE627EA2A0FF66000C21080 /* TomatiloMustacheCameraFrameView.swift in Sources */,
+				3074E5802A103673008A9C6C /* OnBoardingPage.swift in Sources */,
 				6787A32E2A0D08F900CB9942 /* Color+.swift in Sources */,
 				3074E5552A0FA774008A9C6C /* SpaceWalkSpaceARView.swift in Sources */,
 				6787A33C2A0D0BD700CB9942 /* HomeView.swift in Sources */,
@@ -591,6 +614,7 @@
 				6787A3402A0D0C1B00CB9942 /* LocationManager.swift in Sources */,
 				CEE627F32A10060A00C21080 /* DefaultCameraFrameView.swift in Sources */,
 				CEE627E82A0FF65200C21080 /* WhalTaileCameraFrameView.swift in Sources */,
+				3074E5832A103949008A9C6C /* OnBoardingButtonView.swift in Sources */,
 				6787A34F2A0D0D7100CB9942 /* CoverButton.swift in Sources */,
 				6787A3012A0D00A000CB9942 /* podong4cutsApp.swift in Sources */,
 				6787A3302A0D093800CB9942 /* FrameExtension.swift in Sources */,
@@ -757,7 +781,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"podong4cuts/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VGKCD7Q8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Seungyong Lee";
@@ -792,7 +816,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"podong4cuts/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VGKCD7Q8NW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Seungyong Lee";
