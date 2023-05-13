@@ -26,6 +26,8 @@ struct MapView: View {
     @ObservedObject var VM: PodongViewModel
     @State private var selectedSpot: AppData? = nil
     //    @State var isDetailSheetPresented : Bool = false
+    @State var showDefaultCameraFrameView = false
+    @State var cameraFrameNumber = 0
     var body: some View {
         NavigationView{
             ZStack{
@@ -94,11 +96,14 @@ struct MapView: View {
                     .padding([.leading], 10)
                     
                     Spacer()
+                    NavigationLink("", isActive: $showDefaultCameraFrameView) {
+                        DefaultCameraFrameView(selected: cameraFrameNumber )
+                    }
                 }//】 HStack
             }//】 ZStack
         }//】 Navigation
         .sheet(item: $selectedSpot, onDismiss: nil) { data in
-            DetailView(VM: self.VM, selectedNumber: data.number)
+            DetailView(VM: self.VM, selectedNumber: data.number, showDefaultCameraFrameView: $showDefaultCameraFrameView, cameraFrameNumber: $cameraFrameNumber)
                 .presentationDetents([.medium, .large])
         }
         

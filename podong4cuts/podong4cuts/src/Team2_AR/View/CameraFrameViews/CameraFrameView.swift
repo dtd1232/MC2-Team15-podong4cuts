@@ -133,7 +133,7 @@ struct CameraFrameView: View {
                 }
                 
                 NavigationLink("", isActive: $showPhotoLibrary) {
-                    PhotoLibraryView(arViewContainer: arViewContainer)
+                    PhotoLibraryView()
                 }
             }
         }
