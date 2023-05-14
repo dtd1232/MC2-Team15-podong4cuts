@@ -156,7 +156,7 @@ struct DetailView: View {
                     // 현재 위치와 스팟 좌표 사이의 거리 반환
                     let distance = compareUserLocation(locationNumber: selectedNumber)
                     
-                    if distance <= 3000{
+                    if distance <= 60{
                         VM.spotdata[selectedNumber].isOpened = true
                     }
                     
@@ -192,7 +192,7 @@ struct DetailView: View {
                                         .font(.title3)
                                         .fontWeight(.bold)
                                 case 1:
-                                    Text("멕시코인 맛보기")
+                                    Text("멕시칸 코스프레")
                                         .foregroundColor(.white)
                                         .font(.title3)
                                         .fontWeight(.bold)
