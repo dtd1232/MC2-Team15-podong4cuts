@@ -11,9 +11,13 @@ import SwiftUI
 
 struct SpaceWalkSpaceARView: UIViewRepresentable {
     let arView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: false)
-    let sauryHead = try! Entity.load(named: "sauryHead")
-    let sauryHead2 = try! Entity.load(named: "sauryHead")
-    let sauryHead3 = try! Entity.load(named: "sauryHead")
+//    let sauryHead = try! Entity.load(named: "sauryHead")
+//    let sauryHead2 = try! Entity.load(named: "sauryHead")
+//    let sauryHead3 = try! Entity.load(named: "sauryHead")
+    
+    let sauryHead = try! Entity.load(named: "SpaceWalkAstronaut")
+    let sauryHead2 = try! Entity.load(named: "SpaceWalkAstronaut")
+    let sauryHead3 = try! Entity.load(named: "SpaceWalkAstronaut")
     
     func makeUIView(context: Context) -> ARView {
         let faceTrackingConfiguration = ARFaceTrackingConfiguration()

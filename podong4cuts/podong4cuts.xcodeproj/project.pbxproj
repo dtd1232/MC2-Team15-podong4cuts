@@ -54,6 +54,7 @@
 		CEE627EE2A0FF67A00C21080 /* OhBremenToyCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627ED2A0FF67A00C21080 /* OhBremenToyCameraFrameView.swift */; };
 		CEE627F12A1001D600C21080 /* YeongilgyoKrabFilterCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627F02A1001D600C21080 /* YeongilgyoKrabFilterCameraFrameView.swift */; };
 		CEE627F32A10060A00C21080 /* DefaultCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627F22A10060A00C21080 /* DefaultCameraFrameView.swift */; };
+		CEE627FD2A10A11B00C21080 /* SpaceWalkAstronaut.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CEE627FC2A10A11B00C21080 /* SpaceWalkAstronaut.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		CEE627ED2A0FF67A00C21080 /* OhBremenToyCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhBremenToyCameraFrameView.swift; sourceTree = "<group>"; };
 		CEE627F02A1001D600C21080 /* YeongilgyoKrabFilterCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeongilgyoKrabFilterCameraFrameView.swift; sourceTree = "<group>"; };
 		CEE627F22A10060A00C21080 /* DefaultCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCameraFrameView.swift; sourceTree = "<group>"; };
+		CEE627FC2A10A11B00C21080 /* SpaceWalkAstronaut.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = SpaceWalkAstronaut.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				67F6D6982A0E1F6200D71F21 /* OB.rcproject */,
 				67F6D6992A0E1F6200D71F21 /* sauryHead.usdz */,
 				67F6D6962A0E1F6200D71F21 /* WhaleAR.usdz */,
+				CEE627FC2A10A11B00C21080 /* SpaceWalkAstronaut.usdz */,
 			);
 			path = ModelAssets;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE627FD2A10A11B00C21080 /* SpaceWalkAstronaut.usdz in Resources */,
 				67F6D69D2A0E1F6200D71F21 /* sauryHead.usdz in Resources */,
 				67F6D69A2A0E1F6200D71F21 /* WhaleAR.usdz in Resources */,
 				67F6D69B2A0E1F6200D71F21 /* Mask.usdz in Resources */,
