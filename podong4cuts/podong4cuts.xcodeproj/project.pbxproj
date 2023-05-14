@@ -18,7 +18,7 @@
 		3074E5832A103949008A9C6C /* OnBoardingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E5822A103949008A9C6C /* OnBoardingButtonView.swift */; };
 		3074E5852A109060008A9C6C /* WhaleAR.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3074E5842A109060008A9C6C /* WhaleAR.usdz */; };
 		3074E5872A109AE3008A9C6C /* Krab.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3074E5862A109AE3008A9C6C /* Krab.usdz */; };
-		3074E5892A109F4D008A9C6C /* Mask.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3074E5882A109F4D008A9C6C /* Mask.usdz */; };
+		3074E58B2A10A193008A9C6C /* Mask.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3074E58A2A10A193008A9C6C /* Mask.usdz */; };
 		676FFF562A0E0D3900115F2E /* spotdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 676FFF552A0E0D3900115F2E /* spotdata.json */; };
 		676FFF5C2A0E116500115F2E /* SpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676FFF5B2A0E116500115F2E /* SpotModel.swift */; };
 		676FFF602A0E11BB00115F2E /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676FFF5F2A0E11BB00115F2E /* ARViewContainer.swift */; };
@@ -90,7 +90,7 @@
 		3074E5822A103949008A9C6C /* OnBoardingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButtonView.swift; sourceTree = "<group>"; };
 		3074E5842A109060008A9C6C /* WhaleAR.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = WhaleAR.usdz; sourceTree = "<group>"; };
 		3074E5862A109AE3008A9C6C /* Krab.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Krab.usdz; sourceTree = "<group>"; };
-		3074E5882A109F4D008A9C6C /* Mask.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Mask.usdz; sourceTree = "<group>"; };
+		3074E58A2A10A193008A9C6C /* Mask.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Mask.usdz; sourceTree = "<group>"; };
 		676FFF552A0E0D3900115F2E /* spotdata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = spotdata.json; sourceTree = "<group>"; };
 		676FFF5B2A0E116500115F2E /* SpotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotModel.swift; sourceTree = "<group>"; };
 		676FFF5F2A0E11BB00115F2E /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
@@ -185,8 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				3074E5862A109AE3008A9C6C /* Krab.usdz */,
+				3074E58A2A10A193008A9C6C /* Mask.usdz */,
 				3074E5842A109060008A9C6C /* WhaleAR.usdz */,
-				3074E5882A109F4D008A9C6C /* Mask.usdz */,
 				67F6D6982A0E1F6200D71F21 /* OB.rcproject */,
 				67F6D6992A0E1F6200D71F21 /* sauryHead.usdz */,
 			);
@@ -560,7 +560,7 @@
 				3074E5852A109060008A9C6C /* WhaleAR.usdz in Resources */,
 				6787A3082A0D00A100CB9942 /* Preview Assets.xcassets in Resources */,
 				676FFF562A0E0D3900115F2E /* spotdata.json in Resources */,
-				3074E5892A109F4D008A9C6C /* Mask.usdz in Resources */,
+				3074E58B2A10A193008A9C6C /* Mask.usdz in Resources */,
 				6787A3052A0D00A100CB9942 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
