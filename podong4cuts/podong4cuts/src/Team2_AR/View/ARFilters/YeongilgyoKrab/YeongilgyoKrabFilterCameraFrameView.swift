@@ -104,10 +104,10 @@ struct YeongilgyoKrabFilterCameraFrameView: View {
                                 }
                                 
                                 // snapshot
-//                                arViewContainer.arView.snapshot(saveToHDR: false) { image in
-//                                    tempSnapShot = image
-//                                }
-                                tempSnapShot = arViewContainer.sceneLocationView.snapshot()
+                                arViewContainer.arView.snapshot(saveToHDR: false) { image in
+                                    tempSnapShot = image
+                                }
+//                                tempSnapShot = arViewContainer.sceneLocationView.snapshot()
                                 showTempSnapShotView = true
                             }
                         } label: {
