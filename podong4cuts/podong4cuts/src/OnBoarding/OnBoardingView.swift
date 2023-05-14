@@ -30,7 +30,7 @@ struct OnBoardingView: View {
                 }
             }
         } else {
-            HomeView()
+            HomeView(VM: PodongViewModel())
         }
     }
 }
