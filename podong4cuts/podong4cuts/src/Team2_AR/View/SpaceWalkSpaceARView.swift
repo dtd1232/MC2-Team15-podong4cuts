@@ -44,19 +44,11 @@ struct SpaceWalkSpaceARView: UIViewRepresentable {
             
             guard let faceAnchor = anchors.first as? ARFaceAnchor
             else { return }
-            let anchor1 = AnchorEntity(anchor: faceAnchor)
-            var anchor2 = AnchorEntity(anchor: faceAnchor)
-            var anchor3 = AnchorEntity(anchor: faceAnchor)
             
-            if anchors.count == 3 {
-                anchor2 = AnchorEntity(anchor: anchors[1])
-                anchor3 = AnchorEntity(anchor: anchors[2])
-                
-                
-                anchor2.addChild(target.sauryHead2)
-                anchor3.addChild(target.sauryHead3)
-                
-            } else if anchors.count == 2 {
+            let anchor1 = AnchorEntity(.face)
+            var anchor2 = AnchorEntity(.face)
+
+            if anchors.count == 2 {
                 anchor2 = AnchorEntity(anchor: anchors[1])
                 
                 anchor2.addChild(target.sauryHead2)
@@ -67,7 +59,6 @@ struct SpaceWalkSpaceARView: UIViewRepresentable {
 
             target.arView.scene.anchors.append(anchor1)
             target.arView.scene.anchors.append(anchor2)
-            target.arView.scene.anchors.append(anchor3)
         }
     }
     

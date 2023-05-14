@@ -10,31 +10,58 @@ import ARKit
 import RealityKit
 
 struct TomatilloMustacheARView: UIViewRepresentable {
-    
-    let arView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
-    
+    let arView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: false)
+    let mask = try! Entity.load(named: "Mask")
+    let mask2 = try! Entity.load(named: "Mask")
     
     func makeUIView(context: Context) -> ARView {
-        let scene = try! Entity.loadModel(named: "Mask", in: nil)
-        let anchor = AnchorEntity(world: [0,0,0])
+        let faceTrackingConfiguration = ARFaceTrackingConfiguration()
+        faceTrackingConfiguration.maximumNumberOfTrackedFaces = 3
         
-        let perspectiveCamera = PerspectiveCamera()
-//        let cameraAnchor = AnchorEntity(world: [0,0,0.8])
-//        perspectiveCamera.look(at: [0,0,0], from: [0,0,0.8], relativeTo: nil)
-        
-        scene.generateCollisionShapes(recursive: true)
-        
-        anchor.addChild(scene)
-//        cameraAnchor.addChild(perspectiveCamera)
-        arView.installGestures([.scale, .translation], for: scene)
-        arView.scene.anchors.append(anchor)
-//        arView.scene.anchors.append(cameraAnchor)
+        arView.session.run(faceTrackingConfiguration)
+        arView.session.delegate = context.coordinator
         
         return arView
     }
     
+    func makeCoordinator() -> Coordinator {
+        Coordinator(target: self)
+    }
+    
+    class Coordinator: NSObject, ARSessionDelegate {
+        var target: TomatilloMustacheARView
+        
+        init(target: TomatilloMustacheARView) {
+            self.target = target
+        }
+        
+        func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+            
+            guard let faceAnchor = anchors.first as? ARFaceAnchor
+            else { return }
+            
+            let anchor1 = AnchorEntity(.face)
+            var anchor2 = AnchorEntity(.face)
+
+            if anchors.count == 2 {
+                anchor2 = AnchorEntity(anchor: anchors[1])
+                
+                anchor2.addChild(target.mask2)
+                
+            }
+            
+            anchor1.addChild(target.mask)
+
+            target.arView.scene.anchors.append(anchor1)
+            target.arView.scene.anchors.append(anchor2)
+        }
+    }
+    
     func updateUIView(_ uiView: ARView, context: Context) {
+        
     }
 }
+
+
 
 

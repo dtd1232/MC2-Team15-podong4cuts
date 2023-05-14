@@ -102,22 +102,23 @@ struct FourCutStudioView: View {
                                 
                                 }else{
                                     
-                                    Rectangle()
-                                        .fill(.gray)
-                                        .onTapGesture {
-                                            
-                                            self.selectedTag = 1
-                                            self.showImagePicker = true
-                                            
-                                        }
-                                    
-                                    Image(systemName: "photo.circle")
-                                        .resizable()
-                                        .foregroundColor(.white)
-                                        .frame(width: 44, height: 44)
-
-                                    
-                                    
+                                    ZStack{
+                                        Rectangle()
+                                            .fill(.gray)
+                                        
+                                        
+                                        Image(systemName: "photo.circle")
+                                            .resizable()
+                                            .foregroundColor(.white)
+                                            .frame(width: 44, height: 44)
+                                    }
+                                    .onTapGesture {
+                                        
+                                        self.selectedTag = 1
+                                        self.showImagePicker = true
+                                        
+                                    }
+                                                                       
                                 }
                             }
                             .frame(width: photoWidth, height: photoheigth)
@@ -156,19 +157,22 @@ struct FourCutStudioView: View {
                                 
                                 }else{
                                     
-                                    Rectangle()
-                                        .fill(.gray)
-                                        .onTapGesture {
-                                            
-                                            self.selectedTag = 2
-                                            self.showImagePicker = true
-                                            
-                                        }
-                                    
-                                    Image(systemName: "photo.circle")
-                                        .resizable()
-                                        .foregroundColor(.white)
-                                        .frame(width: 44, height: 44)
+                                    ZStack{
+                                        Rectangle()
+                                            .fill(.gray)
+                                        
+                                        
+                                        Image(systemName: "photo.circle")
+                                            .resizable()
+                                            .foregroundColor(.white)
+                                            .frame(width: 44, height: 44)
+                                    }
+                                    .onTapGesture {
+                                        
+                                        self.selectedTag = 2
+                                        self.showImagePicker = true
+                                        
+                                    }
                                     
                                 }
                             }
@@ -211,19 +215,22 @@ struct FourCutStudioView: View {
                                 
                                 }else{
                                     
-                                    Rectangle()
-                                        .fill(.gray)
-                                        .onTapGesture {
-                                            
-                                            self.selectedTag = 3
-                                            self.showImagePicker = true
-                                            
-                                        }
-                                    
-                                    Image(systemName: "photo.circle")
-                                        .resizable()
-                                        .foregroundColor(.white)
-                                        .frame(width: 44, height: 44)
+                                    ZStack{
+                                        Rectangle()
+                                            .fill(.gray)
+                                        
+                                        
+                                        Image(systemName: "photo.circle")
+                                            .resizable()
+                                            .foregroundColor(.white)
+                                            .frame(width: 44, height: 44)
+                                    }
+                                    .onTapGesture {
+                                        
+                                        self.selectedTag = 3
+                                        self.showImagePicker = true
+                                        
+                                    }
                                     
                                 }
                             }
@@ -263,19 +270,22 @@ struct FourCutStudioView: View {
                                 
                                 }else{
                                     
-                                    Rectangle()
-                                        .fill(.gray)
-                                        .onTapGesture {
-                                            
-                                            self.selectedTag = 4
-                                            self.showImagePicker = true
-                                            
-                                        }
-                                    
-                                    Image(systemName: "photo.circle")
-                                        .resizable()
-                                        .foregroundColor(.white)
-                                        .frame(width: 44, height: 44)
+                                    ZStack{
+                                        Rectangle()
+                                            .fill(.gray)
+                                        
+                                        
+                                        Image(systemName: "photo.circle")
+                                            .resizable()
+                                            .foregroundColor(.white)
+                                            .frame(width: 44, height: 44)
+                                    }
+                                    .onTapGesture {
+                                        
+                                        self.selectedTag = 4
+                                        self.showImagePicker = true
+                                        
+                                    }
                                     
                                 }
                             }

@@ -21,6 +21,8 @@ struct DetailView: View {
     @Binding var showDefaultCameraFrameView: Bool
     @Binding var cameraFrameNumber: Int
     
+    @State private var showingBackAlert = false
+    
     var body: some View {
         VStack{
             
@@ -157,6 +159,16 @@ struct DetailView: View {
                     if distance <= 30{
                         VM.spotdata[selectedNumber].isOpened = true
                     }
+                    
+                    if VM.spotdata[selectedNumber].isOpened {
+                        cameraFrameNumber = selectedNumber
+                        dismiss()
+                        showDefaultCameraFrameView = true
+                    }else{
+                        showingBackAlert = true
+                    }
+
+                    
                 } label: {
                     RoundedRectangle(cornerRadius: 50)
                         .frame(width: 330, height: 50)
@@ -201,13 +213,13 @@ struct DetailView: View {
                                         .fontWeight(.bold)
                                 }
                             }
-                            .onTapGesture {
-                                cameraFrameNumber = selectedNumber
-                                dismiss()
-                                showDefaultCameraFrameView = true
-                            }
                         }
                 }//】 Button
+                .alert(isPresented: $showingBackAlert) {
+                    
+                    Alert(title: Text("위치 인증 실패"), message: Text("더 가까이 이동 후 다시 시도하세요"), dismissButton: .default(Text("확인")))
+                    
+                }
                 .padding(.bottom, 5)
                 .vBottom()
             }//】 ZStack
