@@ -157,7 +157,7 @@ struct DetailView: View {
                     let distance = compareUserLocation(locationNumber: selectedNumber)
                     
                     if distance <= 60{
-                        VM.spotdata[selectedNumber].isOpened = true
+                        VM.openSpotFilter(num: selectedNumber)
                     }
                     
                     if VM.spotdata[selectedNumber].isOpened {
