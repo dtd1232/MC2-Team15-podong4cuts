@@ -55,19 +55,21 @@ struct DetailView: View {
                 }//: VStack
                 
                 // 남은거리
-//                ZStack{
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .foregroundColor(Color.gray.opacity(0.2))
-//                        .frame(width: 90, height: 60)
-//                    HStack{
-//                        Image(systemName:"mappin.and.ellipse")
-//
-//                        Text("17m")
-//                            .font(.title3)
-//                            .fontWeight(.heavy)
-//                            .foregroundColor(Color.gray.opacity(0.9))
-//                    }//: HStack
-//                }//: ZStack (남은거리)
+                ZStack{
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(Color.gray.opacity(0.2))
+                        .frame(width: 90, height: 60)
+                    HStack{
+                        Image(systemName:"mappin.and.ellipse")
+
+                        let distance = compareUserLocation(locationNumber: selectedNumber)
+                        
+                        Text("%.0fm")
+                            .font(.title3)
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color.gray.opacity(0.9))
+                    }//: HStack
+                }//: ZStack (남은거리)
                 
             }//: HStack (프로필 상단영역)
             .padding()

@@ -11,6 +11,9 @@ struct HomeView: View {
     // property
         @ObservedObject var VM: PodongViewModel
 
+//        init() {
+//            UITabBar.appearance().backgroundColor = UIColor.red
+//        }
         
         var body: some View {
 

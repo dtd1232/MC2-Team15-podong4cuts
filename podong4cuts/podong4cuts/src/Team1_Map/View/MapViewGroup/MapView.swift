@@ -50,48 +50,64 @@ struct MapView: View {
                     .onAppear {
                         addAnnotations()
                     }
+                    .edgesIgnoringSafeArea(.top)
+                
                 HStack {
-                    VStack(alignment: .leading) {
+                    ZStack(alignment: .leading) {
                         
-                        
-                        // (1) 내 위치로 이동 버튼
                         ZStack{
-                            Circle()
-                                .fill(Color.white)
-                                .frame(width: 45, height: 45)
+                            RoundedRectangle(cornerRadius: 16)
+                                .foregroundColor(.white)
+                                .shadow(color: Color(hex: "000000", opacity: 0.2),radius: 10)
+                                .frame(width:340, height: 50)
                             
-                            //TODO : 애플 지도 참조해서 버튼 디자인 리팩토링
-                            Button(action: {
-                                focusOnUserLocation()
-                            }) {
-                                Image(systemName: "location.circle.fill")
-                            }
-                            .font(.system(size: 45))
-                            .foregroundColor(Color.black)
-                        }
-                        .padding([.top], 20)
-                        
-                        // (2) 영일대로 이동 버튼
-                        ZStack{
-                            Circle()
-                                .fill(Color.white)
-                                .frame(width: 45, height: 45)
-                            
-                            Button (action: {
-                                withAnimation(.easeIn){
-                                    manager.region.center = CLLocationCoordinate2D(latitude: 36.058616, longitude: 129.382959)
-                                    manager.region.span = MKCoordinateSpan(
-                                        latitudeDelta: 0.015,
-                                        longitudeDelta: 0.015)
+                            Text("필터 스팟으로 이동해주세요!")
+                        }// 상단 안내문
+                        .vTop()
+                        .hCenter()
+                        .padding(.top,10)
+
+                        VStack{
+                            // (1) 내 위치로 이동 버튼
+                            ZStack{
+                                Circle()
+                                    .fill(Color.white)
+                                    .frame(width: 45, height: 45)
+                                
+                                //TODO : 애플 지도 참조해서 버튼 디자인 리팩토링
+                                Button(action: {
+                                    focusOnUserLocation()
+                                }) {
+                                    Image(systemName: "location.circle.fill")
                                 }
-                            }) {
-                                Image(systemName: "mappin.circle.fill")
+                                .font(.system(size: 45))
+                                .foregroundColor(Color.black)
                             }
-                            .font(.system(size: 45))
-                            .foregroundColor(Color.black)
-                        }//】 ZStack
+                            .padding([.top], 20)
+                            
+                            // (2) 영일대로 이동 버튼
+                            ZStack{
+                                Circle()
+                                    .fill(Color.white)
+                                    .frame(width: 45, height: 45)
+                                
+                                Button (action: {
+                                    withAnimation(.easeIn){
+                                        manager.region.center = CLLocationCoordinate2D(latitude: 36.058616, longitude: 129.382959)
+                                        manager.region.span = MKCoordinateSpan(
+                                            latitudeDelta: 0.015,
+                                            longitudeDelta: 0.015)
+                                    }
+                                }) {
+                                    Image(systemName: "mappin.circle.fill")
+                                }
+                                .font(.system(size: 45))
+                                .foregroundColor(Color.black)
+                            }//】 ZStack
+                        }
+                        .vTop()
+                        .padding(.top,60)
                         
-                        Spacer()
                     }//】 VStack
                     .padding([.leading], 10)
                     
