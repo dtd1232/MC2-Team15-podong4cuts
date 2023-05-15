@@ -1,28 +1,25 @@
 //
 //  ImageManager.swift
-//  CameraViewFinal
+//  podong4cuts
 //
-//  Created by user on 2023/05/13.
+//  Created by 이승용 on 2023/05/12.
 //
 
 import Photos
 import UIKit
 
-class ImageManager:ObservableObject {
+class ImageManager {
     static let shared = ImageManager()
     
     private let imageManager = PHImageManager()
     var requestImageOption = PHImageRequestOptions()
-    
-    var successHandler: ((UIImage) -> Void)?
-    var errorHandler: ((Error) -> Void)?
-
     
     init() {
         setRequestImageOptions()
     }
     
     func requestImage(from asset: PHAsset, thumbnailSize: CGSize, completion: @escaping (UIImage?) -> Void) {
+        
         self.imageManager.requestImage(for: asset, targetSize: CGSize(width: 120, height: 120), contentMode: .aspectFill, options: requestImageOption) { image, info in
             completion(image)
         }
@@ -36,31 +33,7 @@ class ImageManager:ObservableObject {
     
     func setRequestImageOptions() {
         requestImageOption.isSynchronous = true
-        requestImageOption.deliveryMode = .highQualityFormat
+        requestImageOption.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
         requestImageOption.resizeMode = PHImageRequestOptionsResizeMode.exact
     }
-    
-    func saveSnapShot(snapShot: UIImage, completion: @escaping () -> Void) {
-        UIImageWriteToSavedPhotosAlbum(snapShot, nil, #selector(saveCompleted), nil)
-        completion()
-    }
-
-    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-            if let error = error {
-                errorHandler?(error)
-            } else {
-                successHandler?(image)
-
-            }
-        }
-    
-    
-    func loadPHAsset(completion: @escaping (PHFetchResult<PHAsset>) -> Void) {
-        let fetchOption = PHFetchOptions()
-        fetchOption.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let fetchPhotos = PHAsset.fetchAssets(with: fetchOption)
-        completion(fetchPhotos)
-    }
 }
-
-
