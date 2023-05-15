@@ -156,8 +156,8 @@ struct DetailView: View {
                     // 현재 위치와 스팟 좌표 사이의 거리 반환
                     let distance = compareUserLocation(locationNumber: selectedNumber)
                     
-                    if distance <= 60 {
-                        VM.spotdata[selectedNumber].isOpened = true
+                    if distance <= 60{
+                        VM.openSpotFilter(num: selectedNumber)
                     }
                     
                     VM.spotdata[selectedNumber].isOpened = true
