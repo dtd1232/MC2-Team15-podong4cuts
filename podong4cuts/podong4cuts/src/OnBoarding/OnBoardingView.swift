@@ -25,7 +25,7 @@ struct OnBoardingView: View {
                 .tabViewStyle(PageTabViewStyle())
                 .onAppear {
                     // Set the flag to false after the onboarding has been shown
-                    UserDefaults.standard.set(false, forKey: "onboardingShown")
+                    UserDefaults.standard.set(true, forKey: "onboardingShown")
                     
                 }
             }
