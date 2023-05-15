@@ -14,7 +14,7 @@ struct DetailView: View {
     
     //property
     @ObservedObject var VM: PodongViewModel
-    
+    @EnvironmentObject var cameraViewModel: CameraViewModel
     
     var selectedNumber: Int = 0
    
@@ -160,15 +160,20 @@ struct DetailView: View {
                         VM.openSpotFilter(num: selectedNumber)
                     }
                     
+                    VM.spotdata[selectedNumber].isOpened = true
+                    
                     if VM.spotdata[selectedNumber].isOpened {
                         cameraFrameNumber = selectedNumber
                         dismiss()
-                        showDefaultCameraFrameView = true
-                    }else{
+                        
+                        withAnimation(.easeInOut) {
+                            cameraViewModel.showDefaultCameraFrameView = true
+                        }
+                        
+                    } else {
                         showingBackAlert = true
                     }
 
-                    
                 } label: {
                     RoundedRectangle(cornerRadius: 50)
                         .frame(width: 330, height: 50)
@@ -223,9 +228,10 @@ struct DetailView: View {
                 .padding(.bottom, 5)
                 .vBottom()
             }//】 ZStack
-            NavigationLink("",isActive: $showDefaultCameraFrameView) {
-                DefaultCameraFrameView(selected: selectedNumber)
-            }
+            
+//            NavigationLink("",isActive: $showDefaultCameraFrameView) {
+//                DefaultCameraFrameView(selected: selectedNumber)
+//            }
         }//: VStack
     }//: Body
     

@@ -18,6 +18,8 @@ import RealityKit
 import ARKit
 
 struct YeongilgyoKrabFilterCameraFrameView: View {
+    @EnvironmentObject var cameraViewModel: CameraViewModel
+    
     // cameraview ui
     @State private var shutterEffect = false
     
@@ -34,10 +36,25 @@ struct YeongilgyoKrabFilterCameraFrameView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                
                 VStack(spacing: 0) {
-                    
                     // upper bar
                     HStack {
+                        Button {
+                            withAnimation(.easeInOut) {
+                                cameraViewModel.showDefaultCameraFrameView = false
+                            }
+                            
+                        } label: {
+                            
+                            Image(systemName: "chevron.left")
+                                .resizable()
+                                .foregroundColor(.blue)
+                                .scaledToFit()
+                                .frame(width: 12)
+                                .padding()
+                        }
+                        
                         Spacer()
                             .padding()
                     }
