@@ -16,8 +16,7 @@ struct podong4cutsApp: App {
     var body: some Scene {
         WindowGroup {
             if UserDefaults.standard.bool(forKey: "onboardingShown") {
-//                HomeView(VM: PodongViewModel())
-                SpaceWalkSpaceCameraFrameView()
+                HomeView(VM: PodongViewModel())
                     .environmentObject(CameraViewModel())
             } else {
                 OnBoardingView()
