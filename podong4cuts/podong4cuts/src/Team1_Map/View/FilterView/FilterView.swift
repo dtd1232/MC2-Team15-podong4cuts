@@ -11,6 +11,7 @@ struct FilterListView: View {
     
     //property
     @ObservedObject var VM: PodongViewModel
+    @EnvironmentObject var cameraViewModel: CameraViewModel
     @State var filterNumber: Int = 0
     
     @State private var showingBackAlert = false
