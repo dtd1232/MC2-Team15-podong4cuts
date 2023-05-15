@@ -1,16 +1,18 @@
 //
-//  WhaleTailCameraFrame.swift
+//  ARViewContainer.swift
 //  podong4cuts
 //
-//  Created by user on 2023/05/14.
+//  Created by Song Jihyuk on 2023/05/15.
 //
 
 import SwiftUI
-import PhotosUI
 import RealityKit
 import ARKit
+import PhotosUI
 
-struct WhaleTailCameraFrameView: View {
+
+
+struct ARContainerView: View {
     @EnvironmentObject var cameraViewModel: CameraViewModel
     
     // cameraview ui
@@ -23,12 +25,12 @@ struct WhaleTailCameraFrameView: View {
     
     // photolibraryview
     @State var showPhotoLibrary = false
-    
-    var arViewContainer = WhaleTailWhaleARView()
+    var arViewContainer = ARContainer()
     
     var body: some View {
         NavigationView {
             ZStack {
+                
                 VStack(spacing: 0) {
                     // upper bar
                     HStack {
@@ -113,10 +115,10 @@ struct WhaleTailCameraFrameView: View {
                                 }
                                 
                                 // snapshot
-//                                arViewContainer.arView.snapshot(saveToHDR: false) { image in
-//                                    tempSnapShot = image
-//                                }
-//                                tempSnapShot = arViewContainer.arView.snapshot()
+                                arViewContainer.arView.snapshot(saveToHDR: false) { image in
+                                    tempSnapShot = image
+                                }
+//                                tempSnapShot = arViewContainer.sceneLocationView.snapshot()
                                 showTempSnapShotView = true
                             }
                         } label: {
@@ -175,10 +177,81 @@ struct WhaleTailCameraFrameView: View {
 }
 
 
-struct WhaleTailCameraFrameViewPreview: PreviewProvider {
-    static var previews: some View {
-        CameraFrameView()
+//struct ARContainerView: View {
+//    @EnvironmentObject var cameraViewModel: CameraViewModel
+//
+//    var body: some View {
+//        ARContainer()
+//            .onTapGesture {
+//                cameraViewModel.showDefaultCameraFrameView = false
+//            }
+//    }
+//}
+
+struct ARContainer: UIViewRepresentable {
+    @EnvironmentObject var arViewModel: ARViewModel
+    var arView: ARView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: false)
+
+    func makeUIView(context: Context) -> ARView {
+        
+        arView.setConfiguration(configuration: arViewModel.selectedModel.configuration)
+        
+        if arViewModel.selectedModel.configuration == .FaceTracking {
+            arView.session.delegate = context.coordinator
+         }
+        
+        if arViewModel.selectedModel.configuration == .WorldTracking {
+            arView.environment.lighting.intensityExponent = 2
+            let anchor = arViewModel.addUSDZToAnchorEntity(usdz: arViewModel.selectedModel.usdz)
+            let perspectiveCamera = PerspectiveCamera()
+            let cameraAnchor = AnchorEntity(world: [0,0,0])
+            perspectiveCamera.look(at: [0,0,0], from: arViewModel.selectedModel.cameraPosition, relativeTo: nil)
+            cameraAnchor.addChild(perspectiveCamera)
+            arView.scene.anchors.append(cameraAnchor)
+            arView.scene.anchors.append(anchor)
+        }
+        
+        return arView
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(target: self)
+    }
+    
+    func updateUIView(_ uiView: ARView, context: Context) {
+//        let anchorEntity = arViewModel.addUSDZToAnchorEntity(usdz: arViewModel.selectedModel.usdz)
+        
+        
+//        uiView.scene.anchors.append(anchorEntity)
+    }
+    
+    class Coordinator: NSObject, ARSessionDelegate {
+        var target: ARContainer
+        var usdz: Entity
+        
+        init(target: ARContainer) {
+            self.target = target
+            self.usdz = target.arViewModel.loadEntity(name: target.arViewModel.selectedModel.usdz)
+        }
+        
+        func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+            
+            guard let faceAnchor = anchors.first as? ARFaceAnchor
+            else { return }
+            
+            let anchor1 = AnchorEntity(.face)
+            var anchor2 = AnchorEntity(.face)
+
+            if anchors.count == 2 {
+                anchor2 = AnchorEntity(anchor: anchors[1])
+                
+                anchor2.addChild(usdz)
+            }
+            
+            anchor1.addChild(usdz)
+
+            target.arView.scene.anchors.append(anchor1)
+            target.arView.scene.anchors.append(anchor2)
+        }
     }
 }
-
-

@@ -12,6 +12,7 @@ struct FilterListView: View {
     //property
     @ObservedObject var VM: PodongViewModel
     @EnvironmentObject var cameraViewModel: CameraViewModel
+    @EnvironmentObject var arViewModel: ARViewModel
     @State var filterNumber: Int = 0
     
     @State private var showingBackAlert = false
@@ -53,15 +54,17 @@ struct FilterListView: View {
                         }
                         
                         Text(index.name)
-                        NavigationLink("", isActive: $showDefaultCameraFrameView) {
-                            DefaultCameraFrameView(selected: filterNumber)
-                        }
+//                        NavigationLink("", isActive: $showDefaultCameraFrameView) {
+//                            DefaultCameraFrameView(selected: filterNumber)
+//                        }
                     }//】 VStack
                     .onTapGesture {
                         //TODO: 장소별 필터뷰로 이동하는 코드
                         if VM.spotdata[index.number].isOpened{
                             filterNumber = index.number
-                            showDefaultCameraFrameView = true
+//                            showDefaultCameraFrameView = true
+                            arViewModel.selectModel(number: filterNumber)
+                            cameraViewModel.showDefaultCameraFrameView = true
                         }else{
                             showingBackAlert = true
                         }

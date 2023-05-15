@@ -38,16 +38,11 @@ struct HomeView: View {
                         Text("포동 네컷")
                     }
             }//: TabView
-
-            NavigationView {
-//                DefaultCameraFrameView(selected: cameraViewModel.selectedNumber)
-                NavigationLink("", isActive: $cameraViewModel.showDefaultCameraFrameView) {
-                    DefaultCameraFrameView(selected: cameraViewModel.selectedNumber)
-                }
-
-
+            
+            if cameraViewModel.showDefaultCameraFrameView {
+                DefaultCameraFrameView(selected: cameraViewModel.selectedNumber)
             }
-            .opacity(cameraViewModel.showDefaultCameraFrameView ? 1 : 0)
+            
         }//: ZStack
         
     }//: body

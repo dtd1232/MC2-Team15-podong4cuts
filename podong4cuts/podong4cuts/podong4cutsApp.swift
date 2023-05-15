@@ -18,9 +18,11 @@ struct podong4cutsApp: App {
             if UserDefaults.standard.bool(forKey: "onboardingShown") {
                 HomeView(VM: PodongViewModel())
                     .environmentObject(CameraViewModel())
+                    .environmentObject(ARViewModel())
             } else {
                 OnBoardingView()
                     .environmentObject(CameraViewModel())
+                    .environmentObject(ARViewModel())
             }
         }
     }
