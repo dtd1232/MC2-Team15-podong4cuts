@@ -20,7 +20,7 @@ struct MapView: View {
     //    @State private var reloadMapView = false
     @StateObject var manager = LocationManager()
     @State private var currentLocationManager = CLLocationManager()
-    @State private var annotations: [CoverButton] = []
+//    @State private var annotations: [CoverButton] = []
     
     //goopy's code
     @ObservedObject var VM: PodongViewModel
@@ -33,24 +33,23 @@ struct MapView: View {
     var body: some View {
         NavigationView{
             ZStack{
-                
                 // [2] Map Struct로 구현.
                 Map(coordinateRegion: $manager.region,
                     interactionModes: MapInteractionModes.all,
                     showsUserLocation: true,
                     userTrackingMode: $tracking,
-                    annotationItems: annotations) { locations in
-                    MapAnnotation(coordinate: locations.coordinate) {
-                        CustomCoverButton(VM: self.VM, selectedNumber: locations.selectedNumber)
+                    annotationItems: VM.spotdata) { locations in
+                    MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: locations.latitude, longitude: locations.longitude)) {
+                        CustomCoverButton(VM: self.VM, selectedNumber: locations.number)
                             .onTapGesture {
-                                selectedSpot = VM.spotdata[locations.selectedNumber]
+                                selectedSpot = VM.spotdata[locations.number]
                             }//: onTapDesture
 //                            .scaleEffect(VM.spotdata[locations.selectedNumber].isDetailSheetPresented ? 1 : 0.5)
                     }
                 }
-                    .onAppear {
-                        addAnnotations()
-                    }
+//                    .onAppear {
+//                        addAnnotations()
+//                    }
                     .edgesIgnoringSafeArea(.top)
                 
                 HStack {
@@ -141,47 +140,54 @@ struct MapView: View {
     }//】 func
     
     // 맵핀 배열에 추가하는 함수
-    func addAnnotations(){
-        self.annotations = [
-            
-            //[0] 스페이스워크
-            CoverButton(
-                VM: self.VM,
-                coordinate: CLLocationCoordinate2D(
-                    latitude: self.VM.spotdata[0].latitude,
-                    longitude: self.VM.spotdata[0].longitude), selectedNumber: 0),
-            
-            //[1] 토마틸로
-            CoverButton(
-                VM: self.VM,
-                coordinate: CLLocationCoordinate2D(
-                    latitude: self.VM.spotdata[1].latitude,
-                    longitude: self.VM.spotdata[1].longitude), selectedNumber: 1),
-            
-//            //[2] 오브레맨
+//    func addAnnotations(){
+//        self.annotations = [
+//
+//            //[0] 스페이스워크
+//            CoverButton(
+//                VM: self.VM,
+//                coordinate: CLLocationCoordinate2D(
+//                    latitude: self.VM.spotdata[0].latitude,
+//                    longitude: self.VM.spotdata[0].longitude), selectedNumber: 0),
+//
+//            //[1] 토마틸로
+//            CoverButton(
+//                VM: self.VM,
+//                coordinate: CLLocationCoordinate2D(
+//                    latitude: self.VM.spotdata[1].latitude,
+//                    longitude: self.VM.spotdata[1].longitude), selectedNumber: 1),
+//
+////            //[2] 오브레맨
+////            CoverButton(
+////                VM: self.VM,
+////                coordinate: CLLocationCoordinate2D(
+////                    latitude: self.VM.spotdata[2].latitude,
+////                    longitude: self.VM.spotdata[2].longitude), selectedNumber: 2),
+//
+//            //[2] 영일교
 //            CoverButton(
 //                VM: self.VM,
 //                coordinate: CLLocationCoordinate2D(
 //                    latitude: self.VM.spotdata[2].latitude,
 //                    longitude: self.VM.spotdata[2].longitude), selectedNumber: 2),
-            
-            //[2] 영일교
-            CoverButton(
-                VM: self.VM,
-                coordinate: CLLocationCoordinate2D(
-                    latitude: self.VM.spotdata[2].latitude,
-                    longitude: self.VM.spotdata[2].longitude), selectedNumber: 2),
-            
-            //[3] 고래꼬리
-            CoverButton(
-                VM: self.VM,
-                coordinate: CLLocationCoordinate2D(
-                    latitude: self.VM.spotdata[3].latitude,
-                    longitude: self.VM.spotdata[3].longitude), selectedNumber: 3)
-            
-        ]
-        
-    }//】 func
+//
+//            //[3] 고래꼬리
+//            CoverButton(
+//                VM: self.VM,
+//                coordinate: CLLocationCoordinate2D(
+//                    latitude: self.VM.spotdata[3].latitude,
+//                    longitude: self.VM.spotdata[3].longitude), selectedNumber: 3),
+//
+//            //[4] 테스트 스팟 - C5
+//            CoverButton(
+//                VM: self.VM,
+//                coordinate: CLLocationCoordinate2D(
+//                    latitude: self.VM.spotdata[3].latitude,
+//                    longitude: self.VM.spotdata[3].longitude), selectedNumber: 4),
+//
+//        ]
+//
+//    }//】 func
     
 }
 
