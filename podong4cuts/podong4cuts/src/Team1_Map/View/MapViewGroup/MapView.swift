@@ -72,7 +72,7 @@ struct MapView: View {
                             ZStack{
                                 Circle()
                                     .fill(Color.white)
-                                    .frame(width: 45, height: 45)
+                                    .frame(width: 42, height: 42)
                                 
                                 //TODO : 애플 지도 참조해서 버튼 디자인 리팩토링
                                 Button(action: {
@@ -89,14 +89,14 @@ struct MapView: View {
                             ZStack{
                                 Circle()
                                     .fill(Color.white)
-                                    .frame(width: 45, height: 45)
+                                    .frame(width: 42, height: 42)
                                 
                                 Button (action: {
                                     withAnimation(.easeIn){
                                         manager.region.center = CLLocationCoordinate2D(latitude: 36.058616, longitude: 129.382959)
-                                        manager.region.span = MKCoordinateSpan(
-                                            latitudeDelta: 0.015,
-                                            longitudeDelta: 0.015)
+//                                        manager.region.span = MKCoordinateSpan(
+//                                            latitudeDelta: 0.015,
+//                                            longitudeDelta: 0.015)
                                     }
                                 }) {
                                     Image(systemName: "mappin.circle.fill")
@@ -135,7 +135,9 @@ struct MapView: View {
     func focusOnUserLocation() {
         guard let userLocation = currentLocationManager.location?.coordinate else { return }
         withAnimation(.easeIn){
-            manager.region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
+            manager.region.center = CLLocationCoordinate2D(latitude: userLocation.latitude, longitude: userLocation.longitude)
+//            manager.region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
+            
         }
     }//】 func
     
