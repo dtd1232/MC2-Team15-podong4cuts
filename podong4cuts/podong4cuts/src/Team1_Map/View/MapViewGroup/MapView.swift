@@ -26,6 +26,10 @@ struct MapView: View {
     @ObservedObject var VM: PodongViewModel
     @State private var selectedSpot: AppData? = nil
     //    @State var isDetailSheetPresented : Bool = false
+    @State var showDefaultCameraFrameView = false
+    @State var cameraFrameNumber = 0
+    
+    @EnvironmentObject var cameraViewModel: CameraViewModel
     var body: some View {
         NavigationView{
             ZStack{
@@ -94,12 +98,19 @@ struct MapView: View {
                     .padding([.leading], 10)
                     
                     Spacer()
+//                    NavigationLink("", isActive: $showDefaultCameraFrameView) {
+//                        DefaultCameraFrameView(selected: cameraFrameNumber )
+//                    }
                 }//】 HStack
             }//】 ZStack
         }//】 Navigation
         .sheet(item: $selectedSpot, onDismiss: nil) { data in
-            DetailView(VM: self.VM, selectedNumber: data.number)
+            
+            DetailView(VM: self.VM, selectedNumber: data.number, showDefaultCameraFrameView: $showDefaultCameraFrameView, cameraFrameNumber: $cameraFrameNumber)
                 .presentationDetents([.medium, .large])
+                .onAppear {
+                    cameraViewModel.selectedNumber = data.number
+                }
         }
         
         
@@ -132,26 +143,26 @@ struct MapView: View {
                     latitude: self.VM.spotdata[1].latitude,
                     longitude: self.VM.spotdata[1].longitude), selectedNumber: 1),
             
-            //[2] 오브레맨
+//            //[2] 오브레맨
+//            CoverButton(
+//                VM: self.VM,
+//                coordinate: CLLocationCoordinate2D(
+//                    latitude: self.VM.spotdata[2].latitude,
+//                    longitude: self.VM.spotdata[2].longitude), selectedNumber: 2),
+            
+            //[2] 영일교
             CoverButton(
                 VM: self.VM,
                 coordinate: CLLocationCoordinate2D(
                     latitude: self.VM.spotdata[2].latitude,
                     longitude: self.VM.spotdata[2].longitude), selectedNumber: 2),
             
-            //[3] 영일교
+            //[3] 고래꼬리
             CoverButton(
                 VM: self.VM,
                 coordinate: CLLocationCoordinate2D(
                     latitude: self.VM.spotdata[3].latitude,
-                    longitude: self.VM.spotdata[3].longitude), selectedNumber: 3),
-            
-            //[4] 고래꼬리
-            CoverButton(
-                VM: self.VM,
-                coordinate: CLLocationCoordinate2D(
-                    latitude: self.VM.spotdata[4].latitude,
-                    longitude: self.VM.spotdata[4].longitude), selectedNumber: 4)
+                    longitude: self.VM.spotdata[3].longitude), selectedNumber: 3)
             
         ]
         

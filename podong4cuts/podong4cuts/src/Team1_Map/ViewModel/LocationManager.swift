@@ -20,12 +20,13 @@ class LocationManager: NSObject,CLLocationManagerDelegate, ObservableObject {
         manager.startUpdatingLocation()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        locations.last.map {
-            region = MKCoordinateRegion(
-                center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
-                span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015)
-            )
-        }
-    }
+    //내 위치 변할때마다 실행되는 것 같음
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        locations.last.map {
+//            region = MKCoordinateRegion(
+//                center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
+//                span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015)
+//            )
+//        }
+//    }
 }

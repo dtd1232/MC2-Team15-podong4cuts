@@ -1,40 +1,28 @@
 //
 //  PhotoLibraryView.swift
-//  podong4cuts
+//  CameraViewFinal
 //
-//  Created by 이승용 on 2023/05/12.
+//  Created by user on 2023/05/13.
 //
 
 import SwiftUI
 import PhotosUI
 
 struct PhotoLibraryView: View {
-    @Binding var showPhotoLibrary: Bool
-    var arViewContainer: WhaleTailWhaleARView
+    @State private var loadedItem: PHFetchResult<PHAsset> = PHFetchResult()
+    @State private var showDetailImage = false
+    @State private var detailImage: UIImage?
     
+    var requestImageOption = PHImageRequestOptions()
+//    var arViewContainer: TempARViewContainer
+
     var columns: [GridItem] {
         return Array(repeating: .init(.flexible()), count: 3)
     }
     
-    var loadedItem: PHFetchResult<PHAsset>
-    @State private var showDetailImage = false
-    @State private var detailImageIndex: Int = 0
-    
-    
     var body: some View {
         ZStack {
             VStack {
-                HStack {
-                    Button {
-                        arViewContainer.arView.reRun()
-                        showPhotoLibrary = false
-                    } label: {
-                        Label("Dismiss", systemImage: "arrowshape.backward.fill")
-                    }
-                    
-                    Spacer()
-                }
-                
                 ScrollView {
                     LazyVGrid(columns: columns) {
                         ForEach(0..<loadedItem.count, id: \.self) { index in
@@ -43,7 +31,7 @@ struct PhotoLibraryView: View {
                             if thumbnailImage != nil {
                                 Image(uiImage: thumbnailImage!)
                                     .onTapGesture {
-                                        detailImageIndex = index
+                                        detailImage = fetchDetailImage(index: index)
                                         showDetailImage = true
                                     }
                             } else {
@@ -52,45 +40,29 @@ struct PhotoLibraryView: View {
                             }
                         }
                     }
+                    NavigationLink("", isActive: $showDetailImage) {
+                        DetailImageView(detailImage: detailImage)
+                    }
                 }
             .onAppear {
-                setPhotoLibraryImage() {
-                    
-                }
-            }
-            
-            GeometryReader { geo in
-                let detailImage = fetchDetailImage(index: detailImageIndex)
-                if detailImage != nil {
-                    Image(uiImage: detailImage!)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geo.frame(in: .global).width, height: geo.frame(in: .global).height)
-                        .onTapGesture {
-                            showDetailImage = false
-                        }
-                        .opacity(showDetailImage ? 1 : 0)
-                } else {
-                    Image("ExampleImage")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geo.frame(in: .global).width, height: geo.frame(in: .global).height)
-                        .onTapGesture {
-                            showDetailImage = false
-                        }
-                        .opacity(showDetailImage ? 1 : 0)
-                }
+                setRequestImageOptions()
+                setPhotoLibraryImage()
             }
         }
         .background(.black)
+        .onAppear {
+//            arViewContainer.arView.session.pause()
+        }
+        .onDisappear {
+//            arViewContainer.arView.reRun()
+        }
     }
     
-    func setPhotoLibraryImage(completion: @escaping () -> Void) {
+    func setPhotoLibraryImage() {
         let fetchOption = PHFetchOptions()
         fetchOption.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         let fetchPhotos = PHAsset.fetchAssets(with: fetchOption)
-        print(type(of: fetchPhotos))
-//        loadedItem = fetchPhotos
+        loadedItem = fetchPhotos
     }
     
     func fetchThumbnailImage(index: Int) -> UIImage? {
@@ -105,28 +77,29 @@ struct PhotoLibraryView: View {
             returnImage = image
         }
 
-
-//        print(returnImage)
         return returnImage
     }
     
     func fetchDetailImage(index: Int) -> UIImage? {
-        var returnImage: UIImage?
+        var detailImage: UIImage?
 
         if index > loadedItem.count - 1 {
             print("List index out of bound")
             return nil
         }
         
-//        ImageManager.shared.requestImageOption.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
 
         ImageManager.shared.requestDetailImage(from: loadedItem[index], thumbnailSize: CGSize(width: 40, height: 40)) { image in
-            returnImage = image
+            detailImage = image
         }
-
-
-        print(returnImage)
-        return returnImage!
+        
+        return detailImage!
+    }
+    
+    func setRequestImageOptions() {
+        requestImageOption.isSynchronous = true
+        requestImageOption.deliveryMode = .highQualityFormat
+        requestImageOption.resizeMode = PHImageRequestOptionsResizeMode.exact
     }
 
 }
@@ -152,4 +125,32 @@ extension GridItem: Hashable {
     }
 
 }
+
+
+struct DetailImageView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    @State var detailImage: UIImage?
+    
+    var body: some View {
+        ZStack {
+            Color(.black)
+            
+            if detailImage != nil {
+                Image(uiImage: detailImage!)
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                Image("ExampleImage")
+                    .resizable()
+                    .scaledToFit()
+            }
+        }
+        .ignoresSafeArea(.all)
+        .onTapGesture {
+            dismiss()
+        }
+    }
+}
+
 

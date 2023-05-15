@@ -7,15 +7,21 @@
 
 
 import SwiftUI
+import CoreLocation
 
 struct DetailView: View {
+    @Environment(\.dismiss) var dismiss
     
     //property
     @ObservedObject var VM: PodongViewModel
-    
+    @EnvironmentObject var cameraViewModel: CameraViewModel
     
     var selectedNumber: Int = 0
    
+    @Binding var showDefaultCameraFrameView: Bool
+    @Binding var cameraFrameNumber: Int
+    
+    @State private var showingBackAlert = false
     
     var body: some View {
         VStack{
@@ -92,6 +98,7 @@ struct DetailView: View {
                                 .font(.title3)
                                 .fontWeight(.bold)
                             Text(VM.spotdata[selectedNumber].postScript)
+                                .multilineTextAlignment(.center)
                             
                         }//: VStack
                         .padding()
@@ -144,8 +151,29 @@ struct DetailView: View {
                 .shadow(color: Color.gray.opacity(0.3), radius: 10, y: 3)
                 
                 Button {
-                    VM.spotdata[selectedNumber].isOpened = true
+//                    VM.spotdata[selectedNumber].isOpened = true
                     //TODO: 현재 위치와 비교해서 해금하는 로직 (Noah)
+                    // 현재 위치와 스팟 좌표 사이의 거리 반환
+                    let distance = compareUserLocation(locationNumber: selectedNumber)
+                    
+                    if distance <= 60 {
+                        VM.spotdata[selectedNumber].isOpened = true
+                    }
+                    
+                    VM.spotdata[selectedNumber].isOpened = true
+                    
+                    if VM.spotdata[selectedNumber].isOpened {
+                        cameraFrameNumber = selectedNumber
+                        dismiss()
+                        
+                        withAnimation(.easeInOut) {
+                            cameraViewModel.showDefaultCameraFrameView = true
+                        }
+                        
+                    } else {
+                        showingBackAlert = true
+                    }
+
                 } label: {
                     RoundedRectangle(cornerRadius: 50)
                         .frame(width: 330, height: 50)
@@ -157,23 +185,88 @@ struct DetailView: View {
                                     .font(.title3)
                                     .fontWeight(.bold)
                                 
-                                Text("고래 만나러 가기")
-                                    .foregroundColor(.white)
-                                    .font(.title3)
-                                    .fontWeight(.bold)
+//                                Text("고래 만나러 가기")
+//                                    .foregroundColor(.white)
+//                                    .font(.title3)
+//                                    .fontWeight(.bold)
+                                
+                                switch selectedNumber{
+                                case 0:
+                                    Text("과메기 대가리")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                case 1:
+                                    Text("멕시칸 코스프레")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                case 2:
+                                    Text("게 잡으러 가기")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                case 3:
+                                    Text("고래 만나러 가기")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                default:
+                                    Text("과메기 만나러 가기")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                }
                             }
                         }
                 }//】 Button
+                .alert(isPresented: $showingBackAlert) {
+                    
+                    Alert(title: Text("위치 인증 실패"), message: Text("더 가까이 이동 후 다시 시도하세요"), dismissButton: .default(Text("확인")))
+                    
+                }
                 .padding(.bottom, 5)
                 .vBottom()
             }//】 ZStack
+            
+//            NavigationLink("",isActive: $showDefaultCameraFrameView) {
+//                DefaultCameraFrameView(selected: selectedNumber)
+//            }
         }//: VStack
     }//: Body
-}
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(VM: PodongViewModel(), selectedNumber: 0)
-           
+    
+    // 유저 위치 반환하는 함수
+    func getUserLocationCoordinate() -> CLLocationCoordinate2D {
+        let locationManager = CLLocationManager()
+        let location = locationManager.location
+        
+        return location!.coordinate
+    }
+    
+    // 현재 유저 위치와 스팟 위치 비교하는 함수
+    func compareUserLocation(locationNumber: Int) -> Double {
+        // 현재 유저 위치 받아오기: CLLocationCoordinate2D
+        let userCoordinate = getUserLocationCoordinate()
+        
+        print(userCoordinate)
+        
+        let userLocation = CLLocation(latitude: userCoordinate.latitude, longitude: userCoordinate.longitude)
+        // 스팟 좌표 갖고 오기
+        let spotLocation = CLLocation(latitude: self.VM.spotdata[locationNumber].latitude, longitude: self.VM.spotdata[locationNumber].longitude)
+        
+        // 유저위치와 스팟 위치 비교하기
+        let distanceInMeters = userLocation.distance(from: spotLocation)
+        
+        print(distanceInMeters)
+        
+        return distanceInMeters
     }
 }
+
+//struct DetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailView(VM: PodongViewModel(), selectedNumber: 0, showDefaultCameraFrameView: 3)
+//        DetailView(VM: PodongViewModel(), showDefaultCameraFrameView: <#T##Binding<Bool>#>, cameraFrameNumber: <#T##Binding<Int>#>)
+           
+//    }
+//}
