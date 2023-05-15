@@ -42,7 +42,6 @@ struct MapView: View {
                         CustomCoverButton(VM: self.VM, selectedNumber: locations.selectedNumber)
                             .onTapGesture {
                                 selectedSpot = VM.spotdata[locations.selectedNumber]
-                                VM.spotdata[locations.selectedNumber].isDetailSheetPresented.toggle()
                             }//: onTapDesture
 //                            .scaleEffect(VM.spotdata[locations.selectedNumber].isDetailSheetPresented ? 1 : 0.5)
                     }
