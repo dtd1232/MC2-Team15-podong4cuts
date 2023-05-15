@@ -17,8 +17,10 @@ struct podong4cutsApp: App {
         WindowGroup {
             if UserDefaults.standard.bool(forKey: "onboardingShown") {
                 HomeView(VM: PodongViewModel())
+                    .environmentObject(CameraViewModel())
             } else {
                 OnBoardingView()
+                    .environmentObject(CameraViewModel())
             }
         }
     }

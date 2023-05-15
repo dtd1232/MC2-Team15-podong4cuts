@@ -11,6 +11,8 @@ import RealityKit
 import ARKit
 
 struct SpaceWalkSpaceCameraFrameView: View {
+    @EnvironmentObject var cameraViewModel: CameraViewModel
+    
     // cameraview ui
     @State private var shutterEffect = false
     
@@ -31,6 +33,22 @@ struct SpaceWalkSpaceCameraFrameView: View {
                     
                     // upper bar
                     HStack {
+                        
+                        Button {
+                            withAnimation(.easeInOut) {
+                                cameraViewModel.showDefaultCameraFrameView = false
+                            }
+                            
+                        } label: {
+                            
+                            Image(systemName: "chevron.left")
+                                .resizable()
+                                .foregroundColor(.blue)
+                                .scaledToFit()
+                                .frame(width: 12)
+                                .padding()
+                        }
+                        
                         Spacer()
                             .padding()
                     }
@@ -159,7 +177,6 @@ struct SpaceWalkSpaceCameraFrameView: View {
         }
     }
 }
-
 
 struct SpaeceWalkSpaceCameraFrameViewPreview: PreviewProvider {
     static var previews: some View {

@@ -10,13 +10,14 @@ import SwiftUI
 struct HomeView: View {
     // property
         @ObservedObject var VM: PodongViewModel
+    @EnvironmentObject var cameraViewModel: CameraViewModel
 
 //        init() {
 //            UITabBar.appearance().backgroundColor = UIColor.red
 //        }
         
-        var body: some View {
-
+    var body: some View {
+        ZStack {
             TabView{
                 
                 //1. MapView
@@ -40,8 +41,12 @@ struct HomeView: View {
                         Text("포동 네컷")
                     }
             }//: TabView
-        }//: body
-    }
+            
+            DefaultCameraFrameView(selected: cameraViewModel.selectedNumber)
+            .opacity(cameraViewModel.showDefaultCameraFrameView ? 1 : 0)
+        }//: ZStack
+    }//: body
+}
 
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {

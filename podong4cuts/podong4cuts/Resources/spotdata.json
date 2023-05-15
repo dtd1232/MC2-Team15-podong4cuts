@@ -9,9 +9,8 @@
         "gallary": ["spacewalk-1", "spacewalk-2", "spacewalk-3"],
         "cover" : "cover-spacewalk",
         "isOpened" : false,
-        "isDetailSheetPresented" : false,
-        "latitude" : 36.06437,
-        "longitude" : 129.38937
+        "latitude" : 36.06520,
+        "longitude" : 129.39036
     },
     
     {
@@ -24,7 +23,6 @@
         "gallary": ["tomatilo-1", "tomatilo-2"],
         "cover" : "cover-tomatilo",
         "isOpened" : false,
-        "isDetailSheetPresented" : false,
         "latitude" : 36.0643,
         "longitude" : 129.3875
     },
@@ -39,7 +37,6 @@
         "gallary": ["bridge-1", "bridge-2"],
         "cover" : "cover-bridge",
         "isOpened" : false,
-        "isDetailSheetPresented" : false,
         "latitude" : 36.06154,
         "longitude" : 129.38298
     },
@@ -54,7 +51,6 @@
         "gallary": ["whale-1", "whale-2"],
         "cover" : "cover-whale",
         "isOpened" : false,
-        "isDetailSheetPresented" : false,
         "latitude" : 36.0528,
         "longitude" : 129.3783
     },
@@ -69,7 +65,6 @@
         "gallary": ["whale-1", "whale-2"],
         "cover" : "cover-whale",
         "isOpened" : false,
-        "isDetailSheetPresented" : false,
         "latitude" : 36.0141,
         "longitude" : 129.3257
     }

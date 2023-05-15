@@ -1,8 +1,8 @@
 //
-//  SpaceWalkSpaceARView.swift
+//  Tomatillo.swift
 //  podong4cuts
 //
-//  Created by Song Jihyuk on 2023/05/10.
+//  Created by Song Jihyuk on 2023/05/11.
 //
 
 import ARKit
@@ -11,13 +11,8 @@ import SwiftUI
 
 struct SpaceWalkSpaceARView: UIViewRepresentable {
     let arView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: false)
-//    let sauryHead = try! Entity.load(named: "sauryHead")
-//    let sauryHead2 = try! Entity.load(named: "sauryHead")
-//    let sauryHead3 = try! Entity.load(named: "sauryHead")
-    
-    let sauryHead = try! Entity.load(named: "SpaceWalkAstronaut")
-    let sauryHead2 = try! Entity.load(named: "SpaceWalkAstronaut")
-    let sauryHead3 = try! Entity.load(named: "SpaceWalkAstronaut")
+    let mask = try! Entity.load(named: "sauryHead")
+    let mask2 = try! Entity.load(named: "sauryHead")
     
     func makeUIView(context: Context) -> ARView {
         let faceTrackingConfiguration = ARFaceTrackingConfiguration()
@@ -51,11 +46,11 @@ struct SpaceWalkSpaceARView: UIViewRepresentable {
             if anchors.count == 2 {
                 anchor2 = AnchorEntity(anchor: anchors[1])
                 
-                anchor2.addChild(target.sauryHead2)
+                anchor2.addChild(target.mask2)
                 
             }
             
-            anchor1.addChild(target.sauryHead)
+            anchor1.addChild(target.mask)
 
             target.arView.scene.anchors.append(anchor1)
             target.arView.scene.anchors.append(anchor2)
@@ -66,3 +61,7 @@ struct SpaceWalkSpaceARView: UIViewRepresentable {
         
     }
 }
+
+
+
+
