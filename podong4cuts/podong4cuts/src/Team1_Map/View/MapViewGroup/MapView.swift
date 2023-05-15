@@ -28,6 +28,8 @@ struct MapView: View {
     //    @State var isDetailSheetPresented : Bool = false
     @State var showDefaultCameraFrameView = false
     @State var cameraFrameNumber = 0
+    
+    @EnvironmentObject var cameraViewModel: CameraViewModel
     var body: some View {
         NavigationView{
             ZStack{
@@ -96,15 +98,19 @@ struct MapView: View {
                     .padding([.leading], 10)
                     
                     Spacer()
-                    NavigationLink("", isActive: $showDefaultCameraFrameView) {
-                        DefaultCameraFrameView(selected: cameraFrameNumber )
-                    }
+//                    NavigationLink("", isActive: $showDefaultCameraFrameView) {
+//                        DefaultCameraFrameView(selected: cameraFrameNumber )
+//                    }
                 }//】 HStack
             }//】 ZStack
         }//】 Navigation
         .sheet(item: $selectedSpot, onDismiss: nil) { data in
+            
             DetailView(VM: self.VM, selectedNumber: data.number, showDefaultCameraFrameView: $showDefaultCameraFrameView, cameraFrameNumber: $cameraFrameNumber)
                 .presentationDetents([.medium, .large])
+                .onAppear {
+                    cameraViewModel.selectedNumber = data.number
+                }
         }
         
         

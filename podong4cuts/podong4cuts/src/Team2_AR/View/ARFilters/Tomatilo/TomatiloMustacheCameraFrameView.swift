@@ -11,6 +11,8 @@ import RealityKit
 import ARKit
 
 struct TomatiloMustacheCameraFrameView: View {
+    @EnvironmentObject var cameraViewModel: CameraViewModel
+    
     // cameraview ui
     @State private var shutterEffect = false
     
@@ -31,13 +33,26 @@ struct TomatiloMustacheCameraFrameView: View {
                     
                     // upper bar
                     HStack {
+                        Button {
+                            withAnimation(.easeInOut) {
+                                cameraViewModel.showDefaultCameraFrameView = false
+                            }
+                            
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .resizable()
+                                .foregroundColor(.blue)
+                                .scaledToFit()
+                                .frame(width: 12)
+                                .padding()
+                        }
+                        
                         Spacer()
                             .padding()
                     }
                     .padding(.top, 40)
                     .frame(maxWidth: .infinity)
                     .background(.black)
-                    
                     
                     // middle arview
                     GeometryReader { proxy in
