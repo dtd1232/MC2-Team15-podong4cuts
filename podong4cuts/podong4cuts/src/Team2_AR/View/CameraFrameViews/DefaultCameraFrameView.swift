@@ -16,7 +16,7 @@ struct DefaultCameraFrameView: View {
         case 1:
             TomatiloMustacheCameraFrameView()
         case 2:
-            YeongilgyoKrabFilterView()
+            YeongilgyoKrabFilterCameraFrameView()
         case 3:
             WhaleTailCameraFrameView()
         default:
