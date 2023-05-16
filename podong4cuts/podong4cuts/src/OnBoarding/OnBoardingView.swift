@@ -10,6 +10,7 @@ import SwiftUI
 struct OnBoardingView: View {
     @State private var selection = 0
     @State private var showOnBoarding = true
+    @ObservedObject var VM: PodongViewModel
     var body: some View {
         if showOnBoarding {
             ZStack {
@@ -25,12 +26,12 @@ struct OnBoardingView: View {
                 .tabViewStyle(PageTabViewStyle())
                 .onAppear {
                     // Set the flag to false after the onboarding has been shown
-                    UserDefaults.standard.set(false, forKey: "onboardingShown")
+                    UserDefaults.standard.set(true, forKey: "onboardingShown")
                     
                 }
             }
         } else {
-            HomeView(VM: PodongViewModel())
+            HomeView(VM: VM)
         }
     }
 }

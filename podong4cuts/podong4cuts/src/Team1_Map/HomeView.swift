@@ -9,9 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     // property
-        @ObservedObject var VM: PodongViewModel
+    @ObservedObject var VM: PodongViewModel
     @EnvironmentObject var cameraViewModel: CameraViewModel
 
+//        init() {
+//            UITabBar.appearance().backgroundColor = UIColor.red
+//        }
         
     var body: some View {
         ZStack {

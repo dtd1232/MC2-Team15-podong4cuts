@@ -36,16 +36,17 @@ struct FourCutStudioView: View {
         VStack{
             
             ZStack{
-                
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)
-                    .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
+                    .shadow(color: Color(hex: "000000", opacity: 0.2),radius: 10)
+                    .frame(width: 340,height: 50)
                 
                 Text("포동네컷을 완성해보세요!")
-                
-                
             }
-            .padding()
+            .vTop()
+            .hCenter()
+            .padding(.top,10)
+            
                 
             
             //MARK: - 네컷 프레임

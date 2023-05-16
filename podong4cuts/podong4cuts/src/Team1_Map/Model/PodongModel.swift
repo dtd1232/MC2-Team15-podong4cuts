@@ -19,7 +19,6 @@ struct AppData: Identifiable, Codable, Hashable {
     let gallary : [String]
     let cover : String
     var isOpened: Bool
-    var isDetailSheetPresented: Bool
     let latitude: Double
     let longitude: Double
    
@@ -34,7 +33,6 @@ struct AppData: Identifiable, Codable, Hashable {
         gallary: ["spacewalk-1", "spacewalk-2", "spacewalk-3"],
         cover : "cover-spacewalk",
         isOpened: false,
-        isDetailSheetPresented: false,
         latitude: 36.06149,
         longitude: 129.38306
     )//: Sample
