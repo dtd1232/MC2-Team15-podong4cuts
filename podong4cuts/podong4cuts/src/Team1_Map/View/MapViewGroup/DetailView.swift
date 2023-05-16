@@ -5,7 +5,6 @@
 //  Created by Koo on 2023/05/04.
 //
 
-
 import SwiftUI
 import CoreLocation
 
@@ -20,9 +19,10 @@ struct DetailView: View {
     var selectedNumber: Int = 0
    
     @Binding var showDefaultCameraFrameView: Bool
-    @Binding var cameraFrameNumber: Int
     
     @State private var showingBackAlert = false
+    @State private var copiedText = ""
+    @State var showCopiedAlert: Bool = false
     
     var body: some View {
         VStack{
@@ -31,6 +31,7 @@ struct DetailView: View {
             HStack{
                 //이름& 해시태그
                 VStack{
+                    // 이름
                     HStack{
                         Text(VM.spotdata[selectedNumber].name)
                             .font(.title)
@@ -44,15 +45,27 @@ struct DetailView: View {
                                 VM.spotdata[selectedNumber].isOpened ? .gray.opacity(0.1) : .gray.opacity(0.9)
                             )
                             .animation(.easeInOut(duration: 0.2), value: VM.spotdata[selectedNumber].isOpened)
+                        Spacer()
+                    }//】 HStack
+                    
+                    HStack(spacing: 7){
+                        // 해시태그
+                        Text(VM.spotdata[selectedNumber].hashtag1)
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                            .padding(.horizontal,10)
+                            .background(Color.blue.opacity(0.1))
+                            .cornerRadius(5)
                         
-                        
+                        Text(VM.spotdata[selectedNumber].hashtag2)
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                            .padding(.horizontal,10)
+                            .background(Color.blue.opacity(0.1))
+                            .cornerRadius(5)
                         Spacer()
                         
                     }//】 HStack
-                    Text(VM.spotdata[selectedNumber].hashtag)
-                        .font(.headline)
-                        .foregroundColor(.gray.opacity(0.8))
-                        .hLeading()
                 }//: VStack
                 
                 // 남은거리
@@ -74,6 +87,7 @@ struct DetailView: View {
                 
             }//: HStack (프로필 상단영역)
             .padding()
+            .padding(.leading, 10)
             .background(.white)
             .shadow(color: Color.gray.opacity(0.2), radius: 10, y:5)
             
@@ -82,67 +96,111 @@ struct DetailView: View {
                 ScrollView(showsIndicators: false){
                     VStack(spacing: 5){
                         //1. 사진
-                        TabView{
-                            ForEach(VM.spotdata[selectedNumber].gallary, id:\.self){index in
-                                Image(index)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .scaledToFill()
-                            }//: Loop
-                        }//: TabView
-                        .tabViewStyle(.page)
-                        .frame(width: 350, height: 350)
-                        .clipShape (RoundedRectangle(cornerRadius: 15))
-                        Spacer()
-                        
-                        //2. 후기
-                        VStack(spacing: 10){
-                            Text("[ 포동 후기 ]")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                            Text(VM.spotdata[selectedNumber].postScript)
-                                .multilineTextAlignment(.center)
+                        VStack{
                             
-                        }//: VStack
+                            HStack{
+                                Text("필터 예시")
+                                    .font(.headline)
+                                    .fontWeight(.heavy)
+                                
+                               
+                                Spacer()
+                            }
+                            
+                            TabView{
+                                ForEach(VM.spotdata[selectedNumber].gallary, id:\.self){index in
+                                    Image(index)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .scaledToFill()
+                                }//: Loop
+                            }//: TabView
+                            .tabViewStyle(.page)
+                            .frame(width: 300, height: 350)
+                            .clipShape (RoundedRectangle(cornerRadius: 15))
+                            .padding(.top,5)
+                            Spacer()
+                            
+                        }//】 VStack
                         .padding()
                         .frame(width: 350)
                         .background(.white)
                         .cornerRadius(15)
                         
                         
-                        Spacer()
+                        //2. 후기
+                        HStack{
+                            Text("포동 후기")
+                                .font(.headline)
+                                .fontWeight(.heavy)
+                                
+                            Text("•")
+                                .font(.title)
+                                .foregroundColor(Color.gray.opacity(0.3))
+                            
+                            // 니들이 게맛을 알아!
+                            Text(VM.spotdata[selectedNumber].postScript)
+                                .font(.footnote)
+                                .fontWeight(.bold)
+                                .foregroundColor(.gray)
+                            Spacer()
+                            
+                        }//: VStack
+                        
+                        .padding()
+                        .frame(width: 350, height: 70)
+                        .background(.white)
+                        .cornerRadius(15)
+                        
+                        
+                        
                         
                         //3. 상세위치
                         ZStack{
-                            VStack(spacing: 10){
-                                Text("[ 스팟 주소 ]")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                ZStack{
-                                    Text(VM.spotdata[selectedNumber].location)
-                                        .hCenter()
+                            HStack{
+                                Text("스팟 주소")
+                                    .font(.headline)
+                                    .fontWeight(.heavy)
+                                
+                                Text("•")
+                                    .font(.title)
+                                    .foregroundColor(Color.gray.opacity(0.3))
                                     
+                                
+                                Text(VM.spotdata[selectedNumber].location)
+                                // 경북 포항시 북구...
+                                    .font(.footnote)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.gray)
+                                    
+                            }//】 HStack
+                            .hLeading()
+                                
+                            
+                            
+                            // Copy Button
+                            Button {
+                                copiedText = VM.spotdata[selectedNumber].location
+                                UIPasteboard.general.string = copiedText
+                                showCopiedAlert.toggle()
+                            } label: {
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(Color.gray.opacity(0.2))
+                                        .frame(width: 40, height: 40)
+                                    Image(systemName: "doc.on.doc.fill")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.gray)
                                 }//: ZStack
-                            }//: VStack
+                                .hTrailing()
+                            }//】 Button
+                            .alert(isPresented: $showCopiedAlert){
+                                Alert(title: Text("주소가 복사 되었습니다. ").font(.headline))
+                            }
                             
-//                            Button {
-//                                <#code#>
-//                            } label: {
-//                                ZStack{
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .foregroundColor(Color.gray.opacity(0.2))
-//                                        .frame(width: 40, height: 50)
-//                                    Image(systemName: "doc.on.doc.fill")
-//                                        .fontWeight(.heavy)
-//                                        .foregroundColor(.gray)
-//                                }//: ZStack
-//                                .frame(width: 40)
-//                                .hTrailing()
-//                            }
-                            
-                        }//: ZStack
+                        }//: HStack
                         .padding(20)
-                        .frame(width: 350)
+                        .frame(width: 350, height: 70)
                         .background(.white)
                         .cornerRadius(15)
                         .padding(.bottom, 100)
@@ -166,7 +224,6 @@ struct DetailView: View {
                     VM.spotdata[selectedNumber].isOpened = true
                     
                     if VM.spotdata[selectedNumber].isOpened {
-                        cameraFrameNumber = selectedNumber
                         dismiss()
                         
                         cameraViewModel.showDefaultCameraFrameView = true
@@ -182,6 +239,7 @@ struct DetailView: View {
                 } label: {
                     RoundedRectangle(cornerRadius: 50)
                         .frame(width: 330, height: 50)
+                        .foregroundColor(Color.green)
                         .overlay {
                             HStack(spacing: 30){
                                 
@@ -190,38 +248,38 @@ struct DetailView: View {
                                     .font(.title3)
                                     .fontWeight(.bold)
                                 
-//                                Text("고래 만나러 가기")
-//                                    .foregroundColor(.white)
-//                                    .font(.title3)
-//                                    .fontWeight(.bold)
+                                Text("필터 사용하기")
+                                    .foregroundColor(.white)
+                                    .font(.title3)
+                                    .fontWeight(.bold)
                                 
-                                switch selectedNumber{
-                                case 0:
-                                    Text("과메기 대가리")
-                                        .foregroundColor(.white)
-                                        .font(.title3)
-                                        .fontWeight(.bold)
-                                case 1:
-                                    Text("멕시칸 코스프레")
-                                        .foregroundColor(.white)
-                                        .font(.title3)
-                                        .fontWeight(.bold)
-                                case 2:
-                                    Text("게 잡으러 가기")
-                                        .foregroundColor(.white)
-                                        .font(.title3)
-                                        .fontWeight(.bold)
-                                case 3:
-                                    Text("고래 만나러 가기")
-                                        .foregroundColor(.white)
-                                        .font(.title3)
-                                        .fontWeight(.bold)
-                                default:
-                                    Text("과메기 만나러 가기")
-                                        .foregroundColor(.white)
-                                        .font(.title3)
-                                        .fontWeight(.bold)
-                                }
+//                                switch selectedNumber{
+//                                case 0:
+//                                    Text("과메기 대가리")
+//                                        .foregroundColor(.white)
+//                                        .font(.title3)
+//                                        .fontWeight(.bold)
+//                                case 1:
+//                                    Text("멕시칸 코스프레")
+//                                        .foregroundColor(.white)
+//                                        .font(.title3)
+//                                        .fontWeight(.bold)
+//                                case 2:
+//                                    Text("게 잡으러 가기")
+//                                        .foregroundColor(.white)
+//                                        .font(.title3)
+//                                        .fontWeight(.bold)
+//                                case 3:
+//                                    Text("고래 만나러 가기")
+//                                        .foregroundColor(.white)
+//                                        .font(.title3)
+//                                        .fontWeight(.bold)
+//                                default:
+//                                    Text("과메기 만나러 가기")
+//                                        .foregroundColor(.white)
+//                                        .font(.title3)
+//                                        .fontWeight(.bold)
+//                                }
                             }
                         }
                 }//】 Button
@@ -233,10 +291,7 @@ struct DetailView: View {
                 .padding(.bottom, 5)
                 .vBottom()
             }//】 ZStack
-            
-//            NavigationLink("",isActive: $showDefaultCameraFrameView) {
-//                DefaultCameraFrameView(selected: selectedNumber)
-//            }
+
         }//: VStack
     }//: Body
     
@@ -268,10 +323,9 @@ struct DetailView: View {
     }
 }
 
-//struct DetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailView(VM: PodongViewModel(), selectedNumber: 0, showDefaultCameraFrameView: 3)
-//        DetailView(VM: PodongViewModel(), showDefaultCameraFrameView: <#T##Binding<Bool>#>, cameraFrameNumber: <#T##Binding<Int>#>)
-           
-//    }
-//}
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailView(VM: PodongViewModel(), selectedNumber: 0, showDefaultCameraFrameView: .constant(true))
+        
+    }
+}

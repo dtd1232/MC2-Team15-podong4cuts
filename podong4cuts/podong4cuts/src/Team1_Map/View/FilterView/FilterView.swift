@@ -4,7 +4,6 @@
 //
 //  Created by Koo on 2023/05/05.
 //
-
 import SwiftUI
 
 struct FilterListView: View {
@@ -24,14 +23,15 @@ struct FilterListView: View {
     @State private var showDefaultCameraFrameView = false
     
     var body: some View {
-            VStack{
+        NavigationView {
+            ZStack{
                 ZStack{
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundColor(.white)
                         .shadow(color: Color(hex: "000000", opacity: 0.2),radius: 10)
-                        .frame(width:340 , height: 50)
+                        .frame(width:340 , height: 40)
                     
-                    Text("Open된 필터로 바로 이동 가능해요!")
+                    Text(" 📣 Open된 필터로 바로 이동 가능해요!")
                 }//】 ZStack
                 .vTop()
                 .hCenter()
@@ -71,6 +71,12 @@ struct FilterListView: View {
                                 Text(index.name)
                             }
                     }//】 VStack
+                        .padding(.top, 18)
+                        .frame(width: 160, height: 200)
+                        .background(.white)
+                        .cornerRadius(15)
+                        .shadow(color: Color.gray.opacity(0.3), radius: 10, y: 3)
+                        .padding(.vertical, 5)
                         .onTapGesture {
                             //TODO: 장소별 필터뷰로 이동하는 코드
                             if VM.spotdata[index.number].isOpened{
@@ -84,13 +90,15 @@ struct FilterListView: View {
                         }
                         .alert(isPresented: $showingBackAlert) {
                             
-                            Alert(title: Text("필터가 아직 해금되지 않았습니다"), message: Text("해당 스팟에 가서 위치 인증 후 사용할 수 있습니다."), dismissButton: .default(Text("확인")))
+                            Alert(title: Text("필터가 닫혀있어요!"), message: Text("해당 스팟에 가서 \n위치를 인증해 주세요."), dismissButton: .default(Text("확인")))
                             
                         }
                     }//】 Loop
                 }//】 Grid
-                .padding(.horizontal)
-            }
+                .vCenter()
+            }//】 ZStack
+            .padding(.horizontal,15)
+        }// NavigationView
     }//】 Body
 }
 
@@ -99,4 +107,3 @@ struct FilterListView_Previews: PreviewProvider {
         FilterListView(VM: PodongViewModel())
     }
 }
-
