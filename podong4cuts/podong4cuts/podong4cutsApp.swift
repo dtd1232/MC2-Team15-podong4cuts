@@ -16,11 +16,11 @@ struct podong4cutsApp: App {
     var body: some Scene {
         WindowGroup {
             if UserDefaults.standard.bool(forKey: "onboardingShown") {
-                HomeView(VM: PodongViewModel())
+                HomeView(VM: VM)
                     .environmentObject(CameraViewModel())
                     .environmentObject(ARViewModel())
             } else {
-                OnBoardingView()
+                OnBoardingView(VM: VM)
                     .environmentObject(CameraViewModel())
                     .environmentObject(ARViewModel())
             }
