@@ -40,28 +40,37 @@ struct FilterListView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(VM.spotdata){ index in
                         VStack{
-                                ZStack{
-                                    Color.gray.opacity(0.5)
-
-                                    Image(systemName: "lock.fill")
-                                        .font(.title)
-                                        .foregroundColor(.black.opacity(0.3))
-
+                            if index.number == 4 { // 아이팜은 이스터 에그로 빼놓기
+                                
+                            }
+                            else {
+                                if index.isOpened == false{
+                                    ZStack{
+                                        Color.gray.opacity(0.5)
+                                        
+                                        Image(systemName: "lock.fill")
+                                            .font(.title)
+                                            .foregroundColor(.black.opacity(0.3))
+                                        
+                                        Image(index.cover)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .opacity(index.isOpened ? 1.0 : 0)
+                                        
+                                    }//】 ZStack
+                                    .frame(width: 170, height: 180)
+                                    .cornerRadius(15)
+                                }else{
                                     Image(index.gallary[0])
                                         .resizable()
                                         .scaledToFill()
-                                        .opacity(index.isOpened ? 1.0 : 0)
-
-                                }//】 ZStack
-                                .frame(width: 140, height: 140)
-                                .cornerRadius(15)
-                            
-                            Text(index.name)
-                            
-                            NavigationLink("", isActive: $showDefaultCameraFrameView) {
-                                DefaultCameraFrameView(selected: filterNumber)
+                                        .frame(width: 170, height: 180)
+                                        .cornerRadius(15)
+                                }
+                                
+                                Text(index.name)
                             }
-                        }//】 VStack
+                    }//】 VStack
                         .padding(.top, 18)
                         .frame(width: 160, height: 200)
                         .background(.white)

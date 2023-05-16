@@ -55,6 +55,8 @@
 		6787A3722A0E0AA500CB9942 /* JsonDecodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6787A3712A0E0AA500CB9942 /* JsonDecodeExtension.swift */; };
 		67C474AB2A1394D90013B9B8 /* FrameChooseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C474AA2A1394D90013B9B8 /* FrameChooseButtonView.swift */; };
 		67F6D69C2A0E1F6200D71F21 /* OB.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 67F6D6982A0E1F6200D71F21 /* OB.rcproject */; };
+		CE5AA3ED2A13ACD9004E52ED /* AppleCharacter.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CE5AA3EC2A13ACD9004E52ED /* AppleCharacter.usdz */; };
+		CE5AA3FD2A13D148004E52ED /* iFarmMentors.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CE5AA3FC2A13D148004E52ED /* iFarmMentors.usdz */; };
 		CEE627D42A0FA32C00C21080 /* TempSnapShotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627D32A0FA32C00C21080 /* TempSnapShotView.swift */; };
 		CEE627D62A0FA3BD00C21080 /* TempARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627D52A0FA3BD00C21080 /* TempARViewContainer.swift */; };
 		CEE627E82A0FF65200C21080 /* WhalTaileCameraFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE627E72A0FF65200C21080 /* WhalTaileCameraFrameView.swift */; };
@@ -134,6 +136,8 @@
 		6787A3712A0E0AA500CB9942 /* JsonDecodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecodeExtension.swift; sourceTree = "<group>"; };
 		67C474AA2A1394D90013B9B8 /* FrameChooseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameChooseButtonView.swift; sourceTree = "<group>"; };
 		67F6D6982A0E1F6200D71F21 /* OB.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = OB.rcproject; sourceTree = "<group>"; };
+		CE5AA3EC2A13ACD9004E52ED /* AppleCharacter.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = AppleCharacter.usdz; sourceTree = "<group>"; };
+		CE5AA3FC2A13D148004E52ED /* iFarmMentors.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = iFarmMentors.usdz; sourceTree = "<group>"; };
 		CEE627D32A0FA32C00C21080 /* TempSnapShotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempSnapShotView.swift; sourceTree = "<group>"; };
 		CEE627D52A0FA3BD00C21080 /* TempARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempARViewContainer.swift; sourceTree = "<group>"; };
 		CEE627E72A0FF65200C21080 /* WhalTaileCameraFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhalTaileCameraFrameView.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				30105C212A12C53900B17FD8 /* WhaleAR.usdz */,
 				67F6D6982A0E1F6200D71F21 /* OB.rcproject */,
 				CEE627FC2A10A11B00C21080 /* SpaceWalkAstronaut.usdz */,
+				CE5AA3EC2A13ACD9004E52ED /* AppleCharacter.usdz */,
+				CE5AA3FC2A13D148004E52ED /* iFarmMentors.usdz */,
 			);
 			path = ModelAssets;
 			sourceTree = "<group>";
@@ -582,6 +588,8 @@
 				CEE627FD2A10A11B00C21080 /* SpaceWalkAstronaut.usdz in Resources */,
 				6787A3082A0D00A100CB9942 /* Preview Assets.xcassets in Resources */,
 				30105C222A12C53900B17FD8 /* WhaleAR.usdz in Resources */,
+				CE5AA3ED2A13ACD9004E52ED /* AppleCharacter.usdz in Resources */,
+				CE5AA3FD2A13D148004E52ED /* iFarmMentors.usdz in Resources */,
 				676FFF562A0E0D3900115F2E /* spotdata.json in Resources */,
 				30105C302A1369F600B17FD8 /* Krab.usdz in Resources */,
 				3074E58B2A10A193008A9C6C /* Mask.usdz in Resources */,

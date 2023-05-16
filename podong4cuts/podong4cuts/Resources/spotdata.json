@@ -61,11 +61,10 @@
     
     {
         "number": 4,
-        "id": "test",
-        "name": "씨파",
-        "hashtag1":"#애플디벨로퍼아카데미",
-        "hashtag2":"#포스텍",
-        "postScript": "글로벌 개발자 타이쿤! ⭐️⭐️⭐️⭐️⭐️",
+        "id": "iFarm",
+        "name": "아이팜",
+        "hashtag":"#애플디벨로퍼아카데미 #포스텍",
+        "postScript": "⭐️⭐️⭐️⭐️⭐️\n글로벌 개발자 타이쿤",
         "location": "경북 포항시 남구 포항공과대학",
         "gallary": ["whale-1", "whale-2"],
         "cover" : "cover-whale",

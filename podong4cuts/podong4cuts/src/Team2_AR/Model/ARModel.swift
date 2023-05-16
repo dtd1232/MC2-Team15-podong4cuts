@@ -24,6 +24,7 @@ enum Configuration {
 let arModels: [ARModel] = [ARModel(name: "SpaceWalk", usdz: "sauryHead", configuration: .FaceTracking, cameraPosition: [0,0,0]),
                            ARModel(name: "Tomatillo", usdz: "Mask", configuration: .FaceTracking, cameraPosition: [0,0,0]),
                            ARModel(name: "Yeongilgyo", usdz: "Krab", configuration: .WorldTracking, cameraPosition: [0,0,-30]),
-                           ARModel(name: "WhaleTail", usdz: "WhaleAR", configuration: .WorldTracking, cameraPosition: [0,-1,-6])
+                           ARModel(name: "WhaleTail", usdz: "WhaleAR", configuration: .WorldTracking, cameraPosition: [0,-1,-6]),
+                           ARModel(name: "iFarm", usdz: "iFarmMentors", configuration: .WorldTracking, cameraPosition: [0,0,0])
                            ]
         
