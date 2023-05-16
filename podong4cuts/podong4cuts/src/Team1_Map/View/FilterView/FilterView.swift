@@ -24,10 +24,7 @@ struct FilterListView: View {
     @State private var showDefaultCameraFrameView = false
     
     var body: some View {
-        
-        NavigationView {
             VStack{
-                
                 ZStack{
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundColor(.white)
@@ -92,9 +89,6 @@ struct FilterListView: View {
                 }//】 Grid
                 .padding(.horizontal)
             }
-            
-        }// NavigationView
-        
     }//】 Body
 }
 
