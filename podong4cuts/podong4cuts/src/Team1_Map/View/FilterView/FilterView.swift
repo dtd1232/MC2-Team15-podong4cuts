@@ -11,6 +11,8 @@ struct FilterListView: View {
     
     //property
     @ObservedObject var VM: PodongViewModel
+    @EnvironmentObject var cameraViewModel: CameraViewModel
+    @EnvironmentObject var arViewModel: ARViewModel
     @State var filterNumber: Int = 0
     
     @State private var showingBackAlert = false
@@ -64,22 +66,21 @@ struct FilterListView: View {
                                     .frame(width: 170, height: 180)
                                     .cornerRadius(15)
                             }
-                            
-                            Text(index.name)
-                            NavigationLink("", isActive: $showDefaultCameraFrameView) {
-                                DefaultCameraFrameView(selected: filterNumber)
-                            }
-                        }//】 VStack
-                        .onTapGesture {
-                            //TODO: 장소별 필터뷰로 이동하는 코드
-                            if VM.spotdata[index.number].isOpened{
-                                filterNumber = index.number
-                                showDefaultCameraFrameView = true
-                            }else{
-                                showingBackAlert = true
-                            }
-                            
-                        }
+                                                    
+                        Text(index.name)
+//                        NavigationLink("", isActive: $showDefaultCameraFrameView) {
+//                            DefaultCameraFrameView(selected: filterNumber)
+//                        }
+                    }//】 VStack
+                    .onTapGesture {
+                        //TODO: 장소별 필터뷰로 이동하는 코드
+                        if VM.spotdata[index.number].isOpened{
+                            filterNumber = index.number
+//                            showDefaultCameraFrameView = true
+                            arViewModel.selectModel(number: filterNumber)
+                            cameraViewModel.showDefaultCameraFrameView = true
+                        }else{
+                            showingBackAlert = true
                         .alert(isPresented: $showingBackAlert) {
                             
                             Alert(title: Text("필터가 아직 해금되지 않았습니다"), message: Text("해당 스팟에 가서 위치 인증 후 사용할 수 있습니다."), dismissButton: .default(Text("확인")))

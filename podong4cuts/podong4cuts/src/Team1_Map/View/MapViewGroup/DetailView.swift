@@ -15,6 +15,7 @@ struct DetailView: View {
     //property
     @ObservedObject var VM: PodongViewModel
     @EnvironmentObject var cameraViewModel: CameraViewModel
+    @EnvironmentObject var arViewModel: ARViewModel
     
     var selectedNumber: Int = 0
    
@@ -170,6 +171,9 @@ struct DetailView: View {
                         
                         withAnimation(.easeInOut) {
                             cameraViewModel.showDefaultCameraFrameView = true
+                            arViewModel.selectedNumber = selectedNumber
+                            arViewModel.selectModel(number: selectedNumber)
+                            
                         }
                         
                     } else {

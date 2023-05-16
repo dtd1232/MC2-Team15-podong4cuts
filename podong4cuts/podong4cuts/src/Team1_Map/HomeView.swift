@@ -19,21 +19,21 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             TabView{
-                
+
                 //1. MapView
                 MapView(VM: self.VM)
                     .tabItem{
                         Image(systemName: "map.fill")
                         Text("영일대 맵")
                     }
-                
+
                 //2. ImageListView
                 FilterListView(VM: self.VM)
                     .tabItem{
                         Image(systemName: "photo.fill.on.rectangle.fill")
                         Text("필터")
                     }
-                
+
                 //3. FourCutView
                 FourCutStudioView()
                     .tabItem{
@@ -42,9 +42,12 @@ struct HomeView: View {
                     }
             }//: TabView
             
-            DefaultCameraFrameView(selected: cameraViewModel.selectedNumber)
-            .opacity(cameraViewModel.showDefaultCameraFrameView ? 1 : 0)
+            if cameraViewModel.showDefaultCameraFrameView {
+                DefaultCameraFrameView(selected: cameraViewModel.selectedNumber)
+            }
+            
         }//: ZStack
+        
     }//: body
 }
 

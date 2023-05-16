@@ -116,7 +116,7 @@ struct WhaleTailCameraFrameView: View {
 //                                arViewContainer.arView.snapshot(saveToHDR: false) { image in
 //                                    tempSnapShot = image
 //                                }
-                                tempSnapShot = arViewContainer.sceneLocationView.snapshot()
+//                                tempSnapShot = arViewContainer.arView.snapshot()
                                 showTempSnapShotView = true
                             }
                         } label: {
