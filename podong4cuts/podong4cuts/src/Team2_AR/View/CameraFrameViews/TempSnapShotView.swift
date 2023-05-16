@@ -26,7 +26,7 @@ struct TempSnapShotView: View {
                         .resizable()
                         .scaledToFit()
                 } else {
-                    Image("ExampleCat")
+                    Image(systemName: "photo.fill")
                         .resizable()
                         .scaledToFit()
                 }
@@ -34,6 +34,16 @@ struct TempSnapShotView: View {
                 
                 // bottom button bar
                 HStack(alignment: .center) {
+                    // delete button
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("삭제 하기")
+                    }
+                    .padding()
+                    .background(.gray.opacity(0.7))
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .foregroundColor(.red)
                     
                     // save button
                     Button {
@@ -41,25 +51,14 @@ struct TempSnapShotView: View {
                         thumbnail = tempSnapShot
                         dismiss()
                     } label : {
-                        Text("Save")
+                        Text("앨범에 저장")
                     }
                     .padding()
                     .background(.blue)
                     .foregroundColor(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                    
-                    
-                    // delete button
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("Delete")
-                    }
-                    .padding()
-                    .background(.secondary)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .foregroundColor(.white)
                 }
+                .fixedSize(horizontal: true, vertical: true)
             }
         }
         .ignoresSafeArea(.all)

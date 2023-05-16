@@ -57,7 +57,7 @@ struct ARContainerView: View {
                         Button {
                             
                         } label: {
-                            Label("Relocate AR", systemImage: "arrow.clockwise")
+                            Label("AR 재배치하기", systemImage: "arrow.clockwise")
                                 .foregroundColor(.white)
                                 .padding(10)
                                 .background(.white.opacity(0.3))
