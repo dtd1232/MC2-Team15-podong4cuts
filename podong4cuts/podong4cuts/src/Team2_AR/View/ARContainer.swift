@@ -82,7 +82,7 @@ struct ARContainerView: View {
                             Button {
                                 showPhotoLibrary = true
                             } label: {
-                                Image("ExampleCat")
+                                Image(systemName: "photo.stack")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 65, height: 65)
@@ -133,9 +133,15 @@ struct ARContainerView: View {
                         
                         Spacer()
                         
-                        // fake button for center alignment
-                        Button("") {
+                        // camera orientation switch button
+                        Button {
                             
+                        } label: {
+                            Image(systemName: "repeat")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                                
                         }
                         .frame(width: 65, height: 65)
                     }
