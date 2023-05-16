@@ -26,7 +26,7 @@ class ARViewModel: ObservableObject {
         
         return entity
     }
-    
+        
     func addUSDZToAnchorEntity(usdz: String) -> AnchorEntity {
         let anchorEntity = AnchorEntity(world: [0,0,0])
         anchorEntity.addChild(loadEntity(name: usdz))
