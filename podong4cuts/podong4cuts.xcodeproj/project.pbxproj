@@ -10,6 +10,7 @@
 		30105BEE2A127E5100B17FD8 /* ARContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30105BED2A127E5100B17FD8 /* ARContainer.swift */; };
 		30105C1C2A12C3A000B17FD8 /* sauryHead.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C1B2A12C3A000B17FD8 /* sauryHead.usdz */; };
 		30105C222A12C53900B17FD8 /* WhaleAR.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C212A12C53900B17FD8 /* WhaleAR.usdz */; };
+		30105C302A1369F600B17FD8 /* Krab.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C2F2A1369F600B17FD8 /* Krab.usdz */; };
 		3074E5532A0FA774008A9C6C /* OhBremenToyARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E54E2A0FA774008A9C6C /* OhBremenToyARView.swift */; };
 		3074E5542A0FA774008A9C6C /* TomatilloMustacheARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E54F2A0FA774008A9C6C /* TomatilloMustacheARView.swift */; };
 		3074E5552A0FA774008A9C6C /* SpaceWalkSpaceARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E5502A0FA774008A9C6C /* SpaceWalkSpaceARView.swift */; };
@@ -19,7 +20,6 @@
 		3074E57E2A103653008A9C6C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E57D2A103653008A9C6C /* OnBoardingView.swift */; };
 		3074E5802A103673008A9C6C /* OnBoardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E57F2A103673008A9C6C /* OnBoardingPage.swift */; };
 		3074E5832A103949008A9C6C /* OnBoardingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E5822A103949008A9C6C /* OnBoardingButtonView.swift */; };
-		3074E5872A109AE3008A9C6C /* Krab.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3074E5862A109AE3008A9C6C /* Krab.usdz */; };
 		3074E58B2A10A193008A9C6C /* Mask.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3074E58A2A10A193008A9C6C /* Mask.usdz */; };
 		3074E58D2A120D72008A9C6C /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E58C2A120D72008A9C6C /* CameraViewModel.swift */; };
 		3074E5902A12659B008A9C6C /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E58F2A12659B008A9C6C /* ARViewModel.swift */; };
@@ -86,6 +86,7 @@
 		30105BED2A127E5100B17FD8 /* ARContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainer.swift; sourceTree = "<group>"; };
 		30105C1B2A12C3A000B17FD8 /* sauryHead.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = sauryHead.usdz; sourceTree = "<group>"; };
 		30105C212A12C53900B17FD8 /* WhaleAR.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = WhaleAR.usdz; sourceTree = "<group>"; };
+		30105C2F2A1369F600B17FD8 /* Krab.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Krab.usdz; sourceTree = "<group>"; };
 		3074E54E2A0FA774008A9C6C /* OhBremenToyARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OhBremenToyARView.swift; sourceTree = "<group>"; };
 		3074E54F2A0FA774008A9C6C /* TomatilloMustacheARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TomatilloMustacheARView.swift; sourceTree = "<group>"; };
 		3074E5502A0FA774008A9C6C /* SpaceWalkSpaceARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceWalkSpaceARView.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		3074E57D2A103653008A9C6C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		3074E57F2A103673008A9C6C /* OnBoardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage.swift; sourceTree = "<group>"; };
 		3074E5822A103949008A9C6C /* OnBoardingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButtonView.swift; sourceTree = "<group>"; };
-		3074E5862A109AE3008A9C6C /* Krab.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Krab.usdz; sourceTree = "<group>"; };
 		3074E58A2A10A193008A9C6C /* Mask.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Mask.usdz; sourceTree = "<group>"; };
 		3074E58C2A120D72008A9C6C /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		3074E58F2A12659B008A9C6C /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
@@ -201,8 +201,8 @@
 		676FFF582A0E109C00115F2E /* ModelAssets */ = {
 			isa = PBXGroup;
 			children = (
-				3074E5862A109AE3008A9C6C /* Krab.usdz */,
 				30105C1B2A12C3A000B17FD8 /* sauryHead.usdz */,
+				30105C2F2A1369F600B17FD8 /* Krab.usdz */,
 				3074E58A2A10A193008A9C6C /* Mask.usdz */,
 				30105C212A12C53900B17FD8 /* WhaleAR.usdz */,
 				67F6D6982A0E1F6200D71F21 /* OB.rcproject */,
@@ -577,10 +577,10 @@
 			files = (
 				30105C1C2A12C3A000B17FD8 /* sauryHead.usdz in Resources */,
 				CEE627FD2A10A11B00C21080 /* SpaceWalkAstronaut.usdz in Resources */,
-				3074E5872A109AE3008A9C6C /* Krab.usdz in Resources */,
 				6787A3082A0D00A100CB9942 /* Preview Assets.xcassets in Resources */,
 				30105C222A12C53900B17FD8 /* WhaleAR.usdz in Resources */,
 				676FFF562A0E0D3900115F2E /* spotdata.json in Resources */,
+				30105C302A1369F600B17FD8 /* Krab.usdz in Resources */,
 				3074E58B2A10A193008A9C6C /* Mask.usdz in Resources */,
 				6787A3052A0D00A100CB9942 /* Assets.xcassets in Resources */,
 			);
