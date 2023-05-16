@@ -72,15 +72,17 @@ struct FilterListView: View {
 //                            DefaultCameraFrameView(selected: filterNumber)
 //                        }
                     }//】 VStack
-                    .onTapGesture {
-                        //TODO: 장소별 필터뷰로 이동하는 코드
-                        if VM.spotdata[index.number].isOpened{
-                            filterNumber = index.number
-//                            showDefaultCameraFrameView = true
-                            arViewModel.selectModel(number: filterNumber)
-                            cameraViewModel.showDefaultCameraFrameView = true
-                        }else{
-                            showingBackAlert = true
+                        .onTapGesture {
+                            //TODO: 장소별 필터뷰로 이동하는 코드
+                            if VM.spotdata[index.number].isOpened{
+                                filterNumber = index.number
+                                //                            showDefaultCameraFrameView = true
+                                arViewModel.selectModel(number: filterNumber)
+                                cameraViewModel.showDefaultCameraFrameView = true
+                            }else{
+                                showingBackAlert = true
+                            }
+                        }
                         .alert(isPresented: $showingBackAlert) {
                             
                             Alert(title: Text("필터가 아직 해금되지 않았습니다"), message: Text("해당 스팟에 가서 위치 인증 후 사용할 수 있습니다."), dismissButton: .default(Text("확인")))

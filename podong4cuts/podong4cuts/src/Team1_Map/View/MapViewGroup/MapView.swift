@@ -119,7 +119,6 @@ struct MapView: View {
             }//】 ZStack
         }//】 Navigation
         .sheet(item: $selectedSpot, onDismiss: nil) { data in
-            
             DetailView(VM: self.VM, selectedNumber: data.number, showDefaultCameraFrameView: $showDefaultCameraFrameView, cameraFrameNumber: $cameraFrameNumber)
                 .presentationDetents([.medium, .large])
                 .onAppear {

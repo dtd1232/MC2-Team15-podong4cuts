@@ -169,12 +169,11 @@ struct DetailView: View {
                         cameraFrameNumber = selectedNumber
                         dismiss()
                         
-                        withAnimation(.easeInOut) {
-                            cameraViewModel.showDefaultCameraFrameView = true
-                            arViewModel.selectedNumber = selectedNumber
-                            arViewModel.selectModel(number: selectedNumber)
+                        cameraViewModel.showDefaultCameraFrameView = true
+                        arViewModel.selectedNumber = selectedNumber
+                        arViewModel.selectModel(number: selectedNumber)
                             
-                        }
+                        
                         
                     } else {
                         showingBackAlert = true
