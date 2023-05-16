@@ -65,7 +65,7 @@ struct DetailView: View {
 
                         let distance = compareUserLocation(locationNumber: selectedNumber)
                         
-                        Text("%.0fm")
+                        Text(String(format: "%.1fkm", distance/1000))
                             .font(.title3)
                             .fontWeight(.heavy)
                             .foregroundColor(Color.gray.opacity(0.9))
