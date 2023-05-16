@@ -200,16 +200,16 @@ struct ARContainer: UIViewRepresentable {
             arView.session.delegate = context.coordinator
          }
         
-        if arViewModel.selectedModel.configuration == .WorldTracking {
+//        if arViewModel.selectedModel.configuration == .WorldTracking {
             arView.environment.lighting.intensityExponent = 2
             let anchor = arViewModel.addUSDZToAnchorEntity(usdz: arViewModel.selectedModel.usdz)
-            let perspectiveCamera = PerspectiveCamera()
+//            let perspectiveCamera = PerspectiveCamera()
             let cameraAnchor = AnchorEntity(world: [0,0,0])
-            perspectiveCamera.look(at: [0,0,0], from: arViewModel.selectedModel.cameraPosition, relativeTo: nil)
-            cameraAnchor.addChild(perspectiveCamera)
+//            perspectiveCamera.look(at: [0,0,0], from: arViewModel.selectedModel.cameraPosition, relativeTo: nil)
+//            cameraAnchor.addChild(perspectiveCamera)
             arView.scene.anchors.append(cameraAnchor)
             arView.scene.anchors.append(anchor)
-        }
+//        }
         
         return arView
     }
