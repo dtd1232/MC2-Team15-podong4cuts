@@ -10,5 +10,7 @@ import SwiftUI
 class CameraViewModel: ObservableObject {
     @Published var selectedNumber: Int = 0
 //    @Published var
-    @Published var showDefaultCameraFrameView: Bool = false
+    @Published var showDefaultCameraFrameView = false
+    @Published var isClicked = false
 }
+

@@ -10,6 +10,7 @@ import SwiftUI
 struct OnBoardingView: View {
     @State private var selection = 0
     @State private var showOnBoarding = true
+    @ObservedObject var VM: PodongViewModel
     var body: some View {
         if showOnBoarding {
             ZStack {
@@ -30,7 +31,7 @@ struct OnBoardingView: View {
                 }
             }
         } else {
-            HomeView(VM: PodongViewModel())
+            HomeView(VM: VM)
         }
     }
 }

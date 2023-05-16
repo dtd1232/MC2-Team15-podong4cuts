@@ -14,6 +14,7 @@ struct DetailView: View {
     //property
     @ObservedObject var VM: PodongViewModel
     @EnvironmentObject var cameraViewModel: CameraViewModel
+    @EnvironmentObject var arViewModel: ARViewModel
     
     var selectedNumber: Int = 0
    
@@ -77,9 +78,9 @@ struct DetailView: View {
 
                         let distance = compareUserLocation(locationNumber: selectedNumber)
                         
-                        Text("%.0fm")
-                            .font(.headline)
-                            .fontWeight(.bold)
+                        Text(String(format: "%.1fkm", distance/1000))
+                            .font(.title3)
+                            .fontWeight(.heavy)
                             .foregroundColor(Color.gray.opacity(0.9))
                     }//: HStack
                 }//: ZStack (남은거리)
@@ -225,9 +226,11 @@ struct DetailView: View {
                     if VM.spotdata[selectedNumber].isOpened {
                         dismiss()
                         
-                        withAnimation(.easeInOut) {
-                            cameraViewModel.showDefaultCameraFrameView = true
-                        }
+                        cameraViewModel.showDefaultCameraFrameView = true
+                        arViewModel.selectedNumber = selectedNumber
+                        arViewModel.selectModel(number: selectedNumber)
+                            
+                        
                         
                     } else {
                         showingBackAlert = true

@@ -15,10 +15,7 @@ struct SpaceWalkSpaceARView: UIViewRepresentable {
     let mask2 = try! Entity.load(named: "sauryHead")
     
     func makeUIView(context: Context) -> ARView {
-        let faceTrackingConfiguration = ARFaceTrackingConfiguration()
-        faceTrackingConfiguration.maximumNumberOfTrackedFaces = 3
         
-        arView.session.run(faceTrackingConfiguration)
         arView.session.delegate = context.coordinator
         
         return arView

@@ -10,17 +10,19 @@ import SwiftUI
 @main
 struct podong4cutsApp: App {
     // property
-    @StateObject var VM: PodongViewModel = PodongViewModel()
+    var VM: PodongViewModel = PodongViewModel()
     
     
     var body: some Scene {
         WindowGroup {
             if UserDefaults.standard.bool(forKey: "onboardingShown") {
-                HomeView(VM: PodongViewModel())
+                HomeView(VM: VM)
                     .environmentObject(CameraViewModel())
+                    .environmentObject(ARViewModel())
             } else {
-                OnBoardingView()
+                OnBoardingView(VM: VM)
                     .environmentObject(CameraViewModel())
+                    .environmentObject(ARViewModel())
             }
         }
     }

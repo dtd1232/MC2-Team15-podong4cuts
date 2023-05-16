@@ -36,6 +36,7 @@ struct TomatiloMustacheCameraFrameView: View {
                         Button {
                             withAnimation(.easeInOut) {
                                 cameraViewModel.showDefaultCameraFrameView = false
+                            
                             }
                             
                         } label: {
