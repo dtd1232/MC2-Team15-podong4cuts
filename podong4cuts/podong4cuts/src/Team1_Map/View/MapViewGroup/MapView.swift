@@ -4,7 +4,6 @@
 //
 //  Created by BAE on 2023/05/05.
 //
-
 import SwiftUI
 import MapKit
 import CoreLocation
@@ -60,9 +59,9 @@ struct MapView: View {
                             RoundedRectangle(cornerRadius: 16)
                                 .foregroundColor(.white)
                                 .shadow(color: Color(hex: "000000", opacity: 0.2),radius: 10)
-                                .frame(width:340, height: 50)
+                                .frame(width:340, height: 40)
                             
-                            Text("필터 스팟으로 이동해주세요!")
+                            Text(" 📣 필터 스팟으로 이동해주세요!")
                         }// 상단 안내문
                         .vTop()
                         .hCenter()
@@ -121,7 +120,7 @@ struct MapView: View {
         }//】 Navigation
         .sheet(item: $selectedSpot, onDismiss: nil) { data in
             
-            DetailView(VM: self.VM, selectedNumber: data.number, showDefaultCameraFrameView: $showDefaultCameraFrameView, cameraFrameNumber: $cameraFrameNumber)
+            DetailView(VM: self.VM, selectedNumber: data.number, showDefaultCameraFrameView: $showDefaultCameraFrameView)
                 .presentationDetents([.medium, .large])
                 .onAppear {
                     cameraViewModel.selectedNumber = data.number
@@ -191,4 +190,3 @@ struct MapView_Previews: PreviewProvider {
         MapView(VM: PodongViewModel())
     }
 }
-

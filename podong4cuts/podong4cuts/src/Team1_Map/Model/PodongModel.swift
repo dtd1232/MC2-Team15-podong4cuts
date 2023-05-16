@@ -13,7 +13,8 @@ struct AppData: Identifiable, Codable, Hashable {
     let number : Int
     var id : String
     let name : String
-    let hashtag : String
+    let hashtag1 : String
+    let hashtag2 : String
     let postScript : String
     let location : String
     let gallary : [String]
@@ -27,7 +28,8 @@ struct AppData: Identifiable, Codable, Hashable {
         number: 0,
         id: "spacewalk",
         name: "스페이스워크",
-        hashtag:"#스페이스워크 #스페이스워크",
+        hashtag1:"#스페이스워크",
+        hashtag2:"#스페이스워크",
         postScript: "스페이스워크 후기 ⭐️⭐️⭐️⭐️⭐️",
         location: "스페이스워크 주소",
         gallary: ["spacewalk-1", "spacewalk-2", "spacewalk-3"],

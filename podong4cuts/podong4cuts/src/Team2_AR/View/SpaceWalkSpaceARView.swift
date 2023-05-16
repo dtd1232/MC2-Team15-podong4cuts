@@ -44,7 +44,7 @@ struct SpaceWalkSpaceARView: UIViewRepresentable {
             var anchor2 = AnchorEntity(.face)
 
             if anchors.count == 2 {
-                anchor2 = AnchorEntity(anchor: anchors[1])
+//                anchor2 = AnchorEntity(anchor: anchors[1])
                 
                 anchor2.addChild(target.mask2)
                 
