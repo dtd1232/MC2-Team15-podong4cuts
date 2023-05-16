@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ARModel {
     let name: String
-    let usdz: String
-    let configuration: Configuration
-    let cameraPosition: SIMD3<Float>
+    let faceUsdz: String
+    let worldUsdz: String
+    var configuration: Configuration
+    let cameraPosition: Float
 }
 
 
@@ -21,9 +22,9 @@ enum Configuration {
 }
 
 
-let arModels: [ARModel] = [ARModel(name: "SpaceWalk", usdz: "sauryHead", configuration: .FaceTracking, cameraPosition: [0,0,0]),
-                           ARModel(name: "Tomatillo", usdz: "Mask", configuration: .FaceTracking, cameraPosition: [0,0,0]),
-                           ARModel(name: "Yeongilgyo", usdz: "Krab", configuration: .WorldTracking, cameraPosition: [0,0,-30]),
-                           ARModel(name: "WhaleTail", usdz: "WhaleAR", configuration: .WorldTracking, cameraPosition: [0,-1,-6])
+let arModels: [ARModel] = [ARModel(name: "SpaceWalk", faceUsdz: "sauryHead", worldUsdz: "MoonReality", configuration: .FaceTracking, cameraPosition: 1),
+                           ARModel(name: "Tomatillo", faceUsdz: "Mask", worldUsdz: "Mask_WorldConfiguration", configuration: .FaceTracking, cameraPosition: 1),
+                           ARModel(name: "Yeongilgyo", faceUsdz: "sauryHead", worldUsdz: "sauryHead", configuration: .WorldTracking, cameraPosition: 1),
+                           ARModel(name: "WhaleTail", faceUsdz: "WhaleAR 2", worldUsdz: "WhaleAR", configuration: .WorldTracking, cameraPosition: 10)
                            ]
         

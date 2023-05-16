@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		30105BEE2A127E5100B17FD8 /* ARContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30105BED2A127E5100B17FD8 /* ARContainer.swift */; };
 		30105C1C2A12C3A000B17FD8 /* sauryHead.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C1B2A12C3A000B17FD8 /* sauryHead.usdz */; };
-		30105C222A12C53900B17FD8 /* WhaleAR.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C212A12C53900B17FD8 /* WhaleAR.usdz */; };
-		30105C302A1369F600B17FD8 /* Krab.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C2F2A1369F600B17FD8 /* Krab.usdz */; };
+		30105C3A2A13AB0F00B17FD8 /* Krab.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C392A13AB0F00B17FD8 /* Krab.usdz */; };
+		30105C402A13BDE400B17FD8 /* Mask_WorldConfiguration.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C3F2A13BDE400B17FD8 /* Mask_WorldConfiguration.usdz */; };
+		30105C542A13D23400B17FD8 /* WhaleTail_FaceConfiguration.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C532A13D23400B17FD8 /* WhaleTail_FaceConfiguration.usdz */; };
+		30105C782A13FD4800B17FD8 /* WhaleAR 2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C762A13FD4800B17FD8 /* WhaleAR 2.usdz */; };
+		30105C792A13FD4800B17FD8 /* WhaleAR.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 30105C772A13FD4800B17FD8 /* WhaleAR.usdz */; };
+		30105C802A141D4B00B17FD8 /* WhaleReality.reality in Resources */ = {isa = PBXBuildFile; fileRef = 30105C7F2A141D4B00B17FD8 /* WhaleReality.reality */; };
+		30105C9B2A1442C700B17FD8 /* MoonReality.reality in Resources */ = {isa = PBXBuildFile; fileRef = 30105C9A2A1442C700B17FD8 /* MoonReality.reality */; };
 		3074E5532A0FA774008A9C6C /* OhBremenToyARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E54E2A0FA774008A9C6C /* OhBremenToyARView.swift */; };
 		3074E5542A0FA774008A9C6C /* TomatilloMustacheARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E54F2A0FA774008A9C6C /* TomatilloMustacheARView.swift */; };
 		3074E5552A0FA774008A9C6C /* SpaceWalkSpaceARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074E5502A0FA774008A9C6C /* SpaceWalkSpaceARView.swift */; };
@@ -85,8 +90,13 @@
 /* Begin PBXFileReference section */
 		30105BED2A127E5100B17FD8 /* ARContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainer.swift; sourceTree = "<group>"; };
 		30105C1B2A12C3A000B17FD8 /* sauryHead.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = sauryHead.usdz; sourceTree = "<group>"; };
-		30105C212A12C53900B17FD8 /* WhaleAR.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = WhaleAR.usdz; sourceTree = "<group>"; };
-		30105C2F2A1369F600B17FD8 /* Krab.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Krab.usdz; sourceTree = "<group>"; };
+		30105C392A13AB0F00B17FD8 /* Krab.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Krab.usdz; sourceTree = "<group>"; };
+		30105C3F2A13BDE400B17FD8 /* Mask_WorldConfiguration.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Mask_WorldConfiguration.usdz; sourceTree = "<group>"; };
+		30105C532A13D23400B17FD8 /* WhaleTail_FaceConfiguration.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = WhaleTail_FaceConfiguration.usdz; sourceTree = "<group>"; };
+		30105C762A13FD4800B17FD8 /* WhaleAR 2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = "WhaleAR 2.usdz"; path = "../../../../../../../WhaleAR 2.usdz"; sourceTree = "<group>"; };
+		30105C772A13FD4800B17FD8 /* WhaleAR.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = WhaleAR.usdz; path = ../../../../../../../WhaleAR.usdz; sourceTree = "<group>"; };
+		30105C7F2A141D4B00B17FD8 /* WhaleReality.reality */ = {isa = PBXFileReference; lastKnownFileType = file; name = WhaleReality.reality; path = ../../../../../../../WhaleReality.reality; sourceTree = "<group>"; };
+		30105C9A2A1442C700B17FD8 /* MoonReality.reality */ = {isa = PBXFileReference; lastKnownFileType = file; name = MoonReality.reality; path = ../../../../../../../../Downloads/MoonReality.reality; sourceTree = "<group>"; };
 		3074E54E2A0FA774008A9C6C /* OhBremenToyARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OhBremenToyARView.swift; sourceTree = "<group>"; };
 		3074E54F2A0FA774008A9C6C /* TomatilloMustacheARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TomatilloMustacheARView.swift; sourceTree = "<group>"; };
 		3074E5502A0FA774008A9C6C /* SpaceWalkSpaceARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceWalkSpaceARView.swift; sourceTree = "<group>"; };
@@ -201,10 +211,15 @@
 		676FFF582A0E109C00115F2E /* ModelAssets */ = {
 			isa = PBXGroup;
 			children = (
+				30105C7F2A141D4B00B17FD8 /* WhaleReality.reality */,
 				30105C1B2A12C3A000B17FD8 /* sauryHead.usdz */,
-				30105C2F2A1369F600B17FD8 /* Krab.usdz */,
+				30105C762A13FD4800B17FD8 /* WhaleAR 2.usdz */,
+				30105C9A2A1442C700B17FD8 /* MoonReality.reality */,
+				30105C772A13FD4800B17FD8 /* WhaleAR.usdz */,
+				30105C532A13D23400B17FD8 /* WhaleTail_FaceConfiguration.usdz */,
+				30105C3F2A13BDE400B17FD8 /* Mask_WorldConfiguration.usdz */,
+				30105C392A13AB0F00B17FD8 /* Krab.usdz */,
 				3074E58A2A10A193008A9C6C /* Mask.usdz */,
-				30105C212A12C53900B17FD8 /* WhaleAR.usdz */,
 				67F6D6982A0E1F6200D71F21 /* OB.rcproject */,
 				CEE627FC2A10A11B00C21080 /* SpaceWalkAstronaut.usdz */,
 			);
@@ -575,13 +590,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30105C792A13FD4800B17FD8 /* WhaleAR.usdz in Resources */,
 				30105C1C2A12C3A000B17FD8 /* sauryHead.usdz in Resources */,
+				30105C402A13BDE400B17FD8 /* Mask_WorldConfiguration.usdz in Resources */,
+				30105C542A13D23400B17FD8 /* WhaleTail_FaceConfiguration.usdz in Resources */,
 				CEE627FD2A10A11B00C21080 /* SpaceWalkAstronaut.usdz in Resources */,
+				30105C9B2A1442C700B17FD8 /* MoonReality.reality in Resources */,
 				6787A3082A0D00A100CB9942 /* Preview Assets.xcassets in Resources */,
-				30105C222A12C53900B17FD8 /* WhaleAR.usdz in Resources */,
 				676FFF562A0E0D3900115F2E /* spotdata.json in Resources */,
-				30105C302A1369F600B17FD8 /* Krab.usdz in Resources */,
+				30105C782A13FD4800B17FD8 /* WhaleAR 2.usdz in Resources */,
+				30105C3A2A13AB0F00B17FD8 /* Krab.usdz in Resources */,
 				3074E58B2A10A193008A9C6C /* Mask.usdz in Resources */,
+				30105C802A141D4B00B17FD8 /* WhaleReality.reality in Resources */,
 				6787A3052A0D00A100CB9942 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

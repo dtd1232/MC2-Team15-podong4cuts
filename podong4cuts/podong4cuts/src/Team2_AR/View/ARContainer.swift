@@ -10,12 +10,13 @@ import RealityKit
 import ARKit
 import PhotosUI
 
-
-
 struct ARContainerView: View {
     @EnvironmentObject var cameraViewModel: CameraViewModel
+    @EnvironmentObject var arViewModel: ARViewModel
     // cameraview ui
     @State private var shutterEffect = false
+    
+    @State private var disable = true
     
     // tempsnapshotview
     @State var thumbnail: UIImage?
@@ -29,7 +30,6 @@ struct ARContainerView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                
                 VStack(spacing: 0) {
                     // upper bar
                     HStack {
@@ -46,15 +46,14 @@ struct ARContainerView: View {
                                 .scaledToFit()
                                 .frame(width: 12)
                                 .padding()
-                            
-                            
                         }
-                        
+                    
                         Spacer()
                             .padding()
                         
                         // relocate AR butotn
                         Button {
+                                arViewModel.relocateAR(arView: arViewContainer.arView)
                             
                         } label: {
                             Label("Relocate AR", systemImage: "arrow.clockwise")
@@ -62,6 +61,12 @@ struct ARContainerView: View {
                                 .padding(10)
                                 .background(.white.opacity(0.3))
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                        .disabled(disable)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                                self.disable = false
+                            }
                         }
                         
                     }
@@ -155,6 +160,12 @@ struct ARContainerView: View {
                         // camera orientation switch button
                         Button {
                             // code to come
+                            arViewModel.switchCamera()
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                    arViewModel.relocateAR(arView: arViewContainer.arView)
+                                }
+                            
                             
                         } label: {
                             Image(systemName: "arrow.triangle.2.circlepath.camera")
@@ -189,9 +200,6 @@ struct ARContainerView: View {
                 thumbnail = image
             }
         }
-        .onTapGesture {
-            cameraViewModel.isClicked.toggle()
-        }
     }
     
     func setPhotoLibraryImage(completion: @escaping (UIImage?) -> Void) {
@@ -212,10 +220,11 @@ struct ARContainer: UIViewRepresentable {
     @EnvironmentObject var cameraViewModel: CameraViewModel
     
     var arView: ARView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: false)
-
+    
     func makeUIView(context: Context) -> ARView {
-        
         arView.setConfiguration(configuration: arViewModel.selectedModel.configuration)
+        arView.contentScaleFactor *= 0.75
+        let usdz = arViewModel.selectedModel.worldUsdz
         
         if arViewModel.selectedModel.configuration == .FaceTracking {
             arView.session.delegate = context.coordinator
@@ -223,13 +232,16 @@ struct ARContainer: UIViewRepresentable {
         
         if arViewModel.selectedModel.configuration == .WorldTracking {
             arView.environment.lighting.intensityExponent = 2
-            let anchor = arViewModel.addUSDZToAnchorEntity(usdz: arViewModel.selectedModel.usdz)
-//            let perspectiveCamera = PerspectiveCamera()
-//            let cameraAnchor = AnchorEntity(world: [0,0,0])
-//            perspectiveCamera.look(at: [0,0,0], from: arViewModel.selectedModel.cameraPosition, relativeTo: nil)
-//            cameraAnchor.addChild(perspectiveCamera)
-//            arView.scene.anchors.append(cameraAnchor)
+            let anchor = arViewModel.addUSDZToAnchorEntity(usdz: usdz)
             arView.scene.anchors.append(anchor)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                arViewModel.relocateAR(arView: arView)
+            }
+            
+            if arViewModel.selectedModel.name == "SpaceWalk" {
+                arView.environment.lighting.intensityExponent = 5
+                
+            }
         }
         
         return arView
@@ -240,25 +252,7 @@ struct ARContainer: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {
-        if cameraViewModel.isClicked {
-            uiView.scene.anchors.removeAll()
-            
-            if arViewModel.selectedModel.configuration == .FaceTracking {
-                uiView.session.delegate = context.coordinator
-             }
-            
-            if arViewModel.selectedModel.configuration == .WorldTracking {
-                uiView.environment.lighting.intensityExponent = 2
-                let anchor = arViewModel.addUSDZToAnchorEntity(usdz: arViewModel.selectedModel.usdz)
-    //            let perspectiveCamera = PerspectiveCamera()
-    //            let cameraAnchor = AnchorEntity(world: [0,0,0])
-    //            perspectiveCamera.look(at: [0,0,0], from: arViewModel.selectedModel.cameraPosition, relativeTo: nil)
-    //            cameraAnchor.addChild(perspectiveCamera)
-    //            arView.scene.anchors.append(cameraAnchor)
-                uiView.scene.anchors.append(anchor)
-            }
-        }
-        
+        uiView.setConfiguration(configuration: arViewModel.selectedModel.configuration)
     }
     
     class Coordinator: NSObject, ARSessionDelegate {
@@ -268,8 +262,8 @@ struct ARContainer: UIViewRepresentable {
         
         init(target: ARContainer) {
             self.target = target
-            self.usdz = target.arViewModel.loadEntity(name: target.arViewModel.selectedModel.usdz)
-            self.usdz2 = target.arViewModel.loadEntity(name: target.arViewModel.selectedModel.usdz)
+            self.usdz = target.arViewModel.loadEntity(name: target.arViewModel.selectedModel.faceUsdz)
+            self.usdz2 = target.arViewModel.loadEntity(name: target.arViewModel.selectedModel.faceUsdz)
         }
         
         func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
@@ -290,5 +284,12 @@ struct ARContainer: UIViewRepresentable {
             target.arView.scene.anchors.append(anchor1)
             target.arView.scene.anchors.append(anchor2)
         }
+    }
+}
+
+
+extension float4x4 {
+    var forward: SIMD3<Float> {
+        normalize(SIMD3<Float>(-columns.2.x, -columns.2.y, -columns.2.z))
     }
 }
