@@ -46,10 +46,24 @@ struct ARContainerView: View {
                                 .scaledToFit()
                                 .frame(width: 12)
                                 .padding()
+                            
+                            
                         }
                         
                         Spacer()
                             .padding()
+                        
+                        // relocate AR butotn
+                        Button {
+                            
+                        } label: {
+                            Label("Relocate AR", systemImage: "arrow.clockwise")
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(.white.opacity(0.3))
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                        
                     }
                     .padding(.top, 40)
                     .frame(maxWidth: .infinity)
@@ -61,6 +75,7 @@ struct ARContainerView: View {
                         arViewContainer
                             .brightness(shutterEffect ? -1 : 0)
                     }
+                    
                     
                     // bottom button bar
                     
@@ -77,6 +92,8 @@ struct ARContainerView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             }
                             .frame(width: 65, height: 65)
+                            .foregroundColor(.white)
+                            
                         } else {
                             Button {
                                 showPhotoLibrary = true
@@ -87,6 +104,7 @@ struct ARContainerView: View {
                                     .frame(width: 65, height: 65)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             }
+                            .foregroundColor(.white)
                         }
                         
                         
@@ -95,9 +113,6 @@ struct ARContainerView: View {
                         
                         // take photo button
                         Button {
-                            //                            if soundOn {
-                            //                                SoundPlayer.soundPlayer.play(fileName: "ShutterSound")
-                            //                            }
                             
                             // haptic
                             let haptic = UIImpactFeedbackGenerator(style: .rigid)
@@ -123,26 +138,34 @@ struct ARContainerView: View {
                         } label: {
                             ZStack {
                                 Circle()
+                                    .fill(.white)
                                     .frame(width: 65, height: 65)
+
                                 Circle()
                                     .stroke(lineWidth: 5)
+                                    .fill(.white)
                                     .frame(width: 75, height: 75)
                             }
                         }
                         
+                        
                         Spacer()
+                        
                         
                         // camera orientation switch button
                         Button {
+                            // code to come
                             
                         } label: {
-                            Image(systemName: "repeat")
+                            Image(systemName: "arrow.triangle.2.circlepath.camera")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 40, height: 40)
-                                
+                                .foregroundColor(.white)
                         }
                         .frame(width: 65, height: 65)
+                        
+                        
                     }
                     .padding(30)
                     .frame(maxWidth: .infinity)
