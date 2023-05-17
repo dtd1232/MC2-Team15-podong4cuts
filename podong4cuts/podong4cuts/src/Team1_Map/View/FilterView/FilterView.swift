@@ -32,6 +32,7 @@ struct FilterListView: View {
                         .frame(width:340 , height: 40)
                     
                     Text(" 📣 Open된 필터로 바로 이동 가능해요!")
+                        .foregroundColor(.black)
                 }//】 ZStack
                 .vTop()
                 .hCenter()

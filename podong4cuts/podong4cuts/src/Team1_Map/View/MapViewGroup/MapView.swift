@@ -61,6 +61,7 @@ struct MapView: View {
                                 .frame(width:340, height: 40)
                             
                             Text(" 📣 필터 스팟으로 이동해주세요!")
+                                .foregroundColor(.black)
                         }// 상단 안내문
                         .vTop()
                         .hCenter()
