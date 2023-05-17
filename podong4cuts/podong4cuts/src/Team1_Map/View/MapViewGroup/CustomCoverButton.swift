@@ -4,7 +4,6 @@
 //
 //  Created by Koo on 2023/05/11.
 //
-
 import SwiftUI
 
 struct CustomCoverButton: View {
@@ -47,7 +46,7 @@ struct CustomCoverButton: View {
             
             Text(VM.spotdata[selectedNumber].name)
                 .foregroundColor(.gray)
-                .font(.headline)
+                .font(.footnote)
                 .fontWeight(.bold)
         }//: VStack
         
@@ -60,4 +59,3 @@ struct CustomCoverButton_Previews: PreviewProvider {
         CustomCoverButton(VM: PodongViewModel(), selectedNumber: 0)
     }
 }
-

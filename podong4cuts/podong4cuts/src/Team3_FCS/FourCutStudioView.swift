@@ -29,344 +29,376 @@ struct FourCutStudioView: View {
     
     @State private var showingSelectingAlert = false
     
+    @State var frameColor : Int = 1
+    var frameName: String {
+        switch frameColor {
+        case 1:
+            return "podong4cutFrame1"
+        case 2:
+            return "podong4cutFrame2"
+        case 3:
+            return "podong4cutFrame3"
+        case 4:
+            return "podong4cutFrame4"
+        case 5:
+            return "podong4cutFrame5"
+        case 6:
+            return "podong4cutFrame6"
+        default:
+            return "podong4cutFrame1"
+        }
+    }
+    
     let spacing: CGFloat = 20
     
     var body: some View {
         
-        VStack{
+        ZStack{
+           
+            
+            VStack{
+                
+                //MARK: - 네컷 프레임
+                
+                Group{
+                    
+                    let photoSize: CGSize = CGSize(width: 138.87, height: 185.15)
+                    let topMargin: CGFloat = 54
+                    let spacing: CGFloat = 6.64
+                    let frameSize: CGSize = CGSize(width: 330, height: 491.49)
+                    
+                    VStack{
+                        Spacer()
+                        ZStack{
+                            // 사진 프레임 디자인
+                            Image(frameName)
+                                .resizable()
+                                .frame(width: frameSize.width, height: frameSize.height)
+                                .scaledToFill()
+                                .shadow(color: Color(hex: "000000", opacity: 0.3),radius: 10)
+                            
+                            HStack(spacing: spacing){
+                                // 사진 선택 영역 - 1번, 2번
+                                VStack(spacing: spacing){
+                                    
+                                    //MARK: - 1번 사진 영역
+                                    ZStack{
+                                        
+                                        if let image = image1{
+                                            
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: photoSize.width, height: photoSize.height)
+                                                .clipped()
+                                                .onTapGesture {
+                                                    toggleImageTapped(num: 1)
+                                                }
+                                            
+                                            if image1Tapped{
+                                                Rectangle()
+                                                    .fill(Color(hex: "000000", opacity: 0.5))
+                                                    .onTapGesture {
+                                                        self.image1Tapped = false
+                                                    }
+                                                Image(systemName: "trash.circle.fill")
+                                                    .resizable()
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 44, height: 44)
+                                                    .onTapGesture {
+                                                        self.image1Tapped = false
+                                                        self.image1 = nil
+                                                    }
+                                                
+                                            }
+                                            
+                                        }else{
+                                            
+                                            ZStack{
+                                                Rectangle()
+                                                    .fill(.gray)
+                                                
+                                                
+                                                Image(systemName: "photo.circle")
+                                                    .resizable()
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 44, height: 44)
+                                            }
+                                            .onTapGesture {
+                                                
+                                                self.selectedTag = 1
+                                                self.showImagePicker = true
+                                                
+                                            }
+                                            
+                                        }
+                                    }
+                                    .frame(width: photoSize.width, height: photoSize.height)
+                                    
+                                    
+                                    //MARK: - 2번 사진 영역
+                                    ZStack{
+                                        
+                                        if let image = image2{
+                                            
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: photoSize.width, height: photoSize.height)
+                                                .clipped()
+                                                .onTapGesture {
+                                                    toggleImageTapped(num: 2)
+                                                }
+                                            
+                                            if image2Tapped{
+                                                Rectangle()
+                                                    .fill(Color(hex: "000000", opacity: 0.5))
+                                                    .onTapGesture {
+                                                        self.image2Tapped = false
+                                                    }
+                                                Image(systemName: "trash.circle.fill")
+                                                    .resizable()
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 44, height: 44)
+                                                    .onTapGesture {
+                                                        self.image2Tapped = false
+                                                        self.image2 = nil
+                                                    }
+                                                
+                                            }
+                                            
+                                        }else{
+                                            
+                                            ZStack{
+                                                Rectangle()
+                                                    .fill(.gray)
+                                                
+                                                
+                                                Image(systemName: "photo.circle")
+                                                    .resizable()
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 44, height: 44)
+                                            }
+                                            .onTapGesture {
+                                                
+                                                self.selectedTag = 2
+                                                self.showImagePicker = true
+                                                
+                                            }
+                                            
+                                        }
+                                    }
+                                    .frame(width: photoSize.width, height: photoSize.height)
+                                    
+                                }
+                                // 사진 선택 영역 - 3번, 4번
+                                VStack(spacing: spacing){
+                                    
+                                    //MARK: - 3번 사진
+                                    ZStack{
+                                        
+                                        if let image = image3{
+                                            
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: photoSize.width, height: photoSize.height)
+                                                .clipped()
+                                                .onTapGesture {
+                                                    toggleImageTapped(num: 3)
+                                                }
+                                            
+                                            if image3Tapped{
+                                                Rectangle()
+                                                    .fill(Color(hex: "000000", opacity: 0.5))
+                                                    .onTapGesture {
+                                                        self.image3Tapped = false
+                                                    }
+                                                Image(systemName: "trash.circle.fill")
+                                                    .resizable()
+                                                    .frame(width: 44, height: 44)
+                                                    .foregroundColor(.white)
+                                                    .onTapGesture {
+                                                        self.image3Tapped = false
+                                                        self.image3 = nil
+                                                    }
+                                                
+                                            }
+                                            
+                                        }else{
+                                            
+                                            ZStack{
+                                                Rectangle()
+                                                    .fill(.gray)
+                                                
+                                                
+                                                Image(systemName: "photo.circle")
+                                                    .resizable()
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 44, height: 44)
+                                            }
+                                            .onTapGesture {
+                                                
+                                                self.selectedTag = 3
+                                                self.showImagePicker = true
+                                                
+                                            }
+                                            
+                                        }
+                                    }
+                                    .frame(width: photoSize.width, height: photoSize.height)
+                                    
+                                    
+                                    //MARK: - 4번 사진
+                                    ZStack{
+                                        
+                                        if let image = image4{
+                                            
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: photoSize.width, height: photoSize.height)
+                                                .clipped()
+                                                .onTapGesture {
+                                                    toggleImageTapped(num: 4)
+                                                }
+                                            
+                                            if image4Tapped{
+                                                Rectangle()
+                                                    .fill(Color(hex: "000000", opacity: 0.5))
+                                                    .onTapGesture {
+                                                        self.image4Tapped = false
+                                                    }
+                                                Image(systemName: "trash.circle.fill")
+                                                    .resizable()
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 44, height: 44)
+                                                    .onTapGesture {
+                                                        self.image4Tapped = false
+                                                        self.image4 = nil
+                                                    }
+                                                
+                                            }
+                                            
+                                        }else{
+                                            
+                                            ZStack{
+                                                Rectangle()
+                                                    .fill(.gray)
+                                                
+                                                
+                                                Image(systemName: "photo.circle")
+                                                    .resizable()
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 44, height: 44)
+                                            }
+                                            .onTapGesture {
+                                                
+                                                self.selectedTag = 4
+                                                self.showImagePicker = true
+                                                
+                                            }
+                                            
+                                        }
+                                    }
+                                    .frame(width: photoSize.width, height: photoSize.height)
+                                    
+                                }
+                                
+                            }
+                            .padding(.top, topMargin)
+                            .frame(height: frameSize.height)
+                            
+                            
+                        }//】 ZStack
+                        .frame(width: frameSize.width, height: frameSize.height)
+                        
+                        // 프레임 선택 버튼
+                        FrameChooseButtonView(frameColor : $frameColor)
+                            .padding(.top,16)
+                            .padding(.bottom,5)
+                    }//】 VStack
+                }//】 Group
+                
+                
+                
+                //MARK: - 출력 버튼
+                ZStack{
+                    
+                    RoundedRectangle(cornerRadius: 30)
+                        .fill(Color.black)
+                        .frame(width: 256, height: 50)
+                        .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
+                    
+                    HStack{
+                        
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(.white)
+                        
+                        Text("공유하기")
+                            .foregroundColor(.white)
+                        
+                    }//】 HStack
+                    
+                }//】 ZStack
+                .opacity(isImageAllSelected ? 1.0 : 0.5)
+                .padding()
+                .onTapGesture {
+                    
+                    if let image = createFourCutImage() {
+                        
+                        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true)
+                        
+                    }else{
+                        showingSelectingAlert = true
+                        
+                    }
+                    
+                }
+                .alert(isPresented: $showingSelectingAlert) {
+                    
+                    Alert(title: Text("포동네컷이 \n아직 완성되지 않았어요!"), dismissButton: .default(Text("확인")))
+                    
+                }
+                
+                
+            }//】 VStack
+            .sheet(isPresented: $showImagePicker) {
+                ImagePicker(sourceType: .photoLibrary) { image in
+                    switch self.selectedTag {
+                    case 1:
+                        self.image1 = image
+                    case 2:
+                        self.image2 = image
+                    case 3:
+                        self.image3 = image
+                    case 4:
+                        self.image4 = image
+                    default:
+                        break
+                    }
+                    
+                    self.showImagePicker = false
+                }
+            }//】 Sheet
             
             ZStack{
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)
                     .shadow(color: Color(hex: "000000", opacity: 0.2),radius: 10)
-                    .frame(width: 340,height: 50)
+                    .frame(width: 340,height: 40)
                 
-                Text("포동네컷을 완성해보세요!")
-            }
+                Text(" 📣 포동네컷을 완성해보세요!")
+                    .foregroundColor(.black)
+            }//】 ZStack
             .vTop()
             .hCenter()
             .padding(.top,10)
             
-                
-            
-            //MARK: - 네컷 프레임
-            
-            Group{
-                
-                let photoWidth: CGFloat = 147.28
-                let photoheigth: CGFloat = 196.38
-                let topMargin: CGFloat = 58
-                let spacing: CGFloat = 7.05
-                
-                ZStack{
-                    
-                    Image("podong4cutFrame")
-                        .resizable()
-                        .frame(width: 350, height: 521.2)
-                        .scaledToFill()
-                        .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
-                    
-                    HStack(spacing: spacing){
-                        //왼쪽
-                        VStack(spacing: spacing){
-                            
-                            //MARK: - 1번 사진 영역
-                            ZStack{
-                                
-                                if let image = image1{
-                                    
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: photoWidth, height: photoheigth)
-                                        .clipped()
-                                        .onTapGesture {
-                                            toggleImageTapped(num: 1)
-                                        }
-                                    
-                                    if image1Tapped{
-                                        Rectangle()
-                                            .fill(Color(hex: "000000", opacity: 0.5))
-                                            .onTapGesture {
-                                                self.image1Tapped = false
-                                            }
-                                        Image(systemName: "trash.circle.fill")
-                                            .resizable()
-                                            .foregroundColor(.white)
-                                            .frame(width: 44, height: 44)
-                                            .onTapGesture {
-                                                self.image1Tapped = false
-                                                self.image1 = nil
-                                            }
-                                        
-                                    }
-                                
-                                }else{
-                                    
-                                    ZStack{
-                                        Rectangle()
-                                            .fill(.gray)
-                                        
-                                        
-                                        Image(systemName: "photo.circle")
-                                            .resizable()
-                                            .foregroundColor(.white)
-                                            .frame(width: 44, height: 44)
-                                    }
-                                    .onTapGesture {
-                                        
-                                        self.selectedTag = 1
-                                        self.showImagePicker = true
-                                        
-                                    }
-                                                                       
-                                }
-                            }
-                            .frame(width: photoWidth, height: photoheigth)
-                            
-                            
-                            //MARK: - 2번 사진 영역
-                            ZStack{
-                                
-                                if let image = image2{
-                                    
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: photoWidth, height: photoheigth)
-                                        .clipped()
-                                        .onTapGesture {
-                                            toggleImageTapped(num: 2)
-                                        }
-                                    
-                                    if image2Tapped{
-                                        Rectangle()
-                                            .fill(Color(hex: "000000", opacity: 0.5))
-                                            .onTapGesture {
-                                                self.image2Tapped = false
-                                            }
-                                        Image(systemName: "trash.circle.fill")
-                                            .resizable()
-                                            .foregroundColor(.white)
-                                            .frame(width: 44, height: 44)
-                                            .onTapGesture {
-                                                self.image2Tapped = false
-                                                self.image2 = nil
-                                            }
-                                        
-                                    }
-                                
-                                }else{
-                                    
-                                    ZStack{
-                                        Rectangle()
-                                            .fill(.gray)
-                                        
-                                        
-                                        Image(systemName: "photo.circle")
-                                            .resizable()
-                                            .foregroundColor(.white)
-                                            .frame(width: 44, height: 44)
-                                    }
-                                    .onTapGesture {
-                                        
-                                        self.selectedTag = 2
-                                        self.showImagePicker = true
-                                        
-                                    }
-                                    
-                                }
-                            }
-                            .frame(width: photoWidth, height: photoheigth)
-                            
-                        }
-                        
-                        VStack(spacing: spacing){
-                            
-                            //MARK: - 3번 사진
-                            ZStack{
-                                
-                                if let image = image3{
-                                    
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: photoWidth, height: photoheigth)
-                                        .clipped()
-                                        .onTapGesture {
-                                            toggleImageTapped(num: 3)
-                                        }
-                                    
-                                    if image3Tapped{
-                                        Rectangle()
-                                            .fill(Color(hex: "000000", opacity: 0.5))
-                                            .onTapGesture {
-                                                self.image3Tapped = false
-                                            }
-                                        Image(systemName: "trash.circle.fill")
-                                            .resizable()
-                                            .frame(width: 44, height: 44)
-                                            .foregroundColor(.white)
-                                            .onTapGesture {
-                                                self.image3Tapped = false
-                                                self.image3 = nil
-                                            }
-                                        
-                                    }
-                                
-                                }else{
-                                    
-                                    ZStack{
-                                        Rectangle()
-                                            .fill(.gray)
-                                        
-                                        
-                                        Image(systemName: "photo.circle")
-                                            .resizable()
-                                            .foregroundColor(.white)
-                                            .frame(width: 44, height: 44)
-                                    }
-                                    .onTapGesture {
-                                        
-                                        self.selectedTag = 3
-                                        self.showImagePicker = true
-                                        
-                                    }
-                                    
-                                }
-                            }
-                            .frame(width: photoWidth, height: photoheigth)
-                            
-                            
-                            //MARK: - 4번 사진
-                            ZStack{
-                                
-                                if let image = image4{
-                                    
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: photoWidth, height: photoheigth)
-                                        .clipped()
-                                        .onTapGesture {
-                                            toggleImageTapped(num: 4)
-                                        }
-                                    
-                                    if image4Tapped{
-                                        Rectangle()
-                                            .fill(Color(hex: "000000", opacity: 0.5))
-                                            .onTapGesture {
-                                                self.image4Tapped = false
-                                            }
-                                        Image(systemName: "trash.circle.fill")
-                                            .resizable()
-                                            .foregroundColor(.white)
-                                            .frame(width: 44, height: 44)
-                                            .onTapGesture {
-                                                self.image4Tapped = false
-                                                self.image4 = nil
-                                            }
-                                        
-                                    }
-                                
-                                }else{
-                                    
-                                    ZStack{
-                                        Rectangle()
-                                            .fill(.gray)
-                                        
-                                        
-                                        Image(systemName: "photo.circle")
-                                            .resizable()
-                                            .foregroundColor(.white)
-                                            .frame(width: 44, height: 44)
-                                    }
-                                    .onTapGesture {
-                                        
-                                        self.selectedTag = 4
-                                        self.showImagePicker = true
-                                        
-                                    }
-                                    
-                                }
-                            }
-                            .frame(width: photoWidth, height: photoheigth)
-                            
-                        }
-                        
-                    }
-                    .padding(.top, topMargin)
-                    .frame(height: 521.2)
-                    
-                    
-                }
-                .frame(width: 350, height: 521.2)
-            }
-            
-            Spacer()
-            
-            //MARK: - 출력 버튼
-            ZStack{
-                
-                RoundedRectangle(cornerRadius: 30)
-                    .fill(Color.black)
-                    .frame(width: 256, height: 55)
-                    .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
-                
-                HStack{
-                    
-                    Image(systemName: "square.and.arrow.up")
-                        .foregroundColor(.white)
-                    
-                    Text("공유하기")
-                        .foregroundColor(.white)
-                    
-                }
-                
-            }
-            .opacity(isImageAllSelected ? 1.0 : 0.5)
-            .padding()
-            .onTapGesture {
-                
-                if let image = createFourCutImage() {
-                    
-                    let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-                    UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true)
-                    
-                }else{
-                    showingSelectingAlert = true
-                    
-                }
-
-            }
-            .alert(isPresented: $showingSelectingAlert) {
-                
-                Alert(title: Text("포동네컷 미완성"), message: Text("포항 포스팟을 여행하며 사진을 찍고 포동네컷을 완성해보세요!"), dismissButton: .default(Text("확인")))
-                
-            }
-            
-            Spacer()
-            
-        }
-        .sheet(isPresented: $showImagePicker) {
-            ImagePicker(sourceType: .photoLibrary) { image in
-                switch self.selectedTag {
-                case 1:
-                    self.image1 = image
-                case 2:
-                    self.image2 = image
-                case 3:
-                    self.image3 = image
-                case 4:
-                    self.image4 = image
-                default:
-                    break
-                }
-                
-                self.showImagePicker = false
-            }
-        }
-    }
+        }//】 ZStack
+        
+    }//】 Body
     
     private func createFourCutImage() -> UIImage? {
         guard let image1 = image1, let image2 = image2, let image3 = image3, let image4 = image4 else {
@@ -378,7 +410,7 @@ struct FourCutStudioView: View {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 1490, height: 2219))
         let image = renderer.image { ctx in
             let bgFrame = CGRect(x: 0, y: 0, width: 1490, height: 2219)
-            UIImage(named: "podong4cut0514")?.draw(in: bgFrame)
+            UIImage(named: frameName)?.draw(in: bgFrame)
             
             let rect1 = CGRect(x: 103, y: 375, width: 627, height: 836)
             let rect2 = CGRect(x: 103, y: 1241, width: 627, height: 836)
@@ -600,4 +632,3 @@ extension UIImage {
         return self
     }
 }
-
