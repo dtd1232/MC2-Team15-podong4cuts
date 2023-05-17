@@ -30,7 +30,24 @@ struct FourCutStudioView: View {
     @State private var showingSelectingAlert = false
     
     @State var frameColor : Int = 1
-    
+    var frameName: String {
+        switch frameColor {
+        case 1:
+            return "podong4cutFrame1"
+        case 2:
+            return "podong4cutFrame2"
+        case 3:
+            return "podong4cutFrame3"
+        case 4:
+            return "podong4cutFrame4"
+        case 5:
+            return "podong4cutFrame5"
+        case 6:
+            return "podong4cutFrame6"
+        default:
+            return "podong4cutFrame1"
+        }
+    }
     
     let spacing: CGFloat = 20
     
@@ -45,18 +62,18 @@ struct FourCutStudioView: View {
                 
                 Group{
                     
-                    let photoWidth: CGFloat = 147.28
-                    let photoheigth: CGFloat = 196.38
-                    let topMargin: CGFloat = 58
-                    let spacing: CGFloat = 7.05
+                    let photoSize: CGSize = CGSize(width: 138.87, height: 185.15)
+                    let topMargin: CGFloat = 54
+                    let spacing: CGFloat = 6.64
+                    let frameSize: CGSize = CGSize(width: 330, height: 491.49)
                     
                     VStack{
                         Spacer()
                         ZStack{
                             // 사진 프레임 디자인
-                            Image("podong4cutFrame\(frameColor)")
+                            Image(frameName)
                                 .resizable()
-                                .frame(width: 350, height: 521.2)
+                                .frame(width: frameSize.width, height: frameSize.height)
                                 .scaledToFill()
                                 .shadow(color: Color(hex: "000000", opacity: 0.3),radius: 10)
                             
@@ -72,7 +89,7 @@ struct FourCutStudioView: View {
                                             Image(uiImage: image)
                                                 .resizable()
                                                 .scaledToFill()
-                                                .frame(width: photoWidth, height: photoheigth)
+                                                .frame(width: photoSize.width, height: photoSize.height)
                                                 .clipped()
                                                 .onTapGesture {
                                                     toggleImageTapped(num: 1)
@@ -116,7 +133,7 @@ struct FourCutStudioView: View {
                                             
                                         }
                                     }
-                                    .frame(width: photoWidth, height: photoheigth)
+                                    .frame(width: photoSize.width, height: photoSize.height)
                                     
                                     
                                     //MARK: - 2번 사진 영역
@@ -127,7 +144,7 @@ struct FourCutStudioView: View {
                                             Image(uiImage: image)
                                                 .resizable()
                                                 .scaledToFill()
-                                                .frame(width: photoWidth, height: photoheigth)
+                                                .frame(width: photoSize.width, height: photoSize.height)
                                                 .clipped()
                                                 .onTapGesture {
                                                     toggleImageTapped(num: 2)
@@ -171,7 +188,7 @@ struct FourCutStudioView: View {
                                             
                                         }
                                     }
-                                    .frame(width: photoWidth, height: photoheigth)
+                                    .frame(width: photoSize.width, height: photoSize.height)
                                     
                                 }
                                 // 사진 선택 영역 - 3번, 4번
@@ -185,7 +202,7 @@ struct FourCutStudioView: View {
                                             Image(uiImage: image)
                                                 .resizable()
                                                 .scaledToFill()
-                                                .frame(width: photoWidth, height: photoheigth)
+                                                .frame(width: photoSize.width, height: photoSize.height)
                                                 .clipped()
                                                 .onTapGesture {
                                                     toggleImageTapped(num: 3)
@@ -229,7 +246,7 @@ struct FourCutStudioView: View {
                                             
                                         }
                                     }
-                                    .frame(width: photoWidth, height: photoheigth)
+                                    .frame(width: photoSize.width, height: photoSize.height)
                                     
                                     
                                     //MARK: - 4번 사진
@@ -240,7 +257,7 @@ struct FourCutStudioView: View {
                                             Image(uiImage: image)
                                                 .resizable()
                                                 .scaledToFill()
-                                                .frame(width: photoWidth, height: photoheigth)
+                                                .frame(width: photoSize.width, height: photoSize.height)
                                                 .clipped()
                                                 .onTapGesture {
                                                     toggleImageTapped(num: 4)
@@ -284,17 +301,17 @@ struct FourCutStudioView: View {
                                             
                                         }
                                     }
-                                    .frame(width: photoWidth, height: photoheigth)
+                                    .frame(width: photoSize.width, height: photoSize.height)
                                     
                                 }
                                 
                             }
                             .padding(.top, topMargin)
-                            .frame(height: 521.2)
+                            .frame(height: frameSize.height)
                             
                             
                         }//】 ZStack
-                        .frame(width: 350, height: 521.2)
+                        .frame(width: frameSize.width, height: frameSize.height)
                         
                         // 프레임 선택 버튼
                         FrameChooseButtonView(frameColor : $frameColor)
@@ -304,7 +321,6 @@ struct FourCutStudioView: View {
                 }//】 Group
                 
                 
-                Spacer()
                 
                 //MARK: - 출력 버튼
                 ZStack{
@@ -346,7 +362,6 @@ struct FourCutStudioView: View {
                     
                 }
                 
-                Spacer()
                 
             }//】 VStack
             .sheet(isPresented: $showImagePicker) {
@@ -375,6 +390,7 @@ struct FourCutStudioView: View {
                     .frame(width: 340,height: 40)
                 
                 Text(" 📣 포동네컷을 완성해보세요!")
+                    .foregroundColor(.black)
             }//】 ZStack
             .vTop()
             .hCenter()
@@ -394,7 +410,7 @@ struct FourCutStudioView: View {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 1490, height: 2219))
         let image = renderer.image { ctx in
             let bgFrame = CGRect(x: 0, y: 0, width: 1490, height: 2219)
-            UIImage(named: "podong4cut0514")?.draw(in: bgFrame)
+            UIImage(named: frameName)?.draw(in: bgFrame)
             
             let rect1 = CGRect(x: 103, y: 375, width: 627, height: 836)
             let rect2 = CGRect(x: 103, y: 1241, width: 627, height: 836)
