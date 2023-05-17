@@ -96,10 +96,10 @@
 		30105C392A13AB0F00B17FD8 /* Krab.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Krab.usdz; sourceTree = "<group>"; };
 		30105C3F2A13BDE400B17FD8 /* Mask_WorldConfiguration.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Mask_WorldConfiguration.usdz; sourceTree = "<group>"; };
 		30105C532A13D23400B17FD8 /* WhaleTail_FaceConfiguration.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = WhaleTail_FaceConfiguration.usdz; sourceTree = "<group>"; };
-		30105C9A2A1442C700B17FD8 /* MoonReality.reality */ = {isa = PBXFileReference; lastKnownFileType = file; name = MoonReality.reality; path = ../../../../../../../../Downloads/MoonReality.reality; sourceTree = "<group>"; };
-		30105C9E2A14A22900B17FD8 /* WhaleAR.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = WhaleAR.usdz; path = ../../../../../../../WhaleAR.usdz; sourceTree = "<group>"; };
-		30105CA02A14A24200B17FD8 /* WhaleAR 2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = "WhaleAR 2.usdz"; path = "../../../../../../../WhaleAR 2.usdz"; sourceTree = "<group>"; };
-		30105CA22A14A25000B17FD8 /* WhaleReality.reality */ = {isa = PBXFileReference; lastKnownFileType = file; name = WhaleReality.reality; path = ../../../../../../../WhaleReality.reality; sourceTree = "<group>"; };
+		30105C9A2A1442C700B17FD8 /* MoonReality.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = MoonReality.reality; sourceTree = "<group>"; };
+		30105C9E2A14A22900B17FD8 /* WhaleAR.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = WhaleAR.usdz; sourceTree = "<group>"; };
+		30105CA02A14A24200B17FD8 /* WhaleAR 2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "WhaleAR 2.usdz"; sourceTree = "<group>"; };
+		30105CA22A14A25000B17FD8 /* WhaleReality.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = WhaleReality.reality; sourceTree = "<group>"; };
 		3074E54E2A0FA774008A9C6C /* OhBremenToyARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OhBremenToyARView.swift; sourceTree = "<group>"; };
 		3074E54F2A0FA774008A9C6C /* TomatilloMustacheARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TomatilloMustacheARView.swift; sourceTree = "<group>"; };
 		3074E5502A0FA774008A9C6C /* SpaceWalkSpaceARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceWalkSpaceARView.swift; sourceTree = "<group>"; };
@@ -606,11 +606,8 @@
 				CEE627FD2A10A11B00C21080 /* SpaceWalkAstronaut.usdz in Resources */,
 				30105C9B2A1442C700B17FD8 /* MoonReality.reality in Resources */,
 				6787A3082A0D00A100CB9942 /* Preview Assets.xcassets in Resources */,
-
-				30105C222A12C53900B17FD8 /* WhaleAR.usdz in Resources */,
 				CE5AA3ED2A13ACD9004E52ED /* AppleCharacter.usdz in Resources */,
 				CE5AA3FD2A13D148004E52ED /* iFarmMentors.usdz in Resources */,
-
 				676FFF562A0E0D3900115F2E /* spotdata.json in Resources */,
 				30105C3A2A13AB0F00B17FD8 /* Krab.usdz in Resources */,
 				3074E58B2A10A193008A9C6C /* Mask.usdz in Resources */,
@@ -845,7 +842,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"podong4cuts/Preview Content\"";
-				DEVELOPMENT_TEAM = VGKCD7Q8NW;
+				DEVELOPMENT_TEAM = CZH2CMCGCZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "포동네컷";
@@ -881,7 +878,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"podong4cuts/Preview Content\"";
-				DEVELOPMENT_TEAM = VGKCD7Q8NW;
+				DEVELOPMENT_TEAM = CZH2CMCGCZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "포동네컷";
