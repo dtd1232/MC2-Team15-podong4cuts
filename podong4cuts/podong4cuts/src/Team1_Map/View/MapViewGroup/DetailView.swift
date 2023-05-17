@@ -221,7 +221,8 @@ struct DetailView: View {
                         VM.openSpotFilter(num: selectedNumber)
                     }
                     
-                    VM.spotdata[selectedNumber].isOpened = true
+                    //일단 무지껀 해금 하도록
+                    VM.openSpotFilter(num: selectedNumber)
                     
                     if VM.spotdata[selectedNumber].isOpened {
                         dismiss()
