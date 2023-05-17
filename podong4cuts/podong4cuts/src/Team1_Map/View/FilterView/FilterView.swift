@@ -72,12 +72,12 @@ struct FilterListView: View {
                                 Text(index.name)
                             }
                     }//】 VStack
-                        .padding(.top, 18)
-                        .frame(width: 160, height: 200)
-                        .background(.white)
-                        .cornerRadius(15)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, y: 3)
-                        .padding(.vertical, 5)
+//                        .padding(.top, 18)
+//                        .frame(width: 160, height: 200)
+//                        .background(.white)
+//                        .cornerRadius(15)
+//                        .shadow(color: Color.gray.opacity(0.3), radius: 10, y: 3)
+//                        .padding(.vertical, 5)
                         .onTapGesture {
                             //TODO: 장소별 필터뷰로 이동하는 코드
                             if VM.spotdata[index.number].isOpened{
