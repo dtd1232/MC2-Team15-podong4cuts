@@ -211,7 +211,6 @@ struct DetailView: View {
                         
                     }//: VStack
                 }//: Scroll
-                .disabled(true)
                 .shadow(color: Color.gray.opacity(0.3), radius: 10, y: 3)
                 
                 Button {
