@@ -54,15 +54,17 @@ struct DetailView: View {
                             .font(.headline)
                             .foregroundColor(.gray)
                             .padding(.horizontal,10)
-                            .background(Color.blue.opacity(0.1))
+                            .background(Color.white)
                             .cornerRadius(5)
+                            .shadow(color: Color.gray.opacity(0.1), radius: 1, y:3)
                         
                         Text(VM.spotdata[selectedNumber].hashtag2)
                             .font(.headline)
                             .foregroundColor(.gray)
                             .padding(.horizontal,10)
-                            .background(Color.blue.opacity(0.1))
+                            .background(Color.white)
                             .cornerRadius(5)
+                            .shadow(color: Color.gray.opacity(0.1), radius: 1, y:3)
                         Spacer()
                         
                     }//】 HStack
@@ -79,8 +81,8 @@ struct DetailView: View {
                         let distance = compareUserLocation(locationNumber: selectedNumber)
                         
                         Text(String(format: "%.1fkm", distance/1000))
-                            .font(.title3)
-                            .fontWeight(.heavy)
+                            .font(.headline)
+                            .fontWeight(.semibold)
                             .foregroundColor(Color.gray.opacity(0.9))
                     }//: HStack
                 }//: ZStack (남은거리)
@@ -209,6 +211,7 @@ struct DetailView: View {
                         
                     }//: VStack
                 }//: Scroll
+                .disabled(true)
                 .shadow(color: Color.gray.opacity(0.3), radius: 10, y: 3)
                 
                 Button {
