@@ -26,6 +26,6 @@ let arModels: [ARModel] = [ARModel(name: "SpaceWalk", faceUsdz: "sauryHead", wor
                            ARModel(name: "Tomatillo", faceUsdz: "Mask", worldUsdz: "Mask_WorldConfiguration", configuration: .FaceTracking, cameraPosition: 1),
                            ARModel(name: "Yeongilgyo", faceUsdz: "Krab", worldUsdz: "Krab", configuration: .WorldTracking, cameraPosition: 100),
                            ARModel(name: "WhaleTail", faceUsdz: "WhaleAR 2", worldUsdz: "WhaleAR", configuration: .WorldTracking, cameraPosition: 10),
-                           ARModel(name: "iFarm", faceUsdz: "iFarmMentors", worldUsdz: "iFarmMentors", configuration: .WorldTracking, cameraPosition: 1)
+                           ARModel(name: "iFarm", faceUsdz: "iFarmMentors", worldUsdz: "iFarmMentors", configuration: .WorldTracking, cameraPosition: 3)
                           ]
         
