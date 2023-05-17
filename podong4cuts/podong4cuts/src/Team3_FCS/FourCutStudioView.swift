@@ -30,7 +30,24 @@ struct FourCutStudioView: View {
     @State private var showingSelectingAlert = false
     
     @State var frameColor : Int = 1
-    
+    var frameName: String {
+        switch frameColor {
+        case 1:
+            return "podong4cutFrame1"
+        case 2:
+            return "podong4cutFrame2"
+        case 3:
+            return "podong4cutFrame3"
+        case 4:
+            return "podong4cutFrame4"
+        case 5:
+            return "podong4cutFrame5"
+        case 6:
+            return "podong4cutFrame6"
+        default:
+            return "podong4cutFrame1"
+        }
+    }
     
     let spacing: CGFloat = 20
     
@@ -54,7 +71,7 @@ struct FourCutStudioView: View {
                         Spacer()
                         ZStack{
                             // 사진 프레임 디자인
-                            Image("podong4cutFrame\(frameColor)")
+                            Image(frameName)
                                 .resizable()
                                 .frame(width: frameSize.width, height: frameSize.height)
                                 .scaledToFill()
@@ -393,7 +410,7 @@ struct FourCutStudioView: View {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 1490, height: 2219))
         let image = renderer.image { ctx in
             let bgFrame = CGRect(x: 0, y: 0, width: 1490, height: 2219)
-            UIImage(named: "podong4cut0514")?.draw(in: bgFrame)
+            UIImage(named: frameName)?.draw(in: bgFrame)
             
             let rect1 = CGRect(x: 103, y: 375, width: 627, height: 836)
             let rect2 = CGRect(x: 103, y: 1241, width: 627, height: 836)
