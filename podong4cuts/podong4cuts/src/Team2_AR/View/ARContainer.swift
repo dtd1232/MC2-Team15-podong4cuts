@@ -42,7 +42,8 @@ struct ARContainerView: View {
                             
                             Image(systemName: "chevron.left")
                                 .resizable()
-                                .foregroundColor(.blue)
+                                .tint(Color(hex: "#FFB600"))
+//                                .foregroundColor(.blue)
                                 .scaledToFit()
                                 .frame(width: 12)
                                 .padding()

@@ -41,6 +41,7 @@ struct HomeView: View {
                         Text("포동 네컷")
                     }
             }//: TabView
+            .tint(Color(hex: "#FFB600"))
             
             if cameraViewModel.showDefaultCameraFrameView {
                 DefaultCameraFrameView(selected: cameraViewModel.selectedNumber)
