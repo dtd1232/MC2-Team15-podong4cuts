@@ -163,7 +163,7 @@ struct DetailView: View {
                         VM.openSpotFilter(num: selectedNumber)
                     }
                     
-                    VM.spotdata[selectedNumber].isOpened = true
+                    VM.openSpotFilter(num: selectedNumber)
                     
                     if VM.spotdata[selectedNumber].isOpened {
                         cameraFrameNumber = selectedNumber
