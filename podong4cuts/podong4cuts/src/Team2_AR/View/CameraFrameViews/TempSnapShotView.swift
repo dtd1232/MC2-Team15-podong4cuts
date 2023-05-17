@@ -39,6 +39,7 @@ struct TempSnapShotView: View {
                         dismiss()
                     } label: {
                         Text("삭제 하기")
+                            .bold()
                     }
                     .padding()
                     .background(.gray.opacity(0.7))
@@ -52,6 +53,7 @@ struct TempSnapShotView: View {
                         dismiss()
                     } label : {
                         Text("앨범에 저장")
+                            .bold()
                     }
                     .padding()
                     .background(.blue)

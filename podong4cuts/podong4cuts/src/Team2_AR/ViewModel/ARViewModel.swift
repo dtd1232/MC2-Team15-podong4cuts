@@ -31,6 +31,15 @@ class ARViewModel: ObservableObject {
     }
     
     func addUSDZToAnchorEntity(usdz: String) -> AnchorEntity {
+//        if usdz == "iFarm" {
+//            if let fileURL = Bundle.main.url(forResource: "iFarmMentors", withExtension: "reality") {
+//                let scene = try! Entity.load(contentsOf: fileURL)
+//                let anchorAntity = AnchorEntity(world: [0,0,0])
+//                anchorAntity.addChild(scene)
+//                return anchorAntity
+//            }
+//        }
+        
         if usdz == "MoonReality" {
             if let fileURL = Bundle.main.url(forResource: "MoonReality", withExtension: "reality") {
                 let scene = try! Entity.load(contentsOf: fileURL)
