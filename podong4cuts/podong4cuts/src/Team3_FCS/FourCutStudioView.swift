@@ -323,45 +323,109 @@ struct FourCutStudioView: View {
                 
                 
                 //MARK: - 출력 버튼
-                ZStack{
-                    
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(Color.black)
-                        .frame(width: 256, height: 50)
-                        .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
-                    
-                    HStack{
+                
+                
+                if #available(iOS 16.0, *) {
+                    //iOS 16 이상
+                    if isImageAllSelected{
                         
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundColor(.white)
-                        
-                        Text("공유하기")
-                            .foregroundColor(.white)
-                        
-                    }//】 HStack
-                    
-                }//】 ZStack
-                .opacity(isImageAllSelected ? 1.0 : 0.5)
-                .padding()
-                .onTapGesture {
-                    
-                    if let image = createFourCutImage() {
-                        
-                        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-                        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true)
-                        
+                        ShareLink(item: Image(uiImage: createFourCutImage()!), preview: SharePreview("포동네컷")){
+                            ZStack{
+                                
+                                RoundedRectangle(cornerRadius: 30)
+                                    .fill(Color.black)
+                                    .frame(width: 256, height: 50)
+                                    .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
+                                
+                                HStack{
+                                    
+                                    Image(systemName: "square.and.arrow.up")
+                                        .foregroundColor(.white)
+                                    
+                                    Text("공유하기")
+                                        .foregroundColor(.white)
+                                    
+                                }//】 HStack
+                                
+                            }//】 ZStack
+                            .padding()
+                        }
                     }else{
-                        showingSelectingAlert = true
+                        ZStack{
+                            
+                            RoundedRectangle(cornerRadius: 30)
+                                .fill(Color.black)
+                                .frame(width: 256, height: 50)
+                                .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
+                            
+                            HStack{
+                                
+                                Image(systemName: "square.and.arrow.up")
+                                    .foregroundColor(.white)
+                                
+                                Text("공유하기")
+                                    .foregroundColor(.white)
+                                
+                            }//】 HStack
+                            
+                        }//】 ZStack
+                        .opacity(0.5)
+                        .padding()
+                        .onTapGesture {
+                            showingSelectingAlert = true
+                        }
+                        .alert(isPresented: $showingSelectingAlert) {
+                            
+                            Alert(title: Text("포동네컷이 \n아직 완성되지 않았어요!"), dismissButton: .default(Text("확인")))
+                            
+                        }
                         
                     }
                     
-                }
-                .alert(isPresented: $showingSelectingAlert) {
                     
-                    Alert(title: Text("포동네컷이 \n아직 완성되지 않았어요!"), dismissButton: .default(Text("확인")))
+                } else {
                     
+                    //iOS 16.0 미만 버전
+                    ZStack{
+                        
+                        RoundedRectangle(cornerRadius: 30)
+                            .fill(Color.black)
+                            .frame(width: 256, height: 50)
+                            .shadow(color: Color(hex: "000000", opacity: 0.5),radius: 10)
+                        
+                        HStack{
+                            
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(.white)
+                            
+                            Text("공유하기")
+                                .foregroundColor(.white)
+                            
+                        }//】 HStack
+                        
+                    }//】 ZStack
+                    .opacity(isImageAllSelected ? 1.0 : 0.5)
+                    .padding()
+                    .onTapGesture {
+                        
+                        if let image = createFourCutImage() {
+                            
+                            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true)
+                            
+                        }else{
+                            showingSelectingAlert = true
+                            
+                        }
+                        
+                    }
+                    .alert(isPresented: $showingSelectingAlert) {
+                        
+                        Alert(title: Text("포동네컷이 \n아직 완성되지 않았어요!"), dismissButton: .default(Text("확인")))
+                        
+                    }
                 }
-                
+
                 
             }//】 VStack
             .sheet(isPresented: $showImagePicker) {
