@@ -40,7 +40,7 @@
 * ARKit
 * RealityKit
 * Face Tracking
-* Json
+* JSON
 <br>
 
 ### 🎁 Library
